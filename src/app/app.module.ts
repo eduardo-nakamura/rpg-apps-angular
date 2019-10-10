@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DiceRollerComponent } from './dice-roller/dice-roller.component';
+import { InitTrackerComponent } from './init-tracker/init-tracker.component';
+import { IntroComponent } from './intro/intro.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DiceRollerComponent,
+    InitTrackerComponent,
+    IntroComponent
   ],
   imports: [
     BrowserModule,
