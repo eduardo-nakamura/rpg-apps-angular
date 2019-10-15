@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DiceRollerComponent } from './dice-roller/dice-roller.component';
 import { InitTrackerComponent } from './init-tracker/init-tracker.component';
+import { HomeComponent } from './home/home.component';
 import { IntroComponent } from './intro/intro.component';
 
 @NgModule({
@@ -12,7 +13,8 @@ import { IntroComponent } from './intro/intro.component';
     AppComponent,
     DiceRollerComponent,
     InitTrackerComponent,
-    IntroComponent
+    IntroComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
