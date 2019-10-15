@@ -1,0 +1,38 @@
+[{
+        "partyName": "Fahen",
+        "value": "fahen",
+        "partyMembers": [{
+            "name": "Chabal",
+            "bonusInit": 1
+        }, {
+            "name": "Nibi",
+            "bonusInit": 5
+        }, {
+            "name": "Valerius",
+            "bonusInit": 4
+        }, {
+            "name": "Soral",
+            "bonusInit": 13
+        }]
+    },
+    {
+        "partyName": "Nyaris",
+        "value": "nyaris",
+        "partyMember": [{
+            "name": "Nyaris",
+            "bonusInit": 13
+        }, {
+            "name": "Aidan",
+            "bonusInit": 10
+        }, {
+            "name": "Elyse",
+            "bonusInit": 1
+        }, {
+            "name": "Jericho",
+            "bonusInit": 4
+        }, {
+            "name": "Lily",
+            "bonusInit": 8
+        }]
+    }
+]
