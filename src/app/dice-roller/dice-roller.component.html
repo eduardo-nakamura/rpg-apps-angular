@@ -1,54 +1,84 @@
 <div class="content p-2 ">
-    <h3>Dice Roller</h3>
-    <div class="col-12">
+
+    <div class="col-12 largura">
+
         <div class="row justify-content-md-center">
-                <div class="col-auto">
-                    <label class="mr-2" for="formGroupExampleInput">Quantidade: </label>
-                    {{qtdDados}}
-                    <input placeholder="1" (keyup)="qtdDadosValue($event)" min="0" id="qtdDados" class="form-control" numeric numericType="number" type="number">
-                </div>
-                <div class="col-auto">
-                    <label class="mr-2" for="formGroupExampleInput">Tipo: </label>
-                    {{tipoDados}}
-                    <select (change)="selectChangeHandler($event)" class="custom-select" name="" id="tipoDados">
-                            
-                        <option value="d4">d4</option>
-                        <option value="d6">d6</option>
-                        <option value="d8">d8</option>
-                        <option value="d10">d10</option>
-                        <option value="d12">d12</option>
-                        <option value="d20">d20</option>
-                        <option value="d100">d100</option>                            
-                    </select>
-                </div>
-                <div class="col-auto">
-                        <label class="mr-2" for="formGroupExampleInput">Bonus: </label>
-                        {{bonusDados}}
-                        <input placeholder="0" (keyup)="bonusDadosValue($event)" class="form-control" id="bonusDados"  type="number">
-                </div>
-                <div class="col-auto ">
-                    <label class="mr-2" for="formGroupExampleInput">&nbsp;</label>
-                    <br>
-                    <button class="btn btn-large bg-success " (click)="rolar()">Rolar</button>
-                </div>
+            <h2>Dice Roller</h2>
         </div>
-        <div class="row justify-content-md-center">
-            <h3>Resultado</h3>
-            <div class="col-12">
-                <div class="col-md bg-success">
-                
+        <div class="row justify-content-md-center bg-light p-5 m-4 ">
+            <div class="col-12 col-md-8">
+                <div class="row align-items-end">
+                    <div class="col-md">
+                        <label class="mr-2" for="formGroupExampleInput">Quantidade: </label> {{qtdDados}}
+                        <input placeholder="1" (keyup)="qtdDadosValue($event)" min="0" id="qtdDados" class="form-control" numeric numericType="number" type="number">
+                    </div>
+                    <div class="col-md">
+                        <label class="mr-2" for="formGroupExampleInput" style="display: inline;">Tipo: <img class="iconeDado" [src]="tipoDadoImg" alt=""></label> {{tipoDados}}
+                        <select (change)="selectChangeHandler($event)" class="custom-select" name="" id="tipoDados">
+                            <option value="d4">d4</option>
+                            <option value="d6">d6</option>
+                            <option value="d8">d8</option>
+                            <option value="d10">d10</option>
+                            <option value="d12">d12</option>
+                            <option value="d20">d20</option>
+                            <option value="d100">d100</option>                            
+                        </select>
+                    </div>
+                    <div class="col-md">
+                        <label class="mr-2" for="formGroupExampleInput">Bonus: </label> {{bonusDados}}
+                        <input placeholder="0" (keyup)="bonusDadosValue($event)" class="form-control" id="bonusDados" type="number">
+                    </div>
+                    <div class="col-md ">
+                        <label class="mr-2" for="formGroupExampleInput">&nbsp;</label>
+                        <br>
+                        <button class="btn btn-large bg-success col-sm-12" (click)="rolar()">Rolar</button>
+                    </div>
                 </div>
             </div>
-      
+            <div class="col-12 col-md-4 ">
+
+                <p class="text-center resultado p-3 mt-4 bg-success ">
+                    <span *ngIf="totalDados.length == 0">Resultado da Rolagem aqui</span>
+                    <span *ngFor="let dados of totalDados">
+                            {{dados}}                            
+                        </span>
+                </p>
+
+
+            </div>
+
         </div>
-        <div class="row justify-content-md-center">
-            <h3>Historico</h3>
+        <!-- <div class="row justify-content-md-center bg-light p-5 m-4">
+            <h3>Resultado</h3>
             <div class="col-12">
-                <div class="col-md bg-success">                    
+                <div class="col-md">
+                    <p class="text-center resultado p-3 mb-2 bg-success">
+                        <span *ngIf="totalDados.length == 0">Resultado da Rolagem aqui</span>
+                        <span *ngFor="let dados of totalDados">
+                            {{dados}}                            
+                        </span>
+                    </p>
                 </div>
-            </div>          
+            </div>
+        </div> -->
+        <div class="row justify-content-md-center bg-light p-5 m-4 ">
+            <h3>Historico </h3>
+            <div class="col-12">
+
+                <ul class="list-inline hist ">
+                    <li class="list-inline-item p-3 mb-2 resultado bg-success" *ngFor="let historico of objHistoricoDados">
+                        {{objHistoricoDados.indexOf(historico)+1}})
+                        <span *ngFor="let hist of historico">
+                                 {{hist}}
+                        </span>
+                    </li>
+
+                </ul>
+                <button class="btn btn-large bg-success " (click)="limparHistorico()">Limpar Histórico</button>
+            </div>
         </div>
     </div>
 
-    
+
+
 </div>

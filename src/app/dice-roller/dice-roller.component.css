@@ -1,0 +1,48 @@
+.hist {
+    max-height: 45vh;
+    overflow-x: hidden;
+    /* Hide horizontal scrollbar */
+    overflow-y: auto;
+    /* Add vertical scrollbar */
+}
+
+.list-group li:first-child {
+    background-color: rgba(184, 180, 180, 1);
+}
+
+.iconeDado {
+    max-width: 30px;
+    position: relative;
+    bottom: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.largura {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.resultado span:last-child {
+    background: violet;
+}
+
+
+/* 
+.list-group li:nth-child(2) {
+    background-color: rgba(184, 180, 180, 0.6);
+}
+
+.list-group li:nth-child(3) {
+    background-color: rgba(184, 180, 180, 0.4);
+}
+
+.list-group li:nth-child(4) {
+    background-color: rgba(184, 180, 180, 0.2);
+} */
