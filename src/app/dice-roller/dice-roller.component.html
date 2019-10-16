@@ -38,7 +38,7 @@
             <div class="col-12 col-md-4 ">
 
                 <p class="text-center resultado p-3 mt-4 bg-success ">
-                    <span *ngIf="totalDados.length == 0">Resultado da Rolagem aqui</span>
+                    <span *ngIf="totalDados.length == 0" style="background-color: transparent;">Resultado da Rolagem aqui</span>
                     <span *ngFor="let dados of totalDados">
                             {{dados}}                            
                         </span>
@@ -74,7 +74,7 @@
                     </li>
 
                 </ul>
-                <button class="btn btn-large bg-success " (click)="limparHistorico()">Limpar Histórico</button>
+                <button class="btn btn-large bg-success  " (click)="limparHistorico()">Limpar Histórico</button>
             </div>
         </div>
     </div>
