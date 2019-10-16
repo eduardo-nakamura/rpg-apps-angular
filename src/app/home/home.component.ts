@@ -10,19 +10,19 @@ export class HomeComponent implements OnInit {
 
   cards = [
     {
-      imagem:'https://via.placeholder.com/300x450',
+      imagem:'../../assets/dice.png',
       titulo:'Dice Roller',
       descricao:'Aplicativo para Rolar Dados',
       path:'dice-roller'
     },
     {
-      imagem:'https://via.placeholder.com/300x450',
+      imagem:'../../assets/init-tracker.png',
       titulo:'Initiative Tracker',
       descricao:'Aplicativo para determinar iniciativa',
       path:'init-tracker'
     },
     {
-      imagem:'https://via.placeholder.com/300x450',
+      imagem:'https://via.placeholder.com/300x300',
       titulo:'Intro',
       descricao:'Tela inicial do Angular',
       path:'intro'
