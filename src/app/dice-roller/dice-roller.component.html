@@ -1,15 +1,17 @@
-<div class="content p-2">
+<div class="content p-2 ">
     <h3>Dice Roller</h3>
     <div class="col-12">
         <div class="row justify-content-md-center">
-                <div class="col-md-auto">
+                <div class="col-auto">
                     <label class="mr-2" for="formGroupExampleInput">Quantidade: </label>
                     {{qtdDados}}
-                    <input (keyup)="qtdDadosValue($event)" min="0" id="qtdDados" class="form-control" numeric numericType="number" type="number">
+                    <input placeholder="1" (keyup)="qtdDadosValue($event)" min="0" id="qtdDados" class="form-control" numeric numericType="number" type="number">
                 </div>
-                <div class="col-md-auto">
+                <div class="col-auto">
                     <label class="mr-2" for="formGroupExampleInput">Tipo: </label>
-                    <select class="custom-select" name="" id="tipoDados">
+                    {{tipoDados}}
+                    <select (change)="selectChangeHandler($event)" class="custom-select" name="" id="tipoDados">
+                            
                         <option value="d4">d4</option>
                         <option value="d6">d6</option>
                         <option value="d8">d8</option>
@@ -19,16 +21,34 @@
                         <option value="d100">d100</option>                            
                     </select>
                 </div>
-                <div class="col-md-auto">
+                <div class="col-auto">
                         <label class="mr-2" for="formGroupExampleInput">Bonus: </label>
                         {{bonusDados}}
-                        <input (keyup)="bonusDadosValue($event)" class="form-control" id="bonusDados"  type="number">
+                        <input placeholder="0" (keyup)="bonusDadosValue($event)" class="form-control" id="bonusDados"  type="number">
                 </div>
-                <div class="col-md-auto ">
+                <div class="col-auto ">
                     <label class="mr-2" for="formGroupExampleInput">&nbsp;</label>
                     <br>
                     <button class="btn btn-large bg-success " (click)="rolar()">Rolar</button>
                 </div>
         </div>
+        <div class="row justify-content-md-center">
+            <h3>Resultado</h3>
+            <div class="col-12">
+                <div class="col-md bg-success">
+                
+                </div>
+            </div>
+      
+        </div>
+        <div class="row justify-content-md-center">
+            <h3>Historico</h3>
+            <div class="col-12">
+                <div class="col-md bg-success">                    
+                </div>
+            </div>          
+        </div>
     </div>
+
+    
 </div>
