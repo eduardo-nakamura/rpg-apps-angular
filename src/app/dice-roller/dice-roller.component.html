@@ -4,11 +4,12 @@
         <div class="row justify-content-md-center">
                 <div class="col-md-auto">
                     <label class="mr-2" for="formGroupExampleInput">Quantidade: </label>
-                    <input class="form-control" type="text">
+                    {{qtdDados}}
+                    <input (keyup)="qtdDadosValue($event)" min="0" id="qtdDados" class="form-control" numeric numericType="number" type="number">
                 </div>
                 <div class="col-md-auto">
                     <label class="mr-2" for="formGroupExampleInput">Tipo: </label>
-                    <select class="custom-select" name="" id="">
+                    <select class="custom-select" name="" id="tipoDados">
                         <option value="d4">d4</option>
                         <option value="d6">d6</option>
                         <option value="d8">d8</option>
@@ -20,12 +21,13 @@
                 </div>
                 <div class="col-md-auto">
                         <label class="mr-2" for="formGroupExampleInput">Bonus: </label>
-                        <input class="form-control" type="text">
+                        {{bonusDados}}
+                        <input (keyup)="bonusDadosValue($event)" class="form-control" id="bonusDados"  type="number">
                 </div>
                 <div class="col-md-auto ">
                     <label class="mr-2" for="formGroupExampleInput">&nbsp;</label>
                     <br>
-                    <button class="btn btn-large bg-success ">Rolar</button>
+                    <button class="btn btn-large bg-success " (click)="rolar()">Rolar</button>
                 </div>
         </div>
     </div>
