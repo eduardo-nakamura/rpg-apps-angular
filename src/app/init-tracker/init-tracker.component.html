@@ -1,1 +1,6 @@
 <p>init-tracker works!</p>
+
+<select (change)="selectChangeHandler($event)" class="custom-select" name="" id="tipoDados">
+  <option *ngFor="let party of partyOptions" [value]="partyOptions.indexOf(party)">{{party.partyName}}</option>
+                         
+</select> {{partyMembers}}
