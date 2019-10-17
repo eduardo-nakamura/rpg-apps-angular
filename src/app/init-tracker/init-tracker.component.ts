@@ -17,5 +17,6 @@ export class InitTrackerComponent implements OnInit {
   selectChangeHandler(event: any) {    
     this.selectedParty = event.target.value;
     this.partyMembers = this.partyOptions[this.selectedParty]
+    console.log(this.partyMembers)
   }
 }

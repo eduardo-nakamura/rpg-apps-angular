@@ -31,13 +31,13 @@
                     <div class="col-md ">
                         <label class="mr-2" for="formGroupExampleInput">&nbsp;</label>
                         <br>
-                        <button class="btn btn-large bg-success col-sm-12" (click)="rolar()">Rolar</button>
+                        <button class="btn btn-large bg-secondary text-light col-sm-12" (click)="rolar()">Rolar</button>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-4 ">
 
-                <p class="text-center resultado p-3 mt-4 bg-success ">
+                <p class="text-center resultado p-3 mt-4 bg-secondary text-light ">
                     <span *ngIf="totalDados.length == 0" style="background-color: transparent;">Resultado da Rolagem aqui</span>
                     <span *ngFor="let dados of totalDados">
                             {{dados}}                            
@@ -52,7 +52,7 @@
             <h3>Resultado</h3>
             <div class="col-12">
                 <div class="col-md">
-                    <p class="text-center resultado p-3 mb-2 bg-success">
+                    <p class="text-center resultado p-3 mb-2 bg-secondary text-light">
                         <span *ngIf="totalDados.length == 0">Resultado da Rolagem aqui</span>
                         <span *ngFor="let dados of totalDados">
                             {{dados}}                            
@@ -66,7 +66,7 @@
             <div class="col-12">
 
                 <ul class="list-inline hist ">
-                    <li class="list-inline-item p-3 mb-2 resultado bg-success" *ngFor="let historico of objHistoricoDados">
+                    <li class="list-inline-item p-3 mb-2 resultado bg-secondary text-light" *ngFor="let historico of objHistoricoDados">
                         {{objHistoricoDados.indexOf(historico)+1}})
                         <span *ngFor="let hist of historico">
                                  {{hist}}
@@ -74,7 +74,7 @@
                     </li>
 
                 </ul>
-                <button class="btn btn-large bg-success  " (click)="limparHistorico()">Limpar Histórico</button>
+                <button class="btn btn-large bg-secondary text-light  " (click)="limparHistorico()">Limpar Histórico</button>
             </div>
         </div>
     </div>

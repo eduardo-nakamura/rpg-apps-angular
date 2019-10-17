@@ -30,7 +30,8 @@ input::-webkit-inner-spin-button {
 }
 
 .resultado span:last-child {
-    background: violet;
+    background: #343a40;
+    padding: 5px;
 }
 
 
