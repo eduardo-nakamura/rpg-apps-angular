@@ -1,7 +1,7 @@
 [{
         "partyName": "Fahen",
         "value": "fahen",
-        "partyMembers": [{
+        "partyMember": [{
             "name": "Chabal",
             "bonusInit": 1
         }, {
