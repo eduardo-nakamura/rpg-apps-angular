@@ -1,4 +1,42 @@
-<select (change)="selectChangeHandler($event)" class="custom-select" name="" id="tipoDados">
-  <option *ngFor="let party of partyOptions" [value]="partyOptions.indexOf(party)">{{party.partyName}}</option>
+<select *ngIf="!initObj" (change)="selectChangeHandler($event)" class="custom-select" name="" id="tipoDados">
+  <option value="">Escolha uma Party</option>
+  <option *ngFor="let party of partyOptions" [value]="partyOptions.indexOf(party)">
+     
+    {{party.partyName}}</option>
                          
-</select> {{selectedParty}}
+</select>
+<mat-table class="lessons-table mat-elevation-z8" [dataSource]="dataSource">
+
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+        <mat-cell *matCellDef="let lesson">
+            <input type="text" [value]="lesson.name"> {{index}}
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="bonusInit">
+        <mat-header-cell *matHeaderCellDef>Bonus Init</mat-header-cell>
+        <mat-cell class="description-cell" *matCellDef="let lesson">
+            <input type="number" [value]="lesson.bonusInit">
+        </mat-cell>
+
+    </ng-container>
+
+    <ng-container matColumnDef="diceInit">
+        <mat-header-cell *matHeaderCellDef>Dados Init</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let lesson">
+            <input type="number" [value]="lesson.diceInit" (change)="teste($event)">
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="totalInit">
+        <mat-header-cell *matHeaderCellDef>Total init</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let lesson">
+            <input type="number" [value]="lesson.totalInit">
+        </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+</mat-table>
