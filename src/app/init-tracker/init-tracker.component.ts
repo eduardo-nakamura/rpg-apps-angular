@@ -24,24 +24,40 @@ export class InitTrackerComponent implements OnInit {
 
   constructor() { }
 
+// a
   ngOnInit() {
     console.log(ELEMENT_DATA)
     console.log('1',this.dataSource)
   }
   selectChangeHandler(event: any) {    
     this.selectedParty = event.target.value;    
-    this.initObj = this.partyOptions[this.selectedParty].partyMember;
+    // this.initObj = example[this.selectedParty].partyMember
     this.atualizarTabela()  
   }
 
   atualizarTabela(){
+    let ordenarChars = example[this.selectedParty].partyMember
+    //total Init
+    
+    //ordenar
+    // ordenarChars.sort(function (a, b) {
+    //   if (a.name > b.name) {
+    //     return 1;
+    //   }
+    //   if (a.name < b.name) {
+    //     return -1;
+    //   }      
+    //   return 0;
+    // });
     this.dataSource = new MatTableDataSource<initTable>(example[this.selectedParty].partyMember);
-    console.log(this.dataSource)  
+    
   }
   teste(event: any){
     // this.dadosResult = event.target.value;
-    console.log(event.target)
-    console.log(this.dataSource.filteredData)  
+    console.log(event.target.value)
+    // console.log(this.dataSource.filteredData)  
   }
-  
+  teste2(){
+    console.log(example[this.selectedParty].partyMember)
+  }
 }

@@ -3,16 +3,24 @@
         "value": "fahen",
         "partyMember": [{
             "name": "Chabal",
-            "bonusInit": 1
+            "bonusInit": 1,
+            "diceInit": 0,
+            "totalInit": 0
         }, {
             "name": "Nibi",
-            "bonusInit": 5
+            "bonusInit": 5,
+            "diceInit": 0,
+            "totalInit": 0
         }, {
             "name": "Valerius",
-            "bonusInit": 4
+            "bonusInit": 4,
+            "diceInit": 0,
+            "totalInit": 0
         }, {
             "name": "Soral",
-            "bonusInit": 13
+            "bonusInit": 13,
+            "diceInit": 0,
+            "totalInit": 0
         }]
     },
     {
@@ -20,19 +28,29 @@
         "value": "nyaris",
         "partyMember": [{
             "name": "Nyaris",
-            "bonusInit": 13
+            "bonusInit": 13,
+            "diceInit": 0,
+            "totalInit": 0
         }, {
             "name": "Aidan",
-            "bonusInit": 10
+            "bonusInit": 10,
+            "diceInit": 0,
+            "totalInit": 0
         }, {
             "name": "Elyse",
-            "bonusInit": 1
+            "bonusInit": 1,
+            "diceInit": 0,
+            "totalInit": 0
         }, {
             "name": "Jericho",
-            "bonusInit": 4
+            "bonusInit": 4,
+            "diceInit": 0,
+            "totalInit": 0
         }, {
             "name": "Lily",
-            "bonusInit": 8
+            "bonusInit": 8,
+            "diceInit": 0,
+            "totalInit": 0
         }]
     }
 ]
