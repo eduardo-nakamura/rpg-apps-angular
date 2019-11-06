@@ -4,6 +4,12 @@
 /* font-family: 'Open Sans', sans-serif;
 font-family: 'MedievalSharp', cursive; */
 
+body {
+    /* background-color: red; */
+    background-image: url('../src/assets/blackbg.jpg');
+    background-size: cover;
+}
+
 h1,
 h2,
 h3,
@@ -11,4 +17,8 @@ h4,
 h5,
 h6 {
     font-family: 'MedievalSharp', cursive;
+}
+
+.bg-dark {
+    background-color: rgba(52, 58, 64, 0.4) !important;
 }
