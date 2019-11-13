@@ -34,6 +34,19 @@ input::-webkit-inner-spin-button {
     padding: 5px;
 }
 
+.custom-select {
+    background-color: transparent;
+    color: white !important
+}
+
+.form-control {
+    background-color: transparent;
+}
+
+.form-control::placeholder {
+    color: #fff;
+}
+
 
 /* 
 .list-group li:nth-child(2) {

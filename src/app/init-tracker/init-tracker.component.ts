@@ -15,6 +15,7 @@ const ELEMENT_DATA: initTable[] = []
   styleUrls: ['./init-tracker.component.css']
 })
 export class InitTrackerComponent implements OnInit {
+  ordenarChars:any;
   partyOptions = example;
   selectedParty = '';
   initObj = '';
@@ -31,25 +32,27 @@ export class InitTrackerComponent implements OnInit {
   }
   selectChangeHandler(event: any) {    
     this.selectedParty = event.target.value;    
-    // this.initObj = example[this.selectedParty].partyMember
+    this.initObj = example[this.selectedParty].partyMember
     this.atualizarTabela()  
   }
 
   atualizarTabela(){
-    let ordenarChars = example[this.selectedParty].partyMember
-    //total Init
-    
+    this.ordenarChars = example[this.selectedParty].partyMember
+    console.log(this.ordenarChars)
+    for( let i = 0; i < this.ordenarChars.length; i++){      
+      this.ordenarChars[i].totalInit = this.ordenarChars[i].bonusInit + this.ordenarChars[i].diceInit
+    }    
     //ordenar
-    // ordenarChars.sort(function (a, b) {
-    //   if (a.name > b.name) {
-    //     return 1;
-    //   }
-    //   if (a.name < b.name) {
-    //     return -1;
-    //   }      
-    //   return 0;
-    // });
-    this.dataSource = new MatTableDataSource<initTable>(example[this.selectedParty].partyMember);
+    this.ordenarChars.sort(function (a, b) {
+      if (a.totalInit > b.totalInit) {
+        return -1;
+      }
+      if (a.totalInit < b.totalInit) {
+        return 1;
+      }      
+      return 0;
+    });
+    this.dataSource = new MatTableDataSource<initTable>(this.ordenarChars);
     
   }
   teste(event: any){

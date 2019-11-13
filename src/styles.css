@@ -6,7 +6,7 @@ font-family: 'MedievalSharp', cursive; */
 
 body {
     /* background-color: red; */
-    background-image: url('../src/assets/blackbg.jpg');
+    /* background-image: url('../src/assets/blackbg.jpg'); */
     background-size: cover;
 }
 
@@ -20,5 +20,5 @@ h6 {
 }
 
 .bg-dark {
-    background-color: rgba(52, 58, 64, 0.4) !important;
+    background-color: rgba(255, 255, 255, 0.4) !important;
 }

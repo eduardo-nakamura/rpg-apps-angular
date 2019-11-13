@@ -10,14 +10,14 @@
     <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
         <mat-cell *matCellDef="let lesson">
-            <input type="text" [value]="lesson.name"> {{index}}
+            <input type="text" [value]="lesson.name" disabled> {{index}}
         </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="bonusInit">
         <mat-header-cell *matHeaderCellDef>Bonus Init</mat-header-cell>
         <mat-cell class="description-cell" *matCellDef="let lesson">
-            <input type="number" [value]="lesson.bonusInit">
+            <input type="number" [value]="lesson.bonusInit" [(ngModel)]="lesson.bonusInit" (change)="atualizarTabela()">
         </mat-cell>
 
     </ng-container>
@@ -25,14 +25,14 @@
     <ng-container matColumnDef="diceInit">
         <mat-header-cell *matHeaderCellDef>Dados Init</mat-header-cell>
         <mat-cell class="duration-cell" *matCellDef="let lesson">
-            <input type="number" [value]="lesson.diceInit" (change)="teste($event)">
+            <input type="number" [value]="lesson.diceInit" [(ngModel)]="lesson.diceInit" (change)="atualizarTabela()">
         </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="totalInit">
         <mat-header-cell *matHeaderCellDef>Total init</mat-header-cell>
         <mat-cell class="duration-cell" *matCellDef="let lesson">
-            <input type="number" [value]="lesson.totalInit">
+            <input type="number" [value]="lesson.totalInit" disabled>
         </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -40,5 +40,3 @@
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 
 </mat-table>
-
-<button (click)="teste2()">teste</button>

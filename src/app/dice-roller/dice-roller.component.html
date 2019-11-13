@@ -3,14 +3,14 @@
         <div class="row bg-dark text-white mt-2 pl-2 pt-2">
             <h2>Dice Roller</h2>
         </div>
-        <div class="row">
+        <div class="row p-2 ">
             <div class=" col-md  col-6">
-                <label class="mr-2" for="formGroupExampleInput">Quantidade: </label> {{qtdDados}}
+                <label class="mr-2 text-white" for="formGroupExampleInput">Quantidade: </label> {{qtdDados}}
                 <input placeholder="1" (keyup)="qtdDadosValue($event)" min="0" id="qtdDados" class="form-control" numeric numericType="number" type="number">
             </div>
             <div class="col-md  col-6">
-                <label class="mr-2" for="formGroupExampleInput" style="display: inline;">Tipo: <img class="iconeDado" [src]="tipoDadoImg" alt=""></label> {{tipoDados}}
-                <select (change)="selectChangeHandler($event)" class="custom-select" name="" id="tipoDados">
+                <label class="mr-2 text-white" for="formGroupExampleInput" style="display: inline;">Tipo: <img class="iconeDado" [src]="tipoDadoImg" alt="">{{tipoDados}}</label>
+                <select (change)="selectChangeHandler($event)" class="custom-select text-white" name="" id="tipoDados">
                     <option value="d4">d4</option>
                     <option value="d6">d6</option>
                     <option value="d8">d8</option>
@@ -21,7 +21,7 @@
                 </select>
             </div>
             <div class="col-md  col-6">
-                <label class="mr-2" for="formGroupExampleInput">Bonus: </label> {{bonusDados}}
+                <label class="mr-2 text-white" for="formGroupExampleInput">Bonus: </label> {{bonusDados}}
                 <input placeholder="0" (keyup)="bonusDadosValue($event)" class="form-control" id="bonusDados" type="number">
             </div>
             <div class="col-md col-6 ">

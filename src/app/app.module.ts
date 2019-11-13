@@ -10,6 +10,7 @@ import { DiceRollerComponent } from './dice-roller/dice-roller.component';
 import { InitTrackerComponent } from './init-tracker/init-tracker.component';
 import { HomeComponent } from './home/home.component';
 import { IntroComponent } from './intro/intro.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { IntroComponent } from './intro/intro.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    FormsModule,
     MatProgressSpinnerModule
   ],
   providers: [],
