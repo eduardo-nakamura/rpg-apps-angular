@@ -20,47 +20,50 @@ export class InitTrackerComponent implements OnInit {
   selectedParty = '';
   initObj = '';
   dadosResult: number
-  displayedColumns: string[] = ['name', 'bonusInit', 'diceInit', 'totalInit'];    
+  displayedColumns: string[] = ['name', 'bonusInit', 'diceInit', 'totalInit', 'delete'];    
   dataSource = new MatTableDataSource<initTable>(ELEMENT_DATA);
-
+  addNewChar = ''
+  
   constructor() { }
 
 // Pesquisar Form Array
   ngOnInit() {
-    console.log(ELEMENT_DATA)
-    console.log('1',this.dataSource)
+
+    
   }
   selectChangeHandler(event: any) {    
     this.selectedParty = event.target.value;    
     this.initObj = example[this.selectedParty].partyMember
-    this.atualizarTabela()  
+    this.atualizarTabela()      
   }
 
   atualizarTabela(){
     this.ordenarChars = example[this.selectedParty].partyMember
-    console.log(this.ordenarChars)
     for( let i = 0; i < this.ordenarChars.length; i++){      
       this.ordenarChars[i].totalInit = this.ordenarChars[i].bonusInit + this.ordenarChars[i].diceInit
-    }    
-    //ordenar
-    this.ordenarChars.sort(function (a, b) {
-      if (a.totalInit > b.totalInit) {
-        return -1;
-      }
-      if (a.totalInit < b.totalInit) {
-        return 1;
-      }      
-      return 0;
-    });
+    }        
+    // this.ordenarChars.sort(function (a, b) {
+    //   if (a.totalInit > b.totalInit) {
+    //     return -1;
+    //   }
+    //   if (a.totalInit < b.totalInit) {
+    //     return 1;
+    //   }      
+    //   return 0;
+    // });    
     this.dataSource = new MatTableDataSource<initTable>(this.ordenarChars);
-    
   }
-  teste(event: any){
-    // this.dadosResult = event.target.value;
-    console.log(event.target.value)
-    // console.log(this.dataSource.filteredData)  
+  removeChar(i){
+    this.ordenarChars.splice(i,1)
+    console.log(i)
+    this.atualizarTabela()
   }
-  teste2(){
-    console.log(example[this.selectedParty].partyMember)
+  addChar(){
+    let objNewChar = { name: '', bonusInit: 0, diceInit: 0, totalInit: 0,}
+    objNewChar.name = this.addNewChar
+    this.ordenarChars.push(objNewChar)    
+    this.atualizarTabela()  
+    this.addNewChar = ''
   }
+
 }

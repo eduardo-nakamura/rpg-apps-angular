@@ -5,6 +5,21 @@
     {{party.partyName}}</option>
                          
 </select>
+
+<!-- *ngIf="initObj" -->
+<section>
+    <p>Adicionar personagens</p>
+    <table style="width:100%">
+        <tr>
+            <td>
+                <label for="">Nome</label>
+                <input type="text" [(ngModel)]="addNewChar">
+                <i class="fas fa-plus" (click)="addChar()"></i> {{addNewChar}}
+            </td>
+        </tr>
+    </table>
+</section>
+
 <mat-table class="lessons-table mat-elevation-z8" [dataSource]="dataSource">
 
     <ng-container matColumnDef="name">
@@ -35,8 +50,16 @@
             <input type="number" [value]="lesson.totalInit" disabled>
         </mat-cell>
     </ng-container>
+    <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef>Derrubar</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let lesson;let i = index">
+            <i class="fas fa-skull" (click)="removeChar(i)"></i> {{i}}
+        </mat-cell>
+    </ng-container>
+
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 
 </mat-table>
+<i class="fab fa-angular" (click)="atualizarTabela(aaa)"></i>
