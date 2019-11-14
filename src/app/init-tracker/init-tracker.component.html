@@ -14,13 +14,13 @@
             <td>
                 <label for="">Nome</label>
                 <input type="text" [(ngModel)]="addNewChar">
-                <i class="fas fa-plus" (click)="addChar()"></i> {{addNewChar}}
+                <i class="fas btn-rpg fa-plus" (click)="addChar()"></i> {{addNewChar}}
             </td>
         </tr>
     </table>
 </section>
 
-<mat-table class="lessons-table mat-elevation-z8" [dataSource]="dataSource">
+<mat-table *ngIf="initObj" class="lessons-table mat-elevation-z8" [dataSource]="dataSource">
 
     <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
@@ -53,7 +53,7 @@
     <ng-container matColumnDef="delete">
         <mat-header-cell *matHeaderCellDef>Derrubar</mat-header-cell>
         <mat-cell class="duration-cell" *matCellDef="let lesson;let i = index">
-            <i class="fas fa-skull" (click)="removeChar(i)"></i> {{i}}
+            <i class="fas btn-rpg fa-skull" (click)="removeChar(i)"></i> {{i}}
         </mat-cell>
     </ng-container>
 
@@ -62,6 +62,7 @@
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 
 </mat-table>
-<i class="fas fa-angle-left"></i>
-<i class="fab fa-angular" (click)="ordenarTabela()"></i>
-<i class="fas fa-angle-right" (click)="next()"></i>{{proximo}}
+<i class="fas btn-rpg fa-angle-left"></i>
+<i class="fas btn-rpg fa-sync-alt" (click)="ordenarTabela()"></i>
+<i class="fas btn-rpg fa-play" (click)="start()"></i>
+<i class="fas btn-rpg fa-angle-right" (click)="next()"></i>{{turno}}

@@ -15,7 +15,7 @@ const ELEMENT_DATA: initTable[] = []
   styleUrls: ['./init-tracker.component.css']
 })
 export class InitTrackerComponent implements OnInit {
-  proximo:number
+  turno:number
   ordenarChars: any;
   partyOptions = example;
   selectedParty = '';
@@ -48,16 +48,12 @@ export class InitTrackerComponent implements OnInit {
       return 0;
     });
     this.atualizarTabela()
-    this.proximo = this.ordenarChars.length
-    document.querySelectorAll('ul li:nth-child(1)').style.backgroundImage = "url('newbg.png')"
-
   }
   atualizarTabela() {
     this.ordenarChars = example[this.selectedParty].partyMember
     for (let i = 0; i < this.ordenarChars.length; i++) {
       this.ordenarChars[i].totalInit = this.ordenarChars[i].bonusInit + this.ordenarChars[i].diceInit
     }
-
     this.dataSource = new MatTableDataSource<initTable>(this.ordenarChars);
   }
   removeChar(i) {
@@ -66,14 +62,21 @@ export class InitTrackerComponent implements OnInit {
     this.atualizarTabela()
   }
   addChar() {
-    let objNewChar = { name: '', bonusInit: 0, diceInit: 0, totalInit: 0, }
-    objNewChar.name = this.addNewChar
-    this.ordenarChars.push(objNewChar)
-    this.atualizarTabela()
-    this.addNewChar = ''
+    if(this.addNewChar != ''){
+      let objNewChar = { name: '', bonusInit: 0, diceInit: 0, totalInit: 0, }
+      objNewChar.name = this.addNewChar
+      this.ordenarChars.push(objNewChar)
+      this.atualizarTabela()
+      this.addNewChar = ''
+    }
+    
+  }
+  start(){
+    this.turno = 2
+    //.mat-row:nth-child(4)
   }
   next(){
-    
+
   }
 
 }
