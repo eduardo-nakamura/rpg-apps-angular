@@ -7,7 +7,7 @@
 </select>
 
 <!-- *ngIf="initObj" -->
-<section>
+<section *ngIf="initObj">
     <p>Adicionar personagens</p>
     <table style="width:100%">
         <tr>
@@ -62,4 +62,6 @@
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 
 </mat-table>
-<i class="fab fa-angular" (click)="atualizarTabela(aaa)"></i>
+<i class="fas fa-angle-left"></i>
+<i class="fab fa-angular" (click)="ordenarTabela()"></i>
+<i class="fas fa-angle-right" (click)="next()"></i>{{proximo}}
