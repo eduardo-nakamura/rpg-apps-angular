@@ -15,8 +15,8 @@ const ELEMENT_DATA: initTable[] = []
   styleUrls: ['./init-tracker.component.css']
 })
 export class InitTrackerComponent implements OnInit {
-  turno:number
-  ordenarChars: any;
+  turno:number = 0
+  ordenarChars: any = [];
   partyOptions = example;
   selectedParty = '';
   initObj = '';
@@ -34,7 +34,7 @@ export class InitTrackerComponent implements OnInit {
   }
   selectChangeHandler(event: any) {
     this.selectedParty = event.target.value;
-    this.initObj = example[this.selectedParty].partyMember
+    this.initObj = example[this.selectedParty].partyMember    
     this.atualizarTabela()
   }
   ordenarTabela() {
@@ -50,33 +50,45 @@ export class InitTrackerComponent implements OnInit {
     this.atualizarTabela()
   }
   atualizarTabela() {
-    this.ordenarChars = example[this.selectedParty].partyMember
+    
+    this.ordenarChars = example[this.selectedParty].partyMember    
+    if(this.ordenarChars[0].name == ''){
+      this.ordenarChars.splice(0, 1)
+    }
+    console.log(this.ordenarChars[0].name == '')
     for (let i = 0; i < this.ordenarChars.length; i++) {
       this.ordenarChars[i].totalInit = this.ordenarChars[i].bonusInit + this.ordenarChars[i].diceInit
     }
-    this.dataSource = new MatTableDataSource<initTable>(this.ordenarChars);
+    this.dataSource = new MatTableDataSource<initTable>(this.ordenarChars);    
   }
   removeChar(i) {
     this.ordenarChars.splice(i, 1)
-    console.log(i)
+    
     this.atualizarTabela()
   }
-  addChar() {
+  rollDice(i){
+    
+    this.ordenarChars[i].diceInit = Math.floor((Math.random() * 20) + 1)
+    this.atualizarTabela()
+  }
+  addChar() {    
     if(this.addNewChar != ''){
       let objNewChar = { name: '', bonusInit: 0, diceInit: 0, totalInit: 0, }
       objNewChar.name = this.addNewChar
       this.ordenarChars.push(objNewChar)
       this.atualizarTabela()
       this.addNewChar = ''
-    }
-    
+    }    
+    console.log(this.ordenarChars)
   }
-  start(){
-    this.turno = 2
+  start(){   
     //.mat-row:nth-child(4)
   }
   next(){
-
+    if(this.turno < this.ordenarChars.length-1){
+      this.turno = this.turno+1
+    } else{
+      this.turno = 0
+    }    
   }
-
 }

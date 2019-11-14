@@ -1,15 +1,6 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
-
-/* You can add global styles to this file, and also import other style files */
-
-
-/* font-family: 'Open Sans', sans-serif;
-font-family: 'MedievalSharp', cursive; */
-
 body {
-    /* background-color: red; */
-    /* background-image: url('../src/assets/blackbg.jpg'); */
-    background-size: cover;
+    background-color: black;
 }
 
 * {
@@ -21,13 +12,137 @@ body {
 }
 
 .btn-rpg {
-    background-image: url('./assets/copper-sky-stone-grunge-stains-old-splatter-paper-has-got-worn-look-perfect-background-copper-sky-stone-grunge-worn-136858121.jpg');
+    // background-image: url('./assets/copper-sky-stone-grunge-stains-old-splatter-paper-has-got-worn-look-perfect-background-copper-sky-stone-grunge-worn-136858121.jpg');
+    background: rgb(231, 46, 64);
+    background: linear-gradient(132deg, rgba(231, 46, 64, 1) 0%, rgba(231, 46, 64, 1) 14%, rgba(230, 21, 42, 1) 14%, rgba(230, 21, 42, 1) 30%, rgba(231, 46, 64, 1) 30%, rgba(231, 46, 64, 1) 56%, rgba(230, 21, 42, 1) 56%, rgba(230, 21, 42, 1) 72%, rgba(231, 46, 64, 1) 92%, rgba(231, 46, 64, 1) 92%);
     color: #fff;
     margin: 0 5px;
     padding: 10px;
-    // border-radius: 5px;
-    border: 3px solid #8a6812;
+    border-radius: 5px;
+    border: 3px solid #ef4d4d;
     border-top-style: inset;
     border-left-style: inset;
-    box-shadow: 0px 0px 5px goldenrod;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    transform: scale(0.8);
 }
+
+.content {
+    max-width: 80vw;
+    margin: 10px auto;
+}
+
+.lessons-table {
+    background: url('./assets/blackbg.jpg');
+    background-size: cover;
+    color: #fff;
+    .turn-css-header {
+        background-color: blue;
+    }
+    .turn-css-select {
+        background: rgb(177, 0, 0);
+        background: radial-gradient(circle, rgba(177, 0, 0, 0.9) 20%, rgba(255, 0, 0, 0.9) 51%, rgba(255, 0, 0, 0) 100%);
+    }
+}
+
+.navbar {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(70, 70, 70, 1) 88%, rgba(70, 70, 70, 1) 100%);
+    border-bottom: 2px solid rgba(70, 70, 70, 1);
+    outline: 1px solid rgba(70, 70, 70, 0.4);
+    box-shadow: 0 0 5px #fff, /* */
+    0 0 1px #fff, /* */
+    0 0 3px #fff, /* */
+    0 0 4px orange, /* */
+    0 0 7px orange, /* */
+    0 0 8px orange, /* */
+    0 0 10px orange, /* */
+    0 0 15px orange;
+    /* */
+    .nav-link {
+        color: #fff;
+    }
+}
+
+.navbar-light .navbar-brand {
+    color: #fff;
+}
+
+.navbar-light .navbar-brand:hover,
+.navbar-light .navbar-brand:focus {
+    color: #fff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+    border-right: 1px solid red;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+    color: #fff;
+}
+
+// dice roller
+.hist {
+    max-height: 45vh;
+    overflow-x: hidden;
+    /* Hide horizontal scrollbar */
+    overflow-y: auto;
+    /* Add vertical scrollbar */
+}
+
+.list-group li:first-child {
+    background-color: rgba(184, 180, 180, 1);
+}
+
+.iconeDado {
+    max-width: 30px;
+    position: relative;
+    bottom: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.largura {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.resultado span:last-child {
+    background: #343a40;
+    padding: 5px;
+}
+
+.custom-select {
+    background-color: transparent;
+    color: white !important
+}
+
+.form-control {
+    background-color: transparent;
+}
+
+.form-control::placeholder {
+    color: #fff;
+}
+
+
+/* 
+.list-group li:nth-child(2) {
+    background-color: rgba(184, 180, 180, 0.6);
+}
+
+.list-group li:nth-child(3) {
+    background-color: rgba(184, 180, 180, 0.4);
+}
+
+.list-group li:nth-child(4) {
+    background-color: rgba(184, 180, 180, 0.2);
+} */
