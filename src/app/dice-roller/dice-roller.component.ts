@@ -104,7 +104,7 @@ export class DiceRollerComponent implements OnInit {
         this.tipoDadoImg = '../../assets/d20.svg';       
         break;
         case "d100":
-        this.tipoDadoImg = '../../assets/d100.svg';       
+        this.tipoDadoImg = '../../assets/d10.svg';       
         break;
     }
     // console.log(event.target.value)

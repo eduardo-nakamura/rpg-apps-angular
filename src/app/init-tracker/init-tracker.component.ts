@@ -16,6 +16,7 @@ const ELEMENT_DATA: initTable[] = []
 })
 export class InitTrackerComponent implements OnInit {
   turno:number = 0
+  started = false
   ordenarChars: any = [];
   partyOptions = example;
   selectedParty = '';
@@ -79,10 +80,10 @@ export class InitTrackerComponent implements OnInit {
       this.atualizarTabela()
       this.addNewChar = ''
     }    
-    console.log(this.ordenarChars)
   }
   start(){   
-    //.mat-row:nth-child(4)
+    this.ordenarTabela()
+    this.started = true
   }
   next(){
     if(this.turno < this.ordenarChars.length-1){

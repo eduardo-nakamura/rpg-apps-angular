@@ -8,9 +8,9 @@
             <option value="">Escolha uma Party</option>
             <option *ngFor="let party of partyOptions" [value]="partyOptions.indexOf(party)">{{party.partyName}}</option>   
             </select>
-            <section *ngIf="initObj" class="d-flex flex-row align-items-center">
+            <section *ngIf="initObj" class="d-flex flex-row align-items-center text-light">
                 <label for="">Adicionar personagem</label>
-                <input type="text" [(ngModel)]="addNewChar" placeholder="Nome">
+                <input class="ml-3 mr-3" type="text" [(ngModel)]="addNewChar" placeholder="Nome">
                 <div class="btn-rpg ">
                     <i class="fas fa-plus" (click)="addChar()"></i>
                 </div>
@@ -19,7 +19,7 @@
 
         <div class="row p-2 ">
             <div class="col">
-                <mat-table *ngIf="initObj" class="lessons-table mat-elevation-z8" [dataSource]="dataSource">
+                <mat-table *ngIf="initObj" class="lessons-table init-table mat-elevation-z8" [dataSource]="dataSource">
 
                     <ng-container matColumnDef="name">
                         <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
@@ -40,8 +40,8 @@
                         <mat-header-cell *matHeaderCellDef>Dados Init</mat-header-cell>
                         <mat-cell class="duration-cell" *matCellDef="let lesson;let i = index">
                             <input type="number" class="w-50" [value]="lesson.diceInit" [(ngModel)]="lesson.diceInit" (change)="atualizarTabela()">
-                            <div class="btn-rpg">
-                                <i class="fas fa-dice" (click)="rollDice(i)"></i>
+                            <div class="btn-rpg" (click)="rollDice(i)">
+                                <i class="fas fa-dice"></i>
                             </div>
 
                         </mat-cell>
@@ -56,8 +56,8 @@
                     <ng-container matColumnDef="delete">
                         <mat-header-cell *matHeaderCellDef>Derrubar</mat-header-cell>
                         <mat-cell class="duration-cell" *matCellDef="let lesson;let i = index">
-                            <div class="btn-rpg ">
-                                <i class="fas fa-skull" (click)="removeChar(i)"></i>
+                            <div class="btn-rpg " (click)="removeChar(i)">
+                                <i class="fas fa-skull"></i>
                             </div>
 
                         </mat-cell>
@@ -65,27 +65,27 @@
 
                     <mat-header-row class="turn-css-header" *matHeaderRowDef="displayedColumns"></mat-header-row>
 
-                    <mat-row [ngClass]="{'turn-css-select': row.name == ordenarChars[turno].name}" *matRowDef="let row; columns: displayedColumns;let i = index"></mat-row>
+                    <mat-row [ngClass]="{'turn-css-select': row.name == ordenarChars[turno].name && started == true}" *matRowDef="let row; columns: displayedColumns;let i = index"></mat-row>
 
                 </mat-table>
             </div>
         </div>
 
-        <div class="row p-2 ">
-            <div class="btn-rpg" (click)="prev()">
+        <div class="row p-2 " *ngIf="initObj">
+            <div class="btn-rpg" (click)="prev()" *ngIf="started">
                 <i class="fas  fa-angle-left"></i>
             </div>
-            <div class="btn-rpg" (click)="ordenarTabela()">
+            <div class="btn-rpg" (click)="ordenarTabela()" *ngIf="started">
                 <i class="fas fa-sync-alt"></i>
             </div>
-            <div class="btn-rpg" (click)="start()">
+            <div class="btn-rpg" (click)="start()" *ngIf="!started">
                 <i class="fas fa-play"></i>
             </div>
-            <div class="btn-rpg" (click)="next()">
+            <p class="text-light" *ngIf="!started">Iniciar!</p>
+            <div class="btn-rpg" (click)="next()" *ngIf="started">
                 <i class="fas fa-angle-right"></i>
             </div>
         </div>
 
     </div>
 </div>
-<p class="text-light">{{turno}} - {{ordenarChars.length}}</p>
