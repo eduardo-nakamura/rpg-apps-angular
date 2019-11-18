@@ -3,7 +3,8 @@
         <div class="row bg-dark text-white mt-2 pl-2 pt-2">
             <h2>Initiative Tracker</h2>
         </div>
-        <div class="row p-2 ">
+        <div class="row p-2 position-relative">
+            <i class="fas fa-hand-pointer choose-party text-white fa-rotate-90" *ngIf="!initObj"></i>
             <select *ngIf="!initObj" (change)="selectChangeHandler($event)" class="custom-select" name="" id="tipoDados">
             <option value="">Escolha uma Party</option>
             <option *ngFor="let party of partyOptions" [value]="partyOptions.indexOf(party)">{{party.partyName}}</option>   
