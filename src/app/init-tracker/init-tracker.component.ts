@@ -91,4 +91,12 @@ export class InitTrackerComponent implements OnInit {
       this.turno = 0
     }    
   }
+  prev(){
+    if(this.turno < 1){
+      this.turno = this.ordenarChars.length-1
+    } else{
+      this.turno = this.turno-1
+    }
+
+  }
 }

@@ -4,7 +4,12 @@ body {
 }
 
 * {
-    font-family: 'MedievalSharp', cursive;
+    font-family: 'Alata', sans-serif;
+}
+
+h2,
+h3 {
+    font-family: 'Trade Winds', cursive;
 }
 
 .bg-dark {
@@ -12,28 +17,42 @@ body {
 }
 
 .btn-rpg {
-    // background-image: url('./assets/copper-sky-stone-grunge-stains-old-splatter-paper-has-got-worn-look-perfect-background-copper-sky-stone-grunge-worn-136858121.jpg');
-    background: rgb(231, 46, 64);
-    background: linear-gradient(132deg, rgba(231, 46, 64, 1) 0%, rgba(231, 46, 64, 1) 14%, rgba(230, 21, 42, 1) 14%, rgba(230, 21, 42, 1) 30%, rgba(231, 46, 64, 1) 30%, rgba(231, 46, 64, 1) 56%, rgba(230, 21, 42, 1) 56%, rgba(230, 21, 42, 1) 72%, rgba(231, 46, 64, 1) 92%, rgba(231, 46, 64, 1) 92%);
+    display: inline-block;
+    background-color: rgba(255, 0, 0, 0.5);
+    border: 2px solid rgba(255, 0, 0, 0.7);
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 30px;
     color: #fff;
-    margin: 0 5px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 3px solid #ef4d4d;
-    border-top-style: inset;
-    border-left-style: inset;
-    border-bottom-style: solid;
-    border-right-style: solid;
-    transform: scale(0.8);
+    transform: rotate(45deg);
+    margin: 10px;
+    i {
+        transition: 100ms linear all;
+        transform: rotate(-45deg);
+    }
 }
 
+.btn-rpg:hover {
+    i {
+        transform: rotate(-45deg) scale(1.2);
+    }
+}
+
+// .btn-rpg:active {
+// }
 .content {
     max-width: 80vw;
     margin: 10px auto;
 }
 
+.mat-row {
+    // border: red;
+    border-bottom-color: #292929;
+    box-shadow: 0px 2px 0px #343a40;
+}
+
 .lessons-table {
-    background: url('./assets/blackbg.jpg');
     background-size: cover;
     color: #fff;
     .turn-css-header {
@@ -50,37 +69,21 @@ body {
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(70, 70, 70, 1) 88%, rgba(70, 70, 70, 1) 100%);
     border-bottom: 2px solid rgba(70, 70, 70, 1);
     outline: 1px solid rgba(70, 70, 70, 0.4);
-    box-shadow: 0 0 5px #fff, /* */
-    0 0 1px #fff, /* */
-    0 0 3px #fff, /* */
-    0 0 4px orange, /* */
-    0 0 7px orange, /* */
-    0 0 8px orange, /* */
-    0 0 10px orange, /* */
-    0 0 15px orange;
-    /* */
-    .nav-link {
+    .navbar-brand {
+        font-family: 'Trade Winds', cursive;
         color: #fff;
     }
-}
-
-.navbar-light .navbar-brand {
-    color: #fff;
-}
-
-.navbar-light .navbar-brand:hover,
-.navbar-light .navbar-brand:focus {
-    color: #fff;
-}
-
-.navbar-light .navbar-nav .nav-link {
-    color: #fff;
-    border-right: 1px solid red;
-}
-
-.navbar-light .navbar-nav .nav-link:hover,
-.navbar-light .navbar-nav .nav-link:focus {
-    color: #fff;
+    .nav-link {
+        color: #fff;
+        transition: all 0.3s;
+    }
+    .nav-link:hover {
+        background-color: rgba(184, 180, 180, 0.3);
+    }
+    .nav-link.active {
+        background-color: rgba(184, 180, 180, 0.5);
+        font-weight: bold;
+    }
 }
 
 // dice roller
@@ -121,8 +124,13 @@ input::-webkit-inner-spin-button {
 }
 
 .custom-select {
-    background-color: transparent;
-    color: white !important
+    background-color: #343a40;
+    color: white !important;
+    border: 0;
+    border-radius: 0;
+    option {
+        border: 0;
+    }
 }
 
 .form-control {
@@ -133,16 +141,8 @@ input::-webkit-inner-spin-button {
     color: #fff;
 }
 
-
-/* 
-.list-group li:nth-child(2) {
-    background-color: rgba(184, 180, 180, 0.6);
+@media only screen and (max-width: 600px) {
+    .content {
+        max-width: 100vw;
+    }
 }
-
-.list-group li:nth-child(3) {
-    background-color: rgba(184, 180, 180, 0.4);
-}
-
-.list-group li:nth-child(4) {
-    background-color: rgba(184, 180, 180, 0.2);
-} */

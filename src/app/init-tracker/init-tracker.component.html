@@ -1,59 +1,91 @@
-<div class="content">
-    <select *ngIf="!initObj" (change)="selectChangeHandler($event)" class="custom-select" name="" id="tipoDados">
-        <option value="">Escolha uma Party</option>
-        <option *ngFor="let party of partyOptions" [value]="partyOptions.indexOf(party)">{{party.partyName}}</option>   
-    </select>
-    <section *ngIf="initObj" class="d-flex flex-row align-items-center">
-        <label for="">Adicionar personagem</label>
-        <input type="text" [(ngModel)]="addNewChar" placeholder="Nome">
-        <i class="fas btn-rpg fa-plus" (click)="addChar()"></i>
-    </section>
+<div class="content  mx-auto">
+    <div class="col-12 justify-content-center">
+        <div class="row bg-dark text-white mt-2 pl-2 pt-2">
+            <h2>Initiative Tracker</h2>
+        </div>
+        <div class="row p-2 ">
+            <select *ngIf="!initObj" (change)="selectChangeHandler($event)" class="custom-select" name="" id="tipoDados">
+            <option value="">Escolha uma Party</option>
+            <option *ngFor="let party of partyOptions" [value]="partyOptions.indexOf(party)">{{party.partyName}}</option>   
+            </select>
+            <section *ngIf="initObj" class="d-flex flex-row align-items-center">
+                <label for="">Adicionar personagem</label>
+                <input type="text" [(ngModel)]="addNewChar" placeholder="Nome">
+                <div class="btn-rpg ">
+                    <i class="fas fa-plus" (click)="addChar()"></i>
+                </div>
+            </section>
+        </div>
 
-    <mat-table *ngIf="initObj" class="lessons-table mat-elevation-z8" [dataSource]="dataSource">
+        <div class="row p-2 ">
+            <div class="col">
+                <mat-table *ngIf="initObj" class="lessons-table mat-elevation-z8" [dataSource]="dataSource">
 
-        <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
-            <mat-cell *matCellDef="let lesson">
-                <input type="text" [value]="lesson.name" disabled> {{index}}
-            </mat-cell>
-        </ng-container>
+                    <ng-container matColumnDef="name">
+                        <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+                        <mat-cell *matCellDef="let lesson">
+                            <input type="text" [value]="lesson.name" disabled> {{index}}
+                        </mat-cell>
+                    </ng-container>
 
-        <ng-container matColumnDef="bonusInit">
-            <mat-header-cell *matHeaderCellDef>Bonus Init</mat-header-cell>
-            <mat-cell class="description-cell" *matCellDef="let lesson">
-                <input type="number" [value]="lesson.bonusInit" [(ngModel)]="lesson.bonusInit" (change)="atualizarTabela()">
-            </mat-cell>
+                    <ng-container matColumnDef="bonusInit">
+                        <mat-header-cell *matHeaderCellDef>Bonus Init</mat-header-cell>
+                        <mat-cell class="description-cell" *matCellDef="let lesson">
+                            <input type="number" [value]="lesson.bonusInit" [(ngModel)]="lesson.bonusInit" (change)="atualizarTabela()">
+                        </mat-cell>
 
-        </ng-container>
+                    </ng-container>
 
-        <ng-container matColumnDef="diceInit">
-            <mat-header-cell *matHeaderCellDef>Dados Init</mat-header-cell>
-            <mat-cell class="duration-cell" *matCellDef="let lesson;let i = index">
-                <input type="number" [value]="lesson.diceInit" [(ngModel)]="lesson.diceInit" (change)="atualizarTabela()">
-                <i class="fas btn-rpg fa-dice" (click)="rollDice(i)"></i>
-            </mat-cell>
-        </ng-container>
+                    <ng-container matColumnDef="diceInit">
+                        <mat-header-cell *matHeaderCellDef>Dados Init</mat-header-cell>
+                        <mat-cell class="duration-cell" *matCellDef="let lesson;let i = index">
+                            <input type="number" class="w-50" [value]="lesson.diceInit" [(ngModel)]="lesson.diceInit" (change)="atualizarTabela()">
+                            <div class="btn-rpg">
+                                <i class="fas fa-dice" (click)="rollDice(i)"></i>
+                            </div>
 
-        <ng-container matColumnDef="totalInit">
-            <mat-header-cell *matHeaderCellDef>Total init</mat-header-cell>
-            <mat-cell class="duration-cell" *matCellDef="let lesson">
-                <input type="number" [value]="lesson.totalInit" disabled>
-            </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="delete">
-            <mat-header-cell *matHeaderCellDef>Derrubar</mat-header-cell>
-            <mat-cell class="duration-cell" *matCellDef="let lesson;let i = index">
-                <i class="fas btn-rpg fa-skull" (click)="removeChar(i)"></i>
-            </mat-cell>
-        </ng-container>
+                        </mat-cell>
+                    </ng-container>
 
-        <mat-header-row class="turn-css-header" *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <ng-container matColumnDef="totalInit">
+                        <mat-header-cell *matHeaderCellDef>Total init</mat-header-cell>
+                        <mat-cell class="duration-cell" *matCellDef="let lesson">
+                            <input type="number" [value]="lesson.totalInit" disabled>
+                        </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="delete">
+                        <mat-header-cell *matHeaderCellDef>Derrubar</mat-header-cell>
+                        <mat-cell class="duration-cell" *matCellDef="let lesson;let i = index">
+                            <div class="btn-rpg ">
+                                <i class="fas fa-skull" (click)="removeChar(i)"></i>
+                            </div>
 
-        <mat-row [ngClass]="{'turn-css-select': row.name == ordenarChars[turno].name}" *matRowDef="let row; columns: displayedColumns;let i = index"></mat-row>
+                        </mat-cell>
+                    </ng-container>
 
-    </mat-table>
-    <i class="fas btn-rpg fa-angle-left"></i>
-    <i class="fas btn-rpg fa-sync-alt" (click)="ordenarTabela()"></i>
-    <i class="fas btn-rpg fa-play" (click)="start()"></i>
-    <i class="fas btn-rpg fa-angle-right" (click)="next()"></i>
+                    <mat-header-row class="turn-css-header" *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+                    <mat-row [ngClass]="{'turn-css-select': row.name == ordenarChars[turno].name}" *matRowDef="let row; columns: displayedColumns;let i = index"></mat-row>
+
+                </mat-table>
+            </div>
+        </div>
+
+        <div class="row p-2 ">
+            <div class="btn-rpg" (click)="prev()">
+                <i class="fas  fa-angle-left"></i>
+            </div>
+            <div class="btn-rpg" (click)="ordenarTabela()">
+                <i class="fas fa-sync-alt"></i>
+            </div>
+            <div class="btn-rpg" (click)="start()">
+                <i class="fas fa-play"></i>
+            </div>
+            <div class="btn-rpg" (click)="next()">
+                <i class="fas fa-angle-right"></i>
+            </div>
+        </div>
+
+    </div>
 </div>
+<p class="text-light">{{turno}} - {{ordenarChars.length}}</p>
