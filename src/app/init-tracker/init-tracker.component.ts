@@ -31,8 +31,6 @@ export class InitTrackerComponent implements OnInit {
 
   // Pesquisar Form Array
   ngOnInit() {
-
-
   }
   selectChangeHandler(event: any) {
     this.selectedParty = event.target.value;
@@ -51,13 +49,11 @@ export class InitTrackerComponent implements OnInit {
     });
     this.atualizarTabela()
   }
-  atualizarTabela() {
-    
+  atualizarTabela() {    
     this.ordenarChars = example[this.selectedParty].partyMember    
     if(this.ordenarChars[0].name == ''){
       this.ordenarChars.splice(0, 1)
-    }
-    console.log(this.ordenarChars[0].name == '')
+    }    
     for (let i = 0; i < this.ordenarChars.length; i++) {
       this.ordenarChars[i].totalInit = this.ordenarChars[i].bonusInit + this.ordenarChars[i].diceInit
     }
@@ -102,9 +98,9 @@ export class InitTrackerComponent implements OnInit {
 
   }
   finish(){
-   this.ordenarChars = []
-   this.atualizarTabela()
+   this.ordenarChars = []   
    this.initObj = ''
+   this.atualizarTabela()
   }
 }
 
