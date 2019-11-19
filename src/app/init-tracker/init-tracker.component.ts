@@ -15,6 +15,7 @@ const ELEMENT_DATA: initTable[] = []
   styleUrls: ['./init-tracker.component.css']
 })
 export class InitTrackerComponent implements OnInit {
+  textHover = ''
   turno:number = 0
   started = false
   ordenarChars: any = [];
@@ -100,4 +101,12 @@ export class InitTrackerComponent implements OnInit {
     }
 
   }
+  finish(){
+   this.ordenarChars = []
+   this.atualizarTabela()
+   this.initObj = ''
+  }
 }
+
+
+

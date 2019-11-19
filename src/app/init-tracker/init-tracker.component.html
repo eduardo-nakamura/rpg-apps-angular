@@ -4,7 +4,7 @@
             <h2>Initiative Tracker</h2>
         </div>
         <div class="row p-2 position-relative">
-            <i class="fas fa-hand-pointer choose-party text-white fa-rotate-90" *ngIf="!initObj"></i>
+            <i class="fas fa-hand-pointer choose-party text-white" *ngIf="!initObj"></i>
             <select *ngIf="!initObj" (change)="selectChangeHandler($event)" class="custom-select" name="" id="tipoDados">
             <option value="">Escolha uma Party</option>
             <option *ngFor="let party of partyOptions" [value]="partyOptions.indexOf(party)">{{party.partyName}}</option>   
@@ -72,20 +72,27 @@
             </div>
         </div>
 
-        <div class="row p-2 " *ngIf="initObj">
-            <div class="btn-rpg" (click)="prev()" *ngIf="started">
+        <div class="row p-2 align-items-center " *ngIf="initObj">
+            <div class="btn-rpg" (click)="prev()" *ngIf="started" (mouseenter)="textHover='Anterior'" (mouseleave)="textHover=''">
                 <i class="fas  fa-angle-left"></i>
             </div>
-            <div class="btn-rpg" (click)="ordenarTabela()" *ngIf="started">
+            <div class="btn-rpg" (click)="ordenarTabela()" *ngIf="started" (mouseenter)="textHover='Ordenar Tabela'" (mouseleave)="textHover=''">
                 <i class="fas fa-sync-alt"></i>
             </div>
-            <div class="btn-rpg" (click)="start()" *ngIf="!started">
+            <div class="btn-rpg" (click)="start()" *ngIf="!started" (mouseenter)="textHover='Iniciar Encontro'" (mouseleave)="textHover=''">
                 <i class="fas fa-play"></i>
             </div>
             <p class="text-light" *ngIf="!started">Iniciar!</p>
-            <div class="btn-rpg" (click)="next()" *ngIf="started">
+            <div class="btn-rpg" (click)="next()" *ngIf="started" title="Próximo" (mouseenter)="textHover='Próximo'" (mouseleave)="textHover=''">
                 <i class="fas fa-angle-right"></i>
             </div>
+
+            <div class="btn-rpg" (click)="finish()" (mouseenter)="textHover='Encerrar Encontro'" (mouseleave)="textHover=''" *ngIf="started" title="Encerrar Encontro">
+                <i class="fas fa-book-dead"></i>
+            </div>
+            <p class="text-light" *ngIf="started">
+                {{textHover}}
+            </p>
         </div>
 
     </div>
