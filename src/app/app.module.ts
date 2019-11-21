@@ -13,6 +13,7 @@ import { IntroComponent } from './intro/intro.component';
 import { FormsModule } from '@angular/forms';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GameHookComponent } from './game-hook/game-hook.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DiceRollerComponent,
     InitTrackerComponent,
     IntroComponent,
-    HomeComponent
+    HomeComponent,
+    GameHookComponent
   ],
   imports: [
     BrowserModule,
