@@ -10,14 +10,14 @@ export class HomeComponent implements OnInit {
 
   cards = [
     {
-      imagem:'dice.png',
+      imagem:'./assets/dice.png',
       
       titulo:'Dice Roller',
       descricao:'Aplicativo para Rolar Dados',
       path:'dice-roller'
     },
     {
-      imagem:'init-tracker.png',
+      imagem:'./assets/init-tracker.png',
       
       titulo:'Initiative Tracker',
       descricao:'Aplicativo para determinar iniciativa',
