@@ -1,0 +1,75 @@
+[{
+        "partyName": "Fahen",
+        "value": "fahen",
+        "partyMember": [{
+                "name": "Chabal",
+                "bonusInit": 1,
+                "diceInit": 0,
+                "totalInit": 0
+            },
+            {
+                "name": "Nibi",
+                "bonusInit": 5,
+                "diceInit": 0,
+                "totalInit": 0
+            },
+            {
+                "name": "Valerius",
+                "bonusInit": 4,
+                "diceInit": 0,
+                "totalInit": 0
+            },
+            {
+                "name": "Sora",
+                "bonusInit": 13,
+                "diceInit": 0,
+                "totalInit": 0
+            }
+        ]
+    },
+    {
+        "partyName": "Nyaris",
+        "value": "nyaris",
+        "partyMember": [{
+                "name": "Nyaris",
+                "bonusInit": 13,
+                "diceInit": 0,
+                "totalInit": 0
+            },
+            {
+                "name": "Aidan",
+                "bonusInit": 10,
+                "diceInit": 0,
+                "totalInit": 0
+            },
+            {
+                "name": "Elyse",
+                "bonusInit": 1,
+                "diceInit": 0,
+                "totalInit": 0
+            },
+            {
+                "name": "Jericho",
+                "bonusInit": 4,
+                "diceInit": 0,
+                "totalInit": 0
+            },
+            {
+                "name": "Lily",
+                "bonusInit": 8,
+                "diceInit": 0,
+                "totalInit": 0
+            }
+        ]
+    },
+    {
+        "partyName": "Novo Grupo",
+        "value": "novo",
+        "partyMember": [{
+            "name": "",
+            "bonusInit": 0,
+            "diceInit": 0,
+            "totalInit": 0
+        }]
+    }
+]
