@@ -11,44 +11,31 @@ export class DiceRollerComponent implements OnInit {
   bonusDados = 0;
   qtdDados = 1;
   min = 1
-  max: number
+  max: number = 4
   rolagem: number
   filtraNumero: any
   somaDados: number
   totalDados = []  
-  objHistoricoDados = []  
+  objHistoricoDados = [] 
+  horarioRolagem: number 
 
   constructor() { }
 
   ngOnInit() {
   }
   rolar() {
-    this.limparResultado()
-    //pegar infos
-    switch (this.tipoDados) {
-      case "d4":
-        this.max = 4;        
-        break;
-      case "d6":
-        this.max = 6;        
-        break;
-      case "d8":
-        this.max = 8;        
-        break;
-      case "d10":
-        this.max = 10;
-        break;
-      case "d12":
-        this.max = 12;      
-        break;
-      case "d20":
-        this.max = 20;        
-        break;
-      case "d100":
-        this.max = 100;        
-      break;
-    }
-    // gerar numeros
+    this.limparResultado()       
+    this.gerarNumeros()
+    this.somarBonus()   
+    this.filtraNumero = this.totalDados.filter(a => Number(a))    
+    this.somaDados = this.filtraNumero.reduce(function(a, b) {
+      return a + b;
+    });          
+    this.totalDados.push('=',this.somaDados)    
+    this.objHistoricoDados.unshift(this.totalDados)    
+  }
+
+  gerarNumeros(){
     for (let i = 0; i < this.qtdDados; i++){
       this.rolagem = (Math.floor((Math.random() * this.max) + this.min))  
       if(this.tipoDados == 'd20' && this.rolagem == 20) {
@@ -62,52 +49,54 @@ export class DiceRollerComponent implements OnInit {
         this.totalDados.push('+',this.rolagem)
       }  
     }
+  }
+  
+  somarBonus(){
     if (this.bonusDados > 0){
       this.totalDados.push('+',this.bonusDados)
     }    
-    this.filtraNumero = this.totalDados.filter(a => Number(a))
-    this.somaDados = this.filtraNumero.reduce(function(a, b) {
-      return a + b;
-    });      
-    this.totalDados.push('=',this.somaDados)
-
-    this.objHistoricoDados.unshift(this.totalDados)
-    console.log(this.objHistoricoDados)
-    
     
   }
+
   qtdDadosValue(event: KeyboardEvent) {
     this.qtdDados = (event.target as HTMLInputElement).valueAsNumber;
   }
   bonusDadosValue(event: KeyboardEvent) {
     this.bonusDados = (event.target as HTMLInputElement).valueAsNumber;
   }
-  selectChangeHandler(event: any) {
+
+  escolherDado(event: any) {
     this.tipoDados = event.target.value;
     switch (event.target.value){
       case "d4":
         this.tipoDadoImg = '../../assets/d4.svg';       
+        this.max = 4;        
         break;
       case "d6":
         this.tipoDadoImg = '../../assets/d6.svg';       
+        this.max = 6;        
         break;
         case "d8":
         this.tipoDadoImg = '../../assets/d8.svg';       
+        this.max = 8;        
         break;
         case "d10":
         this.tipoDadoImg = '../../assets/d10.svg';       
+        this.max = 10;
         break;
         case "d12":
         this.tipoDadoImg = '../../assets/d12.svg';       
+        this.max = 12;      
         break;
         case "d20":
         this.tipoDadoImg = '../../assets/d20.svg';       
+        this.max = 20;        
         break;
         case "d100":
         this.tipoDadoImg = '../../assets/d10.svg';       
+        this.max = 100;        
         break;
     }
-    // console.log(event.target.value)
   }
   limparResultado(){
     this.totalDados = []

@@ -11,6 +11,9 @@ import { InitTrackerComponent } from './init-tracker/init-tracker.component';
 import { HomeComponent } from './home/home.component';
 import { IntroComponent } from './intro/intro.component';
 import { FormsModule } from '@angular/forms';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GameHookComponent } from './game-hook/game-hook.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     DiceRollerComponent,
     InitTrackerComponent,
     IntroComponent,
-    HomeComponent
+    HomeComponent,
+    GameHookComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,9 @@ import { FormsModule } from '@angular/forms';
     MatPaginatorModule,
     MatSortModule,
     FormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTooltipModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

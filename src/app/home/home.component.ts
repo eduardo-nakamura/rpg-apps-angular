@@ -10,24 +10,24 @@ export class HomeComponent implements OnInit {
 
   cards = [
     {
-      // imagem:'../../assets/dice.png',
-      imagem:'https://via.placeholder.com/300x300',
+      imagem:'../../assets/dice.png',
+      
       titulo:'Dice Roller',
       descricao:'Aplicativo para Rolar Dados',
       path:'dice-roller'
     },
     {
-      // imagem:'../../assets/init-tracker.png',
-      imagem:'https://via.placeholder.com/300x300',
+      imagem:'../../assets/init-tracker.png',
+      
       titulo:'Initiative Tracker',
       descricao:'Aplicativo para determinar iniciativa',
       path:'init-tracker'
     },
     {
       imagem:'https://via.placeholder.com/300x300',
-      titulo:'Intro',
-      descricao:'Tela inicial do Angular',
-      path:'intro'
+      titulo:'Game Hooks',
+      descricao:'Alguns ganchos de história para iniciar uma aventura',
+      path:'game-hooks'
     },
   ]
   constructor() { 
