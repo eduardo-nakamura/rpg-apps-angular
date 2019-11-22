@@ -1,7 +1,7 @@
 <div class="content  mx-auto">
     <div class="col-12 justify-content-center">
         <div class="row bg-header mt-2 pl-2 pt-2">
-            <h2>Initiative Tracker {{initObj}}</h2>
+            <h2>Initiative Tracker</h2>
         </div>
         <div class="row p-2 position-relative">
             <i class="fas fa-hand-pointer choose-party text-white" *ngIf="!initObj"></i>
@@ -23,23 +23,24 @@
                 <mat-table *ngIf="initObj" class="lessons-table init-table mat-elevation-z8" [dataSource]="dataSource">
 
                     <ng-container matColumnDef="name">
-                        <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
-                        <mat-cell *matCellDef="let lesson">
-                            <input type="text" [value]="lesson.name" disabled>
+                        <mat-header-cell class="col-3" *matHeaderCellDef>Nome</mat-header-cell>
+                        <mat-cell class="col-3" *matCellDef="let lesson">
+                            <!-- <input type="text" [value]="lesson.name" disabled> -->
+                            <h5 class="text-light">{{lesson.name}}</h5>
                         </mat-cell>
                     </ng-container>
 
                     <ng-container matColumnDef="bonusInit">
-                        <mat-header-cell *matHeaderCellDef>Bonus Init</mat-header-cell>
-                        <mat-cell class="description-cell" *matCellDef="let lesson">
+                        <mat-header-cell class="col-2" *matHeaderCellDef>Bonus Init</mat-header-cell>
+                        <mat-cell class="description-cell col-2" *matCellDef="let lesson">
                             <input type="number" [value]="lesson.bonusInit" [(ngModel)]="lesson.bonusInit" (change)="atualizarTabela()">
                         </mat-cell>
 
                     </ng-container>
 
                     <ng-container matColumnDef="diceInit">
-                        <mat-header-cell *matHeaderCellDef>Dados Init</mat-header-cell>
-                        <mat-cell class="duration-cell" *matCellDef="let lesson;let i = index">
+                        <mat-header-cell class="col-3" *matHeaderCellDef>Dados Init</mat-header-cell>
+                        <mat-cell class="duration-cell col-3" *matCellDef="let lesson;let i = index">
                             <input type="number" class="w-50" [value]="lesson.diceInit" [(ngModel)]="lesson.diceInit" (change)="atualizarTabela()">
                             <div class="btn-rpg" (click)="rollDice(i)">
                                 <i class="fas fa-dice"></i>
@@ -49,14 +50,15 @@
                     </ng-container>
 
                     <ng-container matColumnDef="totalInit">
-                        <mat-header-cell *matHeaderCellDef>Total init</mat-header-cell>
-                        <mat-cell class="duration-cell" *matCellDef="let lesson">
-                            <input type="number" [value]="lesson.totalInit" disabled>
+                        <mat-header-cell class="col-2" *matHeaderCellDef>Total init</mat-header-cell>
+                        <mat-cell class="duration-cell col-2" *matCellDef="let lesson">
+                            <!-- <input type="number" [value]="lesson.totalInit" disabled> -->
+                            <h3 class="text-light">{{lesson.totalInit}}</h3>
                         </mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="delete">
-                        <mat-header-cell *matHeaderCellDef>Derrubar</mat-header-cell>
-                        <mat-cell class="duration-cell" *matCellDef="let lesson;let i = index">
+                        <mat-header-cell class=" col-2" *matHeaderCellDef>Eliminar</mat-header-cell>
+                        <mat-cell class="duration-cell col-2" *matCellDef="let lesson;let i = index">
                             <div class="btn-rpg " (click)="removeChar(i)">
                                 <i class="fas fa-skull"></i>
                             </div>

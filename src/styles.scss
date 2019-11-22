@@ -28,7 +28,12 @@ body-inside {
 }
 
 h2,
-h3 {
+h3,
+h5 {
+    font-family: 'Trade Winds', cursive;
+}
+
+.tradewindsfont {
     font-family: 'Trade Winds', cursive;
 }
 
@@ -52,6 +57,7 @@ h3 {
 .bg-hook {
     background-image: url('../src/assets/0047-old-parchment-paper-texture-seamless-hr.jpg');
     color: #2c1a05;
+    transform: rotate(-0.5deg) skewX(3deg);
 }
 
 .card {
@@ -189,13 +195,14 @@ h3 {
     .nav-link {
         color: #fff;
         transition: all 0.3s;
+        border-bottom: 2px solid transparent;
     }
     .nav-link:hover {
-        background-color: rgba(184, 180, 180, 0.2);
+        border-bottom: 2px solid rgba(255, 0, 0, 0.3);
     }
     .nav-link.active {
         border-bottom: 2px solid red;
-        font-weight: bold;
+        text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.6), 3px 3px 5px rgba(255, 255, 255, 0.3);
     }
 }
 
@@ -244,7 +251,18 @@ h3 {
 }
 
 .form-control {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    border-radius: 0;
+    border-color: rgba(70, 70, 70, 1);
+}
+
+.form-control:focus {
+    color: #fff;
     background-color: transparent;
+    border-color: rgba(70, 70, 70, 1);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(70, 70, 70, 0.25);
 }
 
 .form-control::placeholder {

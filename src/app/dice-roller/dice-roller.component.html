@@ -9,7 +9,10 @@
                 <input placeholder="1" [(ngModel)]="qtdDados" min="0" id="qtdDados" class="form-control" numeric numericType="number" type="number">
             </div>
             <div class="col-md  col-6">
-                <label class="mr-2 text-white" for="formGroupExampleInput" style="display: inline;">Tipo: <img class="iconeDado" [src]="tipoDadoImg" alt="">{{tipoDados}}</label>
+                <label class="mr-2 text-white" for="formGroupExampleInput" style="display: inline;">Tipo: <img class="iconeDado" [src]="tipoDadoImg" alt="">
+                    <span class="tradewindsfont">{{tipoDados}}</span>
+                </label>
+
                 <select (change)="escolherDado($event)" class="custom-select text-white" name="" id="tipoDados">
                     <option value="d4">d4</option>
                     <option value="d6">d6</option>
