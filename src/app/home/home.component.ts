@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
       imagem:'https://via.placeholder.com/300x300',
       titulo:'Game Hooks',
       descricao:'Alguns ganchos de história para iniciar uma aventura',
-      path:'game-hooks'
+      path:'game-hook'
     },
   ]
   constructor() { 

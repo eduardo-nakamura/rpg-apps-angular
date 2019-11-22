@@ -3,12 +3,16 @@
         <div class="row bg-header mt-2 pl-2 pt-2">
             <h2>Game Hooks</h2>
         </div>
-        <div class="row mt-2 pl-2 pt-2 text-white">
-            <h1>"{{arrayHooks[hookIndex]}}"</h1>
+        <div class="row  mt-2 pl-2 pt-2 text-white d-flex flex-row align-items-center ">
+            <div class="col-8 p-4 bg-hook">
+                <h4>"{{arrayHooks[hookIndex]}}"</h4>
+            </div>
+            <div class="col-4">
+                <button class="btn  btn-large" (click)="buttonHook()">Outro Game Hook</button>
+            </div>
+
         </div>
-        <div class="row mt-2 pl-2 pt-2 text-white">
-            <button class="btn  btn-large" (click)="buttonHook()">Outro Game Hook</button>
-        </div>
+
         <div class="row mt-2 pl-2 pt-2">
             <p class="text-white">Fontes:<br>
                 <a class="text-light" href="https://www.reddit.com/r/DnD/comments/9adid0/50_adventure_hooks_to_steal_for_your_game/">50 Adventure Hooks To Steal For Your Game

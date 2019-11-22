@@ -6,7 +6,7 @@
         <div class="row p-2 ">
             <div class=" col-md  col-6">
                 <label class="mr-2 text-white" for="formGroupExampleInput">Quantidade: </label> {{qtdDados}}
-                <input placeholder="1" (keyup)="qtdDadosValue($event)" min="0" id="qtdDados" class="form-control" numeric numericType="number" type="number">
+                <input placeholder="1" [(ngModel)]="qtdDados" min="0" id="qtdDados" class="form-control" numeric numericType="number" type="number">
             </div>
             <div class="col-md  col-6">
                 <label class="mr-2 text-white" for="formGroupExampleInput" style="display: inline;">Tipo: <img class="iconeDado" [src]="tipoDadoImg" alt="">{{tipoDados}}</label>
@@ -22,7 +22,7 @@
             </div>
             <div class="col-md  col-6">
                 <label class="mr-2 text-white" for="formGroupExampleInput">Bonus: </label> {{bonusDados}}
-                <input placeholder="0" (keyup)="bonusDadosValue($event)" class="form-control" id="bonusDados" type="number">
+                <input placeholder="0" [(ngModel)]="bonusDados" class="form-control" id="bonusDados" type="number">
             </div>
             <div class="col-md col-6 ">
                 <label class="mr-2" for="formGroupExampleInput">&nbsp;</label>
@@ -45,7 +45,7 @@
         <div class="row bg-header mt-2 pl-2 pt-2">
             <h3>Histórico</h3>
         </div>
-        <div class="row justify-content-center">
+        <div class="row ">
             <ul class="list-inline hist ">
                 <li class="list-inline-item p-3 mb-2 resultado text-light" *ngFor="let historico of objHistoricoDados">
                     <!-- {{objHistoricoDados.indexOf(historico)+1}}) -->
@@ -62,6 +62,3 @@
         </div>
     </div>
 </div>
-
-
-<p class="text-white">{{max}}</p>

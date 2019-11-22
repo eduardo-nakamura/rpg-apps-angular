@@ -45,6 +45,43 @@ h3 {
     animation: titleshadow 3s infinite;
 }
 
+.components a:hover {
+    text-decoration: none;
+}
+
+.bg-hook {
+    background-image: url('../src/assets/0047-old-parchment-paper-texture-seamless-hr.jpg');
+    color: #2c1a05;
+}
+
+.card {
+    transition: all 0.5s;
+    border-radius: 0;
+    border: 0;
+    background-color: transparent;
+    .card-img-top {
+        border-radius: 0;
+    }
+    .card-body {
+        background-image: url('../src/assets/grunge-metal-red-grunge-texture_1048-4051.jpg');
+        .card-title {
+            color: #fff;
+            font-family: 'Trade Winds', cursive;
+            font-size: 150%;
+        }
+        .card-text {
+            height: 50px;
+            color: #fff;
+            font-size: 18px;
+            line-height: 18px;
+        }
+    }
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
 .btn {
     background-color: rgba(255, 0, 0, 0.5);
     border: 2px solid rgba(255, 0, 0, 0.7);
@@ -169,6 +206,10 @@ h3 {
     /* Hide horizontal scrollbar */
     overflow-y: auto;
     /* Add vertical scrollbar */
+    li:first-child {
+        background-image: url('../src/assets/grunge-metal-red-grunge-texture_1048-4051.jpg');
+        background-position: center;
+    }
 }
 
 .list-group li:first-child {

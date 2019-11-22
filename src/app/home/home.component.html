@@ -1,10 +1,10 @@
 <div class="container p-3">
     <div class="row">
 
-        <div class="col-md col-6" *ngFor="let card of cards">
+        <div class="col-md mb-2 components" *ngFor="let card of cards">
             <a [routerLink]="card.path">
                 <div class="card">
-                    <img class="card-img-top" [src]="card.imagem" [alt]="card.titulo">
+                    <img class="card-img-top d-none d-md-block d-lg-block d-xl-block" [src]="card.imagem" [alt]="card.titulo">
                     <div class="card-body">
                         <h6 class="card-title">{{card.titulo}}</h6>
                         <p class="card-text"><small>{{card.descricao}}</small></p>
