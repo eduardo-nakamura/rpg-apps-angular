@@ -7,7 +7,9 @@
             <i class="fas fa-hand-pointer choose-party text-white" *ngIf="!initObj"></i>
             <select *ngIf="!initObj" (change)="selectChangeHandler($event)" class="custom-select" name="" id="tipoDados">
             <option value="">Escolha uma Party</option>
-            <option *ngFor="let party of partyOptions" [value]="partyOptions.indexOf(party)">{{party.partyName}}</option>   
+            <option value="0">Fahen</option>   
+            <option value="1">Nyaris</option>   
+            <option value="2">Criar Grupo</option>   
             </select>
             <section *ngIf="initObj" class="d-flex flex-row align-items-center text-light">
                 <label for="">Adicionar personagem</label>
@@ -25,7 +27,7 @@
                     <ng-container matColumnDef="name">
                         <mat-header-cell class="col-3" *matHeaderCellDef>Nome</mat-header-cell>
                         <mat-cell class="col-3" *matCellDef="let lesson">
-                            <!-- <input type="text" [value]="lesson.name" disabled> -->
+
                             <h5 class="text-light">{{lesson.name}}</h5>
                         </mat-cell>
                     </ng-container>
@@ -68,31 +70,31 @@
 
                     <mat-header-row class="turn-css-header" *matHeaderRowDef="displayedColumns"></mat-header-row>
 
-                    <mat-row [ngClass]="{'turn-css-select': row.name == ordenarChars[turno].name && started == true}" *matRowDef="let row; columns: displayedColumns;let i = index"></mat-row>
+                    <mat-row [ngClass]="{'turn-css-select': row.name == initObj[turno].name && started == true}" *matRowDef="let row; columns: displayedColumns;let i = index"></mat-row>
 
                 </mat-table>
             </div>
         </div>
 
         <div class="row p-2 align-items-center " *ngIf="initObj">
-            <div class="btn-rpg" (click)="prev()" *ngIf="started" (mouseenter)="textHover='Anterior'" (mouseleave)="textHover=''">
+            <div class="btn-rpg" (click)="prev()" (mouseenter)="textHover='Anterior'" (mouseleave)="textHover=''">
                 <i class="fas  fa-angle-left"></i>
             </div>
-            <div class="btn-rpg" (click)="ordenarTabela()" *ngIf="started" (mouseenter)="textHover='Ordenar Tabela'" (mouseleave)="textHover=''">
+            <div class="btn-rpg" (click)="ordenarTabela()" (mouseenter)="textHover='Ordenar Tabela'" (mouseleave)="textHover=''">
                 <i class="fas fa-sync-alt"></i>
             </div>
-            <div class="btn-rpg" (click)="start()" *ngIf="!started" (mouseenter)="textHover='Iniciar Encontro'" (mouseleave)="textHover=''">
+            <div class="btn-rpg" (click)="start()" (mouseenter)="textHover='Iniciar Encontro'" (mouseleave)="textHover=''">
                 <i class="fas fa-play"></i>
             </div>
-            <p class="text-light" *ngIf="!started">Iniciar!</p>
-            <div class="btn-rpg" (click)="next()" *ngIf="started" title="Próximo" (mouseenter)="textHover='Próximo'" (mouseleave)="textHover=''">
+
+            <div class="btn-rpg" (click)="next()" title="Próximo" (mouseenter)="textHover='Próximo'" (mouseleave)="textHover=''">
                 <i class="fas fa-angle-right"></i>
             </div>
 
-            <div class="btn-rpg" (click)="finish()" (mouseenter)="textHover='Encerrar Encontro'" (mouseleave)="textHover=''" *ngIf="started" title="Encerrar Encontro">
+            <div class="btn-rpg" (click)="finish()" (mouseenter)="textHover='Encerrar Encontro'" (mouseleave)="textHover=''" title="Encerrar Encontro">
                 <i class="fas fa-book-dead"></i>
             </div>
-            <p class="text-light" *ngIf="started">
+            <p class="text-light">
                 {{textHover}}
             </p>
         </div>
