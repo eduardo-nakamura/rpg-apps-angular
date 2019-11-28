@@ -13,7 +13,14 @@ export interface initTable {
   totalInit: number;
 }
 
+
 const ELEMENT_DATA: initTable[] = []
+const FAHENS: initTable[] = [
+  { name: 'Chabal', bonusInit: 1, diceInit: 0, totalInit: 0, },
+  { name: 'Nibi', bonusInit: 5, diceInit: 0, totalInit: 0, },
+  { name: 'Valerius', bonusInit: 4, diceInit: 0, totalInit: 0, },
+  { name: 'Sora', bonusInit: 13, diceInit: 0, totalInit: 0, }
+]
 @Component({
   selector: 'app-init-tracker',
   templateUrl: './init-tracker.component.html',
@@ -21,33 +28,36 @@ const ELEMENT_DATA: initTable[] = []
 })
 export class InitTrackerComponent implements OnInit {
 
-  selectedParty = '';
-  initObj:Character[];
+  selectedParty = undefined;
+  initObj:initTable[] = []
   displayedColumns: string[] = ['name', 'bonusInit', 'diceInit', 'totalInit', 'delete'];
   dataSource = new MatTableDataSource<initTable>(ELEMENT_DATA);
-  ordenarChars: any = [];
+  dataSource1 = new MatTableDataSource<initTable>(ELEMENT_DATA);
+  // ordenarChars: any = [];
   turno:number = 0  
   addNewChar = ''
-  
+  addNewCharInput = false
+  started = false
   constructor() { }
 
   ngOnInit() {
     console.log(this.initObj)
   }
-  selectChangeHandler(event: any) {
+  selectChangeHandler(event: any) {    
     this.selectedParty = event.target.value;
     switch(this.selectedParty){
       case "0":        
-        this.initObj = FAHEN
+        // this.initObj = JSON.parse(JSON.stringify(FAHENS))
+        this.initObj = [...FAHEN]
         break;
       case "1":        
-        this.initObj = NYARIS
+        this.initObj = [...NYARIS]
         break;
       case "2":        
-        this.initObj = NEW
+        this.initObj = [...NEW]
         break;
-    }    
- 
+    }
+    this.addNewCharInput=true
     this.atualizarTabela()
   }
  
@@ -80,7 +90,7 @@ export class InitTrackerComponent implements OnInit {
   }
   rollDice(i){    
     this.initObj[i].diceInit = Math.floor((Math.random() * 20) + 1)
-    this.atualizarTabela()
+    this.atualizarTabela()    
   }
   addChar() {    
     if(this.addNewChar != ''){
@@ -92,29 +102,34 @@ export class InitTrackerComponent implements OnInit {
     }    
   }
   start(){   
-    // this.ordenarTabela()
-    // this.started = true
+    this.ordenarTabela()
+    this.started = true   
+    this.addNewCharInput = false 
+    this.turno = 0
+    this.displayedColumns = ['name',  'totalInit', 'delete'];
   }
   next(){
-    // if(this.turno < this.ordenarChars.length-1){
-    //   this.turno = this.turno+1
-    // } else{
-    //   this.turno = 0
-    // }    
+    if(this.turno < this.initObj.length-1){
+      this.turno = this.turno+1
+    } else{
+      this.turno = 0
+    }    
+    this.ordenarTabela()
   }
   prev(){
-    // if(this.turno < 1){
-    //   this.turno = this.ordenarChars.length-1
-    // } else{
-    //   this.turno = this.turno-1
-    // }
-
+    if(this.turno < 1){
+      this.turno = this.initObj.length-1
+    } else{
+      this.turno = this.turno-1
+    }
+    
   }
-  finish(){   
-    console.log(this.initObj)
-    this.initObj = []
-   console.log(this.initObj)
-   this.atualizarTabela()
+  finish(){      
+   this.selectedParty = ''
+   this.initObj = undefined   
+   this.dataSource = new MatTableDataSource<initTable>(ELEMENT_DATA);
+   this.started = false
+   this.displayedColumns = ['name', 'bonusInit', 'diceInit', 'totalInit', 'delete'];
   }
 }
 
