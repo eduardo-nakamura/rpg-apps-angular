@@ -27,7 +27,7 @@ const FAHENS: initTable[] = [
   styleUrls: ['./init-tracker.component.css']
 })
 export class InitTrackerComponent implements OnInit {
-
+  textHover:string
   selectedParty = undefined;
   initObj:initTable[] = []
   displayedColumns: string[] = ['name', 'bonusInit', 'diceInit', 'totalInit', 'delete'];
