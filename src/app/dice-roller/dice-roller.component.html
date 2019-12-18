@@ -5,9 +5,9 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <h3>1) Escolha os Dados</h3>
+                <h5 class="text-white">1) Escolha os Dados</h5>
             </div>
-            <div class="col-12 col-sm-7 dicecss">
+            <div class="col-12 col-sm-9 dicecss">
                 <div class="row">
                     <div class="col text-light" (click)="this.quant4 = 0;showD4 = !showD4">
                         <p>d4</p>
@@ -43,61 +43,84 @@
                     </div>
 
                 </div>
-                <div class="row d-flex flex-row ">
-                    <div class=" flex-fill" *ngIf="showD4">
+                <div class="row d-flex flex-row dices-types">
+
+                    <div class="m-2 flex-fill" *ngIf="">
+                        <p>Resultado aqui</p>
+                    </div>
+                    <div class="m-2 flex-fill" *ngIf="showD4">
                         <input type="number" [(ngModel)]="quant4" value="0">
-                        <label class="text-light" for="d4">d4</label>
+                        <label class="text-light" for="d4">d4 + </label>
                         <input type="number" [(ngModel)]="bonus4" value="0">
                     </div>
-                    <div class=" flex-fill" *ngIf="showD6">
+                    <div class="m-2 flex-fill" *ngIf="showD6">
                         <input type="number" [(ngModel)]="quant6" value="0">
-                        <label class="text-light" for="d6">d6</label>
+                        <label class="text-light" for="d6">d6 + </label>
+                        <input type="number" [(ngModel)]="bonus6" value="0">
                     </div>
-                    <div class=" flex-fill" *ngIf="showD8">
+                    <div class="m-2 flex-fill" *ngIf="showD8">
                         <input type="number" [(ngModel)]="quant8" value="0">
-                        <label class="text-light" for="d8">d8</label>
+                        <label class="text-light" for="d8">d8 + </label>
+                        <input type="number" [(ngModel)]="bonus8" value="0">
                     </div>
-                    <div class=" flex-fill" *ngIf="showD10">
+                    <div class="m-2 flex-fill" *ngIf="showD10">
                         <input type="number" [(ngModel)]="quant10" value="0">
-                        <label class="text-light" for="d10">d10</label>
+                        <label class="text-light" for="d10">d10 + </label>
+                        <input type="number" [(ngModel)]="bonus10" value="0">
                     </div>
-                    <div class=" flex-fill" *ngIf="showD12">
+                    <div class="m-2 flex-fill" *ngIf="showD12">
                         <input type="number" [(ngModel)]="quant12" value="0">
-                        <label class="text-light" for="d12">d12</label>
+                        <label class="text-light" for="d12">d12 + </label>
+                        <input type="number" [(ngModel)]="bonus12" value="0">
                     </div>
-                    <div class=" flex-fill" *ngIf="showD20">
+                    <div class="m-2 flex-fill" *ngIf="showD20">
                         <input type="number" [(ngModel)]="quant20" value="0">
-                        <label class="text-light" for="d20">d20</label>
+                        <label class="text-light" for="d20">d20 + </label>
+                        <input type="number" [(ngModel)]="bonus20" value="0">
                     </div>
-                    <div class=" flex-fill" *ngIf="showD100">
+                    <div class="m-2 flex-fill" *ngIf="showD100">
                         <input type="number" [(ngModel)]="quant100" value="0">
-                        <label class="text-light" for="d100">d100</label>
+                        <label class="text-light" for="d100">d100 + </label>
+                        <input type="number" [(ngModel)]="bonus100" value="0">
                     </div>
-                    <div class=" flex-fill" *ngIf="showDCustom">
+                    <div class="m-2 flex-fill" *ngIf="showDCustom">
                         <input type="number" [(ngModel)]="quantCustom" value="0">
                         <label class="text-light" for="d">d</label>
                         <input type="number" [(ngModel)]="customDice" value="0">
+                        <label class="text-light" for="d">+</label>
+                        <input type="number" [(ngModel)]="bonusCustom" value="0">
 
                     </div>
                 </div>
 
 
             </div>
-            <div class="col-12 col-sm-2 bg-red">
-                <div class="btn-rpg" (click)="rollDice()">
+            <div class="col-12 align-middle col-sm-3 bg-red">
+                <button class="btn w-100 btn-large mb-2" (click)="rollDice()"><i class="fas fa-dice"></i> Rolar Dados</button>
+                <button class="btn w-100 btn-large" (click)="resetHist()"><i class="fas fa-undo"></i> Limpar Histórico</button>
+                <!-- <div class="btn-rpg" (click)="rollDice()">
                     <i class="fas fa-dice"></i>
                 </div>
+                <div class="btn-rpg" (click)="rollDice()">
+                    <i class="fas fa-undo"></i>
+                </div> -->
             </div>
-            <div class="col-12 col-sm-3 bg-white">
-                {{dadosResultado}}
-            </div>
+
+            <!-- <div class="col-12 col-sm-3 bg-white" style="display:flex;
+            justify-content:center;
+            align-items: center;
+            flex-flow: column;">
+                <p class="align-middle m-0 p-0">{{histResults[0]}}</p>
+            </div> -->
         </div>
         <div class="row bg-header mt-2 pl-2 pt-2">
-            <h3>Histórico</h3>
+            <h3>Resultado</h3>
         </div>
-        <div class="row ">
-
+        <div class="row histresults  ">
+            <div class="text-light d-flex flex-row p-2 align-items-end" *ngFor="let results of histResults">
+                <p>{{results}}</p>
+            </div>
         </div>
-
+        <p class="text-light"></p>
     </div>
 </div>
