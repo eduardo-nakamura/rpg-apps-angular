@@ -4,7 +4,7 @@ import { InitTrackerComponent } from './init-tracker/init-tracker.component'
 import { DiceRollerComponent } from './dice-roller/dice-roller.component'
 import { IntroComponent } from './intro/intro.component'
 import { HomeComponent } from './home/home.component'
-import {GameHookComponent} from './game-hook/game-hook.component'
+import { GameHookComponent } from './game-hook/game-hook.component'
 
 const routes: Routes = [
   { 
@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'intro', 
     component: IntroComponent
   },
+  {
+    path: "**",
+    component: HomeComponent
+  }
 ];
 
 @NgModule({
