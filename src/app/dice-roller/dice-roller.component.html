@@ -3,65 +3,101 @@
         <div class="row bg-header mt-2 pl-2 pt-2">
             <h2>Dice Roller</h2>
         </div>
-        <div class="row p-2 ">
-            <div class=" col-md  col-6">
-                <label class="mr-2 text-white" for="formGroupExampleInput">Quantidade: </label> {{qtdDados}}
-                <input placeholder="1" [(ngModel)]="qtdDados" min="0" id="qtdDados" class="form-control" numeric numericType="number" type="number">
+        <div class="row">
+            <div class="col-12">
+                <h3>1) Escolha os Dados</h3>
             </div>
-            <div class="col-md  col-6">
-                <label class="mr-2 text-white" for="formGroupExampleInput" style="display: inline;">Tipo: <img class="iconeDado" [src]="tipoDadoImg" alt="">
-                    <span class="tradewindsfont">{{tipoDados}}</span>
-                </label>
+            <div class="col-12 col-sm-7 dicecss">
+                <div class="row">
+                    <div class="col text-light" (click)="this.quant4 = 0;showD4 = !showD4">
+                        <p>d4</p>
+                        <!-- <imgsrc="assets/d4.svg" title="D4" alt="D4"> -->
+                    </div>
+                    <div class="col text-light" (click)="this.quant6 = 0;showD6 = !showD6">
+                        <p>d6</p>
+                        <!-- <img src="assets/d6.svg" title="D6" alt="D6"> -->
+                    </div>
+                    <div class="col text-light" (click)="this.quant8 = 0;showD8 = !showD8">
+                        <p>d8</p>
+                        <!-- <img src="assets/d8.svg" title="D8" alt="D8"> -->
+                    </div>
+                    <div class="col text-light" (click)="this.quant10 = 0;showD10 = !showD10">
+                        <p>d10</p>
+                        <!-- <img src="assets/d10.svg" title="D10" alt="D10"> -->
+                    </div>
+                    <div class="col text-light" (click)="this.quant12 = 0;showD12 = !showD12">
+                        <p>d12</p>
+                        <!-- <img src="assets/d12.svg" title="D12" alt="D12"> -->
+                    </div>
+                    <div class="col text-light" (click)="this.quant20 = 0;showD20 = !showD20">
+                        <p>d20</p>
+                        <!-- <img src="assets/d20.svg" title="D20" alt="D20"> -->
+                    </div>
+                    <div class="col text-light" (click)="this.quant100 = 0;showD100 = !showD100">
+                        <p>d100</p>
+                        <!-- <img src="assets/d100.svg" title="Custom" alt="Custom"> -->
+                    </div>
+                    <div class="col text-light" (click)="this.quantCustom = 0;this.customDice = 0 ;showDCustom = !showDCustom">
+                        <p>dcustom</p>
+                        <!-- <img src="assets/dcustom.svg" title="Custom" alt="Custom"> -->
+                    </div>
 
-                <select (change)="escolherDado($event)" class="custom-select text-white" name="" id="tipoDados">
-                    <option value="d4">d4</option>
-                    <option value="d6">d6</option>
-                    <option value="d8">d8</option>
-                    <option value="d10">d10</option>
-                    <option value="d12">d12</option>
-                    <option value="d20">d20</option>
-                    <option value="d100">d100</option>                            
-                </select>
+                </div>
+                <div class="row d-flex flex-row ">
+                    <div class=" flex-fill" *ngIf="showD4">
+                        <input type="number" [(ngModel)]="quant4" value="0">
+                        <label class="text-light" for="d4">d4</label>
+                        <input type="number" [(ngModel)]="bonus4" value="0">
+                    </div>
+                    <div class=" flex-fill" *ngIf="showD6">
+                        <input type="number" [(ngModel)]="quant6" value="0">
+                        <label class="text-light" for="d6">d6</label>
+                    </div>
+                    <div class=" flex-fill" *ngIf="showD8">
+                        <input type="number" [(ngModel)]="quant8" value="0">
+                        <label class="text-light" for="d8">d8</label>
+                    </div>
+                    <div class=" flex-fill" *ngIf="showD10">
+                        <input type="number" [(ngModel)]="quant10" value="0">
+                        <label class="text-light" for="d10">d10</label>
+                    </div>
+                    <div class=" flex-fill" *ngIf="showD12">
+                        <input type="number" [(ngModel)]="quant12" value="0">
+                        <label class="text-light" for="d12">d12</label>
+                    </div>
+                    <div class=" flex-fill" *ngIf="showD20">
+                        <input type="number" [(ngModel)]="quant20" value="0">
+                        <label class="text-light" for="d20">d20</label>
+                    </div>
+                    <div class=" flex-fill" *ngIf="showD100">
+                        <input type="number" [(ngModel)]="quant100" value="0">
+                        <label class="text-light" for="d100">d100</label>
+                    </div>
+                    <div class=" flex-fill" *ngIf="showDCustom">
+                        <input type="number" [(ngModel)]="quantCustom" value="0">
+                        <label class="text-light" for="d">d</label>
+                        <input type="number" [(ngModel)]="customDice" value="0">
+
+                    </div>
+                </div>
+
+
             </div>
-            <div class="col-md  col-6">
-                <label class="mr-2 text-white" for="formGroupExampleInput">Bonus: </label> {{bonusDados}}
-                <input placeholder="0" [(ngModel)]="bonusDados" class="form-control" id="bonusDados" type="number">
+            <div class="col-12 col-sm-2 bg-red">
+                <div class="btn-rpg" (click)="rollDice()">
+                    <i class="fas fa-dice"></i>
+                </div>
             </div>
-            <div class="col-md col-6 ">
-                <label class="mr-2" for="formGroupExampleInput">&nbsp;</label>
-                <br>
-
-                <button class="btn  btn-large  col-sm-12" (click)="rolar()"><i class="fas fa-dice"></i>&nbsp;Rolar</button>
-            </div>
-            <div class="col-12 col-md-4 ">
-
-                <p class="text-center resultado p-3 mt-4  text-light">
-                    <span *ngIf="totalDados.length == 0" style="background-color: transparent;">Resultado da Rolagem aqui</span>
-                    <span *ngFor="let dados of totalDados">
-                            {{dados}}                            
-                        </span>
-                </p>
-
-
+            <div class="col-12 col-sm-3 bg-white">
+                {{dadosResultado}}
             </div>
         </div>
         <div class="row bg-header mt-2 pl-2 pt-2">
             <h3>Histórico</h3>
         </div>
         <div class="row ">
-            <ul class="list-inline hist ">
-                <li class="list-inline-item p-3 mb-2 resultado text-light" *ngFor="let historico of objHistoricoDados">
-                    <!-- {{objHistoricoDados.indexOf(historico)+1}}) -->
-                    <span *ngFor="let hist of historico">
-                             {{hist}}
-                    </span>
-                </li>
-
-            </ul>
 
         </div>
-        <div class="row justify-content-center">
-            <button class="btn btn-large   " (click)="limparHistorico()">Limpar Histórico</button>
-        </div>
+
     </div>
 </div>
