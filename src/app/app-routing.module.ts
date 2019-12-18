@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'intro', 
     component: IntroComponent
   },
+  {
+    path: "**",
+    component: HomeComponent
+  }
 ];
 
 @NgModule({
