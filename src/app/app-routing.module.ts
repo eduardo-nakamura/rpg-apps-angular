@@ -5,7 +5,7 @@ import { DiceRollerComponent } from './dice-roller/dice-roller.component'
 import { IntroComponent } from './intro/intro.component'
 import { HomeComponent } from './home/home.component'
 import { GameHookComponent } from './game-hook/game-hook.component'
-
+import { LootGeneratorComponent } from './loot-generator/loot-generator.component'
 const routes: Routes = [
   { 
     path: '', 
@@ -26,6 +26,10 @@ const routes: Routes = [
   { 
     path: 'intro', 
     component: IntroComponent
+  },
+  { 
+    path: 'loot-generator', 
+    component: LootGeneratorComponent
   },
   {
     path: "**",

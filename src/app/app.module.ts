@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GameHookComponent } from './game-hook/game-hook.component';
+import { LootGeneratorComponent } from './loot-generator/loot-generator.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { GameHookComponent } from './game-hook/game-hook.component';
     InitTrackerComponent,
     IntroComponent,
     HomeComponent,
-    GameHookComponent
+    GameHookComponent,
+    LootGeneratorComponent
   ],
   imports: [
     BrowserModule,

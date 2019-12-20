@@ -29,6 +29,12 @@ export class HomeComponent implements OnInit {
       descricao:'Alguns ganchos de história para iniciar uma aventura',
       path:'game-hook'
     },
+    {
+      imagem:'https://via.placeholder.com/300x300',
+      titulo:'Loot Generator',
+      descricao:'Determine os tesouros do seus jogadores aqui',
+      path:'loot-generator'
+    },
   ]
   constructor() { 
     

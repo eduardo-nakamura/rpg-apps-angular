@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="row bg-header mt-2 pl-2 pt-2">
+        <h2>Loot Generator</h2>
+    </div>
+    <div class="row">
+        <h3 class="text-light">1) Determine o tipo e nível do encontro</h3>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-5">
+            <p class="text-light col-12">Tesouro individual</p>
+            <button class="btn m-2 col-2 btn-large" (click)="this.lootType = 1;genLoot()">0-4</button>
+            <button class="btn m-2 col-2 btn-large" (click)="this.lootType = 2;genLoot()">5-10</button>
+            <button class="btn m-2 col-2 btn-large" (click)="this.lootType = 3;genLoot()">11-16</button>
+            <button class="btn m-2 col-2 btn-large" (click)="this.lootType = 4;genLoot()">17+</button>
+        </div>
+        <div class="col-sm-12 col-md-5">
+            <p class="text-light col-12">Reservas de tesouro</p>
+            <button class="btn m-2 col-2 btn-large" (click)="this.lootType = 5;genLoot()">0-4</button>
+            <button class="btn m-2 col-2 btn-large" (click)="this.lootType = 6;genLoot()">5-10</button>
+            <button class="btn m-2 col-2 btn-large" (click)="this.lootType = 7;genLoot()">11-16</button>
+            <button class="btn m-2 col-2 btn-large" (click)="this.lootType = 8;genLoot()">17+</button>
+        </div>
+    </div>
+
+    <div class="row">
+
+
+    </div>
+
+</div>
+
+<p class="text-light">{{solo}}</p>
+<p class="text-light">{{horde}}</p>
+<p class="text-light">{{lootType}}</p>
