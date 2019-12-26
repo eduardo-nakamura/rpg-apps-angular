@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { individualZeroFour, individualFiveTen, individualElevenSixteen, individualSeventeenPlus, hoardZeroFour, hoardFiveTen, hoardElevenSixteen, hoardSeventeenPlus } from './lootObjs';
-import { LootObj } from './lootclass';
 
 @Component({
   selector: 'app-loot-generator',
@@ -294,10 +293,11 @@ export class LootGeneratorComponent implements OnInit {
           this.lootDraw = hoardSeventeenPlus[24]
         }
         break;
-      default:
-        this.lootOptions = '';
-    }
+        default:
+          this.lootOptions = '';
+      }
     //
+    console.log(this.lootDraw)
   }
-  
+ 
 }
