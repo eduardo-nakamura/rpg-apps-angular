@@ -138,14 +138,22 @@ export const hoardSeventeenPlus = [
     { pc: '', pp: '', pe: '', po: '', pl: '', gemArt: '1d8x5000gems', magicItems: '1d4MagItemI' }
 ];
 export const gems10gp = [
+    "Azurita","Ágata malhada","Quartzo azul","Ágata ocular","Hematita","Lápis lazúli","Malaquita","Ágata musgo","Obsidiana","Rodocrosita","Olho de tigre","Turquesa"
 ];
 export const gems50gp = [
+    "Pedra de sangue","Cornalina","Calcedônia","Crisoprásio","Citrina","Jaspe","Pedra lunar","Ônix","Quartzo","Sardônica","Quartzo rosa estrela","Zircônio"
+];
+export const gems100gp = [
+    "Âmbar","Ametista","Crisoberilo","Coral","Granada","Jade","Jato","Pérola","Espinela","Turmalina"
 ];
 export const gems500gp = [
+    "Alexandrita","Água-marinha","Pérola negra","Espinela azul","Peridoto","Topázio"
 ];
 export const gems1000gp = [
+    "Opala negra","Safira azul","Esmeralda","Opala de fogo","Opala","Rubi estrela","Safira estrela","Safira amarela"
 ];
 export const gems5000gp = [
+    "Safira negra","Diamante","Jacinto","Rubi"
 ];
 export const art25gp = [
 ];

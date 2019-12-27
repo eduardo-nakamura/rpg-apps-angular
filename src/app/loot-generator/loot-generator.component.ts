@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { individualZeroFour, individualFiveTen, individualElevenSixteen, individualSeventeenPlus, hoardZeroFour, hoardFiveTen, hoardElevenSixteen, hoardSeventeenPlus } from './lootObjs';
+import { individualZeroFour, individualFiveTen, individualElevenSixteen, individualSeventeenPlus, hoardZeroFour, hoardFiveTen, hoardElevenSixteen, hoardSeventeenPlus, magTableA, gems10gp,gems50gp,gems100gp,gems500gp,gems1000gp,gems5000gp } from './lootObjs';
 
 @Component({
   selector: 'app-loot-generator',
@@ -9,7 +9,7 @@ import { individualZeroFour, individualFiveTen, individualElevenSixteen, individ
 export class LootGeneratorComponent implements OnInit {
   lootOptions: any
   lootDraw: any
-  lootType: Number  
+  lootType: Number
   filterLoot: any
   resultLoot = {
     "pc": 0,
@@ -20,8 +20,8 @@ export class LootGeneratorComponent implements OnInit {
     "gemArt": "",
     "magicItems": ""
   }
-    
-  
+
+
   // numberDraw: Number
 
   constructor() { }
@@ -31,12 +31,12 @@ export class LootGeneratorComponent implements OnInit {
   }
   genLoot() {
     this.resetLoot()
-    this.chooseLoot();    
+    this.chooseLoot();
     this.lootGen()
     // console.log(this.filterLoot)
     // console.log(this.resultLoot)
   }
-  resetLoot(){
+  resetLoot() {
     this.resultLoot.pc = 0;
     this.resultLoot.pp = 0;
     this.resultLoot.pe = 0;
@@ -48,9 +48,9 @@ export class LootGeneratorComponent implements OnInit {
   chooseLoot() {
     // Jogar d100
     let numberDraw = Math.floor(Math.random() * 100) + 1;
-    
+
     // Definir Tipo de Tesouro
-    let chosenLoot:any
+    let chosenLoot: any
     switch (this.lootType) {
       case 1:
         if (numberDraw <= 30) {
@@ -318,79 +318,105 @@ export class LootGeneratorComponent implements OnInit {
           chosenLoot = hoardSeventeenPlus[24]
         }
         break;
-        default:
-          this.lootOptions = '';
-      }   
+      default:
+        this.lootOptions = '';
+    }
 
-      // Filtrar Valores Vazios
-      if (chosenLoot.pc == ''){
-        delete chosenLoot.pc
-      }
-      if (chosenLoot.pp == ''){
-        delete chosenLoot.pp
-      }
-      if (chosenLoot.pe == ''){
-        delete chosenLoot.pe
-      }
-      if (chosenLoot.po == ''){
-        delete chosenLoot.po
-      }
-      if (chosenLoot.pl == ''){
-        delete chosenLoot.pl
-      }
-      if (chosenLoot.gemArt == ''){
-        delete chosenLoot.gemArt
-      }
-      if (chosenLoot.magicItems == ''){
-        delete chosenLoot.magicItems
-      }
+    // Filtrar Valores Vazios
+    if (chosenLoot.pc == '') {
+      delete chosenLoot.pc
+    }
+    if (chosenLoot.pp == '') {
+      delete chosenLoot.pp
+    }
+    if (chosenLoot.pe == '') {
+      delete chosenLoot.pe
+    }
+    if (chosenLoot.po == '') {
+      delete chosenLoot.po
+    }
+    if (chosenLoot.pl == '') {
+      delete chosenLoot.pl
+    }
+    if (chosenLoot.gemArt == '') {
+      delete chosenLoot.gemArt
+    }
+    if (chosenLoot.magicItems == '') {
+      delete chosenLoot.magicItems
+    }
 
-      this.filterLoot = chosenLoot
+    this.filterLoot = chosenLoot
   }
 
-  lootGen(){
+  lootGen() {
     let lootKeys = Object.keys(this.filterLoot)
-    for (let i = 0; i < lootKeys.length; i++){   
-      let rollLoot:string
-      let valor = lootKeys[i]        
+    for (let i = 0; i < lootKeys.length; i++) {
+      let rollLoot: string
+      let valor = lootKeys[i]
       let totalLoot = 0
       if (valor === "gemArt") { continue; }
       if (valor === "magicItems") { continue; }
-      rollLoot = this.filterLoot[valor].split("x")  
+      rollLoot = this.filterLoot[valor].split("x")
       let dice = rollLoot[0].split("d")
-      for (let i = 0; i < parseInt(dice[0]); i++){
-         let rolagem = Math.floor(Math.random() * parseInt(dice[1])) + 1;
-         totalLoot += rolagem
+      for (let i = 0; i < parseInt(dice[0]); i++) {
+        let rolagem = Math.floor(Math.random() * parseInt(dice[1])) + 1;
+        totalLoot += rolagem
         //  console.log(i,rolagem,totalLoot)
-      }  
-      if (rollLoot[1] != undefined){
+      }
+      if (rollLoot[1] != undefined) {
         totalLoot *= parseInt(rollLoot[1])
-      }      
+      }
       this.resultLoot[valor] = totalLoot
     }
     // arte, gemas
-    let artOrGem = 0
-    if (this.filterLoot.gemArt != undefined){  
-      console.log(this.filterLoot.gemArt)
-      let identify = this.filterLoot.gemArt.search("gems")
+    let artOrGem = ""
+    if (this.filterLoot.gemArt != undefined) {
+      let identifyLoot: any
       let gemArtQuant: any
-      if (identify == -1){
-        // art
+      let result: string
+      if (this.filterLoot.gemArt.search("gems") == -1) {
+        // art       
         gemArtQuant = this.filterLoot.gemArt.split("art")[0]
+        identifyLoot = "art"
+        console.log(gemArtQuant)
       } else {
-        //gem
-        gemArtQuant = this.filterLoot.gemArt.split("gems")[0]      
+        //gem   
+        gemArtQuant = this.filterLoot.gemArt.split("gems")[0]
+        identifyLoot = "gem"
+        console.log(gemArtQuant)
       }
-      let separate = gemArtQuant.split("x")      
-      let dice = separate[0].split("d")      
-      for (let i = 0; i < dice[0]; i++){
-        let rolagem = Math.floor(Math.random() * parseInt(dice[1])) + 1;
-        artOrGem += rolagem
-        console.log(i,rolagem)
+      let separate = gemArtQuant.split("x")
+      let dice = separate[0].split("d")
+      for (let i = 0; i < dice[0]; i++) {
+        let rolagem = Math.floor(Math.random() * parseInt(dice[1])) + 1;       
+        if (identifyLoot = "gem") {
+          switch (separate[1]) {
+            case "10":              
+              identifyLoot = gems10gp
+              break;
+            case "50":
+              identifyLoot = gems50gp
+              break;
+            case "100":
+              identifyLoot = gems100gp
+              break;
+            case "500":
+              identifyLoot = gems500gp
+              break;
+            case "1000":
+              identifyLoot = gems1000gp
+              break;
+            case "5000":
+              identifyLoot = gems5000gp
+              break;
+          }         
+        }
+        artOrGem += identifyLoot[rolagem] + ","
+        console.log(artOrGem)               
       }
-      console.log(artOrGem,separate[1])
-  
+      // console.log(artOrGem,separate[1])
+
     }
-    
+
   }
 }
