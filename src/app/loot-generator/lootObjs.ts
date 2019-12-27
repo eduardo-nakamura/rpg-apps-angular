@@ -158,82 +158,12 @@ export const art2500gp = [
 export const art7500gp = [
 ];
 
-export const magTableA = [
-    "Potion of healing",
-    "Spell scroll (cantrip)",
-    "Potion of climbing",
-    "Spell scroll (1st level)",
-    "Spell scroll (2nd level)",
-    "Potion of greater healing",
-    "Bag of holding",
-    "Driftglobe"
-];
+export const magTableA = ["Poção de cura", "Pergaminho de magia (truque)", "Poção de escalar", "Pergaminho de magia (1° nível)", "Pergaminho de magia (2° nível)", "Poção de cura maior", "Mochila de carga"];
 export const magTableB = [
-    "Potion of greater healing",
-    "Potion of fire breath",
-    "Potion of resistance",
-    "Ammunition, +1",
-    "Potion of animal friendship",
-    "Potion of hill giant strength",
-    "Potion of growth",
-    "Potion of water breathing",
-    "Spell scroll (2nd level)",
-    "Spell scroll (3rd level)",
-    "Bag of holding",
-    "Keoghtom's ointment",
-    "Oil of slipperiness",
-    "Dust of disappearance",
-    "Dust of dryness",
-    "Dust of sneezing and choking",
-    "Elemental gem",
-    "Philter of love",
-    "Alchemy jug",
-    "Cap of water breathing",
-    "Cloak of the manta ray",
-    "Driftglobe",
-    "Goggles of night",
-    "Helm of comprehending languages",
-    "Immovable rod",
-    "Lantern of revealing",
-    "Mariner's armor",
-    "Mithral armor",
-    "Potion of poison",
-    "Ring of swimming",
-    "Robe of useful items",
-    "Rope of climbing",
-    "Saddle of the cavalier",
-    "Wand of magic detection",
-    "Wand of secrets"
+    "Poção de cura maior","Poção de sopro de fogo","Poção de resistência","Munição +1","Poção de amizade animal","Poção de força do gigante da colina","Poção de aumentar","Poção de respirar na água","Pergaminho de magia (2° nível)","Pergaminho de magia (3° nível)","Mochila de carga","Unguento de Keoghtom","Óleo escorregadio","Pó do desaparecimento","Pó da seca","Pó de espirrar e tossir","Gema elemental","Filtro do amor","Jarro de alquimia","Capa de respirar na água","Manto da arraia","Globo de fluxo","Óculos noturnos","Elmo de compreensão de idiomas","Bastão imóvel","Lanterna de revelação","Armadura do marinheiro","Armadura de mitral","Poção de envenenamento","Anel de natação","Robe dos itens úteis","Corda de escalada","Sela do cavaleiro","Varinha de detectar magia","Varinha de segredos"
 ];
 export const magTableC = [
-    "Potion of superior healing",
-    "Spell scroll (4thlevel)",
-    "Ammunition, +2",
-    "Potion of clairvoyance",
-    "Potion of diminution",
-    "Potion of gaseous form",
-    "Potion of frost giant strength",
-    "Potion of stone giant strength",
-    "Potion of heroism",
-    "Potion of invulnerability",
-    "Potion of mind reading",
-    "Spell scroll (5thlevel)",
-    "Elixir of health",
-    "Oil of etherealness",
-    "Potion of fire giant strength",
-    "Quaal's feather token",
-    "Scroll of protection",
-    "Bag of beans",
-    "Bead of force",
-    "Chime of opening",
-    "Decanter of endless water",
-    "Eyes of minute seeing",
-    "Folding boat",
-    "Heward's handy haversack",
-    "Horseshoes of speed",
-    "Necklace of fireballs",
-    "Periapt of health",
-    "Sending Stones"
+    "Poção de cura maior","Pergaminho de magia (4° nível)","Munição +2","Poção de clarividência","Poção de encolher","Poção de forma gasosa","Poção de força do gigante do gelo","Poção de força do gigante de pedra","Poção de heroísmo","Poção de invulnerabilidade","Poção de ler mentes","Pergaminho de magia (5° nível)","Elixir de saúde","Óleo de forma etérea","Poção de força do gigante do fogo","Pena de Quaal","Pergaminho de proteção","Saco de feijões","Contas de força","Carrilhão de abertura","Decantador de água infinita","Olhos de visão momentânea","Barco dobrável","Sacola prestativa de Heward","Ferraduras da velocidade","Colar de bolas de fogo","Periapto de saúde","Pedras de mensagem"
 ];
 export const magTableD = [
     "Potion of supreme healing",
