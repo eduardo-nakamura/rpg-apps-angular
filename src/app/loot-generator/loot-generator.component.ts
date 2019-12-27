@@ -10,294 +10,387 @@ export class LootGeneratorComponent implements OnInit {
   lootOptions: any
   lootDraw: any
   lootType: Number  
+  filterLoot: any
+  resultLoot = {
+    "pc": 0,
+    "pp": 0,
+    "pe": 0,
+    "po": 0,
+    "pl": 0,
+    "gemArt": "",
+    "magicItems": ""
+  }
+    
+  
   // numberDraw: Number
+
   constructor() { }
 
   ngOnInit() {
 
   }
   genLoot() {
-    this.chooseLoot();
+    this.resetLoot()
+    this.chooseLoot();    
+    this.lootGen()
+    // console.log(this.filterLoot)
+    // console.log(this.resultLoot)
   }
-  lootRoll(){
-    // for (let i = 0; i <= ){
-
-    // }
+  resetLoot(){
+    this.resultLoot.pc = 0;
+    this.resultLoot.pp = 0;
+    this.resultLoot.pe = 0;
+    this.resultLoot.po = 0;
+    this.resultLoot.pl = 0;
+    this.resultLoot.gemArt = "";
+    this.resultLoot.magicItems = "";
   }
   chooseLoot() {
+    // Jogar d100
     let numberDraw = Math.floor(Math.random() * 100) + 1;
+    
+    // Definir Tipo de Tesouro
+    let chosenLoot:any
     switch (this.lootType) {
       case 1:
         if (numberDraw <= 30) {
-          this.lootDraw = individualZeroFour[0]
+          chosenLoot = individualZeroFour[0]
         } else if (numberDraw >= 31 && numberDraw <= 60) {
-          this.lootDraw = individualZeroFour[1]
+          chosenLoot = individualZeroFour[1]
         } else if (numberDraw >= 61 && numberDraw <= 70) {
-          this.lootDraw = individualZeroFour[2]
+          chosenLoot = individualZeroFour[2]
         } else if (numberDraw >= 71 && numberDraw <= 95) {
-          this.lootDraw = individualZeroFour[3]
-        } else if (numberDraw >= 96 && numberDraw <= 100) {
-          this.lootDraw = individualZeroFour[4]
+          chosenLoot = individualZeroFour[3]
+        } else if (numberDraw >= 96) {
+          chosenLoot = individualZeroFour[4]
         }
         break;
       case 2:
         if (numberDraw <= 30) {
-          this.lootDraw = individualFiveTen[0]
+          chosenLoot = individualFiveTen[0]
         } else if (numberDraw >= 31 && numberDraw <= 60) {
-          this.lootDraw = individualFiveTen[1]
+          chosenLoot = individualFiveTen[1]
         } else if (numberDraw >= 61 && numberDraw <= 70) {
-          this.lootDraw = individualFiveTen[2]
+          chosenLoot = individualFiveTen[2]
         } else if (numberDraw >= 71 && numberDraw <= 95) {
-          this.lootDraw = individualFiveTen[3]
-        } else if (numberDraw >= 96 && numberDraw <= 100) {
-          this.lootDraw = individualFiveTen[4]
+          chosenLoot = individualFiveTen[3]
+        } else if (numberDraw >= 96) {
+          chosenLoot = individualFiveTen[4]
         }
         break;
       case 3:
         if (numberDraw <= 20) {
-          this.lootDraw = individualElevenSixteen[0]
+          chosenLoot = individualElevenSixteen[0]
         } else if (numberDraw >= 21 && numberDraw <= 35) {
-          this.lootDraw = individualElevenSixteen[1]
+          chosenLoot = individualElevenSixteen[1]
         } else if (numberDraw >= 36 && numberDraw <= 75) {
-          this.lootDraw = individualElevenSixteen[2]
-        } else if (numberDraw >= 76 && numberDraw <= 100) {
-          this.lootDraw = individualElevenSixteen[3]
+          chosenLoot = individualElevenSixteen[2]
+        } else if (numberDraw >= 76) {
+          chosenLoot = individualElevenSixteen[3]
         }
         break;
       case 4:
         if (numberDraw <= 15) {
-          this.lootDraw = individualSeventeenPlus[0]
+          chosenLoot = individualSeventeenPlus[0]
         } else if (numberDraw >= 16 && numberDraw <= 55) {
-          this.lootDraw = individualSeventeenPlus[1]
+          chosenLoot = individualSeventeenPlus[1]
         } else if (numberDraw >= 56) {
-          this.lootDraw = individualSeventeenPlus[2]
+          chosenLoot = individualSeventeenPlus[2]
         }
         break;
       case 5:
         if (numberDraw <= 6) {
-          this.lootDraw = hoardZeroFour[0]
+          chosenLoot = hoardZeroFour[0]
         } else if (numberDraw >= 7 && numberDraw <= 16) {
-          this.lootDraw = hoardZeroFour[1]
+          chosenLoot = hoardZeroFour[1]
         } else if (numberDraw >= 17 && numberDraw <= 26) {
-          this.lootDraw = hoardZeroFour[2]
+          chosenLoot = hoardZeroFour[2]
         } else if (numberDraw >= 27 && numberDraw <= 36) {
-          this.lootDraw = hoardZeroFour[3]
+          chosenLoot = hoardZeroFour[3]
         } else if (numberDraw >= 37 && numberDraw <= 44) {
-          this.lootDraw = hoardZeroFour[4]
+          chosenLoot = hoardZeroFour[4]
         } else if (numberDraw >= 45 && numberDraw <= 52) {
-          this.lootDraw = hoardZeroFour[5]
+          chosenLoot = hoardZeroFour[5]
         } else if (numberDraw >= 53 && numberDraw <= 60) {
-          this.lootDraw = hoardZeroFour[6]
+          chosenLoot = hoardZeroFour[6]
         } else if (numberDraw >= 61 && numberDraw <= 65) {
-          this.lootDraw = hoardZeroFour[7]
+          chosenLoot = hoardZeroFour[7]
         } else if (numberDraw >= 66 && numberDraw <= 70) {
-          this.lootDraw = hoardZeroFour[8]
+          chosenLoot = hoardZeroFour[8]
         } else if (numberDraw >= 71 && numberDraw <= 75) {
-          this.lootDraw = hoardZeroFour[9]
+          chosenLoot = hoardZeroFour[9]
         } else if (numberDraw >= 76 && numberDraw <= 78) {
-          this.lootDraw = hoardZeroFour[10]
+          chosenLoot = hoardZeroFour[10]
         } else if (numberDraw >= 79 && numberDraw <= 80) {
-          this.lootDraw = hoardZeroFour[11]
+          chosenLoot = hoardZeroFour[11]
         } else if (numberDraw >= 81 && numberDraw <= 85) {
-          this.lootDraw = hoardZeroFour[12]
+          chosenLoot = hoardZeroFour[12]
         } else if (numberDraw >= 86 && numberDraw <= 92) {
-          this.lootDraw = hoardZeroFour[13]
+          chosenLoot = hoardZeroFour[13]
         } else if (numberDraw >= 93 && numberDraw <= 97) {
-          this.lootDraw = hoardZeroFour[14]
+          chosenLoot = hoardZeroFour[14]
         } else if (numberDraw >= 98 && numberDraw <= 99) {
-          this.lootDraw = hoardZeroFour[15]
+          chosenLoot = hoardZeroFour[15]
         } else if (numberDraw = 100) {
-          this.lootDraw = hoardZeroFour[16]
+          chosenLoot = hoardZeroFour[16]
         }
         break;
       case 6:
         if (numberDraw <= 4) {
-          this.lootDraw = hoardFiveTen[0]
+          chosenLoot = hoardFiveTen[0]
         } else if (numberDraw >= 5 && numberDraw <= 10) {
-          this.lootDraw = hoardFiveTen[1]
+          chosenLoot = hoardFiveTen[1]
         } else if (numberDraw >= 11 && numberDraw <= 16) {
-          this.lootDraw = hoardFiveTen[2]
+          chosenLoot = hoardFiveTen[2]
         } else if (numberDraw >= 17 && numberDraw <= 22) {
-          this.lootDraw = hoardFiveTen[3]
+          chosenLoot = hoardFiveTen[3]
         } else if (numberDraw >= 23 && numberDraw <= 28) {
-          this.lootDraw = hoardFiveTen[4]
+          chosenLoot = hoardFiveTen[4]
         } else if (numberDraw >= 29 && numberDraw <= 32) {
-          this.lootDraw = hoardFiveTen[5]
+          chosenLoot = hoardFiveTen[5]
         } else if (numberDraw >= 33 && numberDraw <= 36) {
-          this.lootDraw = hoardFiveTen[6]
+          chosenLoot = hoardFiveTen[6]
         } else if (numberDraw >= 37 && numberDraw <= 40) {
-          this.lootDraw = hoardFiveTen[7]
+          chosenLoot = hoardFiveTen[7]
         } else if (numberDraw >= 41 && numberDraw <= 44) {
-          this.lootDraw = hoardFiveTen[8]
+          chosenLoot = hoardFiveTen[8]
         } else if (numberDraw >= 45 && numberDraw <= 49) {
-          this.lootDraw = hoardFiveTen[9]
+          chosenLoot = hoardFiveTen[9]
         } else if (numberDraw >= 50 && numberDraw <= 54) {
-          this.lootDraw = hoardFiveTen[10]
+          chosenLoot = hoardFiveTen[10]
         } else if (numberDraw >= 55 && numberDraw <= 59) {
-          this.lootDraw = hoardFiveTen[11]
+          chosenLoot = hoardFiveTen[11]
         } else if (numberDraw >= 60 && numberDraw <= 63) {
-          this.lootDraw = hoardFiveTen[12]
+          chosenLoot = hoardFiveTen[12]
         } else if (numberDraw >= 64 && numberDraw <= 66) {
-          this.lootDraw = hoardFiveTen[13]
+          chosenLoot = hoardFiveTen[13]
         } else if (numberDraw >= 67 && numberDraw <= 69) {
-          this.lootDraw = hoardFiveTen[14]
+          chosenLoot = hoardFiveTen[14]
         } else if (numberDraw >= 70 && numberDraw <= 72) {
-          this.lootDraw = hoardFiveTen[15]
+          chosenLoot = hoardFiveTen[15]
         } else if (numberDraw >= 73 && numberDraw <= 74) {
-          this.lootDraw = hoardFiveTen[16]
+          chosenLoot = hoardFiveTen[16]
         } else if (numberDraw >= 75 && numberDraw <= 76) {
-          this.lootDraw = hoardFiveTen[17]
+          chosenLoot = hoardFiveTen[17]
         } else if (numberDraw >= 77 && numberDraw <= 78) {
-          this.lootDraw = hoardFiveTen[18]
+          chosenLoot = hoardFiveTen[18]
         } else if (numberDraw = 79) {
-          this.lootDraw = hoardFiveTen[19]
+          chosenLoot = hoardFiveTen[19]
         } else if (numberDraw = 80) {
-          this.lootDraw = hoardFiveTen[20]
+          chosenLoot = hoardFiveTen[20]
         } else if (numberDraw >= 81 && numberDraw <= 84) {
-          this.lootDraw = hoardFiveTen[21]
+          chosenLoot = hoardFiveTen[21]
         } else if (numberDraw >= 85 && numberDraw <= 88) {
-          this.lootDraw = hoardFiveTen[22]
+          chosenLoot = hoardFiveTen[22]
         } else if (numberDraw >= 89 && numberDraw <= 91) {
-          this.lootDraw = hoardFiveTen[23]
+          chosenLoot = hoardFiveTen[23]
         } else if (numberDraw >= 92 && numberDraw <= 94) {
-          this.lootDraw = hoardFiveTen[24]
+          chosenLoot = hoardFiveTen[24]
         } else if (numberDraw >= 95 && numberDraw <= 96) {
-          this.lootDraw = hoardFiveTen[25]
+          chosenLoot = hoardFiveTen[25]
         } else if (numberDraw >= 97 && numberDraw <= 98) {
-          this.lootDraw = hoardFiveTen[26]
+          chosenLoot = hoardFiveTen[26]
         } else if (numberDraw = 99) {
-          this.lootDraw = hoardFiveTen[27]
+          chosenLoot = hoardFiveTen[27]
         } else if (numberDraw = 100) {
-          this.lootDraw = hoardFiveTen[28]
+          chosenLoot = hoardFiveTen[28]
         }
         break;
       case 7:
         if (numberDraw <= 3) {
-          this.lootDraw = hoardElevenSixteen[0]
+          chosenLoot = hoardElevenSixteen[0]
         } else if (numberDraw >= 4 && numberDraw <= 6) {
-          this.lootDraw = hoardElevenSixteen[1]
+          chosenLoot = hoardElevenSixteen[1]
         } else if (numberDraw >= 7 && numberDraw <= 10) {
-          this.lootDraw = hoardElevenSixteen[2]
+          chosenLoot = hoardElevenSixteen[2]
         } else if (numberDraw >= 11 && numberDraw <= 12) {
-          this.lootDraw = hoardElevenSixteen[3]
+          chosenLoot = hoardElevenSixteen[3]
         } else if (numberDraw >= 13 && numberDraw <= 15) {
-          this.lootDraw = hoardElevenSixteen[4]
+          chosenLoot = hoardElevenSixteen[4]
         } else if (numberDraw >= 16 && numberDraw <= 19) {
-          this.lootDraw = hoardElevenSixteen[5]
+          chosenLoot = hoardElevenSixteen[5]
         } else if (numberDraw >= 20 && numberDraw <= 23) {
-          this.lootDraw = hoardElevenSixteen[6]
+          chosenLoot = hoardElevenSixteen[6]
         } else if (numberDraw >= 24 && numberDraw <= 26) {
-          this.lootDraw = hoardElevenSixteen[7]
+          chosenLoot = hoardElevenSixteen[7]
         } else if (numberDraw >= 27 && numberDraw <= 29) {
-          this.lootDraw = hoardElevenSixteen[8]
+          chosenLoot = hoardElevenSixteen[8]
         } else if (numberDraw >= 30 && numberDraw <= 35) {
-          this.lootDraw = hoardElevenSixteen[9]
+          chosenLoot = hoardElevenSixteen[9]
         } else if (numberDraw >= 36 && numberDraw <= 40) {
-          this.lootDraw = hoardElevenSixteen[10]
+          chosenLoot = hoardElevenSixteen[10]
         } else if (numberDraw >= 41 && numberDraw <= 45) {
-          this.lootDraw = hoardElevenSixteen[11]
+          chosenLoot = hoardElevenSixteen[11]
         } else if (numberDraw >= 46 && numberDraw <= 50) {
-          this.lootDraw = hoardElevenSixteen[12]
+          chosenLoot = hoardElevenSixteen[12]
         } else if (numberDraw >= 51 && numberDraw <= 54) {
-          this.lootDraw = hoardElevenSixteen[13]
+          chosenLoot = hoardElevenSixteen[13]
         } else if (numberDraw >= 55 && numberDraw <= 58) {
-          this.lootDraw = hoardElevenSixteen[14]
+          chosenLoot = hoardElevenSixteen[14]
         } else if (numberDraw >= 59 && numberDraw <= 62) {
-          this.lootDraw = hoardElevenSixteen[15]
+          chosenLoot = hoardElevenSixteen[15]
         } else if (numberDraw >= 63 && numberDraw <= 66) {
-          this.lootDraw = hoardElevenSixteen[16]
+          chosenLoot = hoardElevenSixteen[16]
         } else if (numberDraw >= 67 && numberDraw <= 68) {
-          this.lootDraw = hoardElevenSixteen[17]
+          chosenLoot = hoardElevenSixteen[17]
         } else if (numberDraw >= 69 && numberDraw <= 70) {
-          this.lootDraw = hoardElevenSixteen[18]
+          chosenLoot = hoardElevenSixteen[18]
         } else if (numberDraw >= 71 && numberDraw <= 72) {
-          this.lootDraw = hoardElevenSixteen[19]
+          chosenLoot = hoardElevenSixteen[19]
         } else if (numberDraw >= 73 && numberDraw <= 74) {
-          this.lootDraw = hoardElevenSixteen[20]
+          chosenLoot = hoardElevenSixteen[20]
         } else if (numberDraw >= 75 && numberDraw <= 76) {
-          this.lootDraw = hoardElevenSixteen[21]
+          chosenLoot = hoardElevenSixteen[21]
         } else if (numberDraw >= 77 && numberDraw <= 78) {
-          this.lootDraw = hoardElevenSixteen[22]
+          chosenLoot = hoardElevenSixteen[22]
         } else if (numberDraw >= 79 && numberDraw <= 80) {
-          this.lootDraw = hoardElevenSixteen[23]
+          chosenLoot = hoardElevenSixteen[23]
         } else if (numberDraw >= 81 && numberDraw <= 82) {
-          this.lootDraw = hoardElevenSixteen[24]
+          chosenLoot = hoardElevenSixteen[24]
         } else if (numberDraw >= 83 && numberDraw <= 85) {
-          this.lootDraw = hoardElevenSixteen[25]
+          chosenLoot = hoardElevenSixteen[25]
         } else if (numberDraw >= 86 && numberDraw <= 88) {
-          this.lootDraw = hoardElevenSixteen[26]
+          chosenLoot = hoardElevenSixteen[26]
         } else if (numberDraw >= 89 && numberDraw <= 90) {
-          this.lootDraw = hoardElevenSixteen[27]
+          chosenLoot = hoardElevenSixteen[27]
         } else if (numberDraw >= 91 && numberDraw <= 92) {
-          this.lootDraw = hoardElevenSixteen[28]
+          chosenLoot = hoardElevenSixteen[28]
         } else if (numberDraw >= 93 && numberDraw <= 94) {
-          this.lootDraw = hoardElevenSixteen[29]
+          chosenLoot = hoardElevenSixteen[29]
         } else if (numberDraw >= 95 && numberDraw <= 96) {
-          this.lootDraw = hoardElevenSixteen[30]
+          chosenLoot = hoardElevenSixteen[30]
         } else if (numberDraw >= 97 && numberDraw <= 98) {
-          this.lootDraw = hoardElevenSixteen[31]
+          chosenLoot = hoardElevenSixteen[31]
         } else if (numberDraw >= 99) {
-          this.lootDraw = hoardElevenSixteen[32]
+          chosenLoot = hoardElevenSixteen[32]
         }
         break;
       case 8:
         if (numberDraw <= 2) {
-          this.lootDraw = hoardSeventeenPlus[0]
+          chosenLoot = hoardSeventeenPlus[0]
         } else if (numberDraw >= 3 && numberDraw <= 5) {
-          this.lootDraw = hoardSeventeenPlus[1]
+          chosenLoot = hoardSeventeenPlus[1]
         } else if (numberDraw >= 6 && numberDraw <= 8) {
-          this.lootDraw = hoardSeventeenPlus[2]
+          chosenLoot = hoardSeventeenPlus[2]
         } else if (numberDraw >= 9 && numberDraw <= 11) {
-          this.lootDraw = hoardSeventeenPlus[3]
+          chosenLoot = hoardSeventeenPlus[3]
         } else if (numberDraw >= 12 && numberDraw <= 14) {
-          this.lootDraw = hoardSeventeenPlus[4]
+          chosenLoot = hoardSeventeenPlus[4]
         } else if (numberDraw >= 15 && numberDraw <= 22) {
-          this.lootDraw = hoardSeventeenPlus[5]
+          chosenLoot = hoardSeventeenPlus[5]
         } else if (numberDraw >= 23 && numberDraw <= 30) {
-          this.lootDraw = hoardSeventeenPlus[6]
+          chosenLoot = hoardSeventeenPlus[6]
         } else if (numberDraw >= 31 && numberDraw <= 38) {
-          this.lootDraw = hoardSeventeenPlus[7]
+          chosenLoot = hoardSeventeenPlus[7]
         } else if (numberDraw >= 39 && numberDraw <= 46) {
-          this.lootDraw = hoardSeventeenPlus[8]
+          chosenLoot = hoardSeventeenPlus[8]
         } else if (numberDraw >= 47 && numberDraw <= 52) {
-          this.lootDraw = hoardSeventeenPlus[9]
+          chosenLoot = hoardSeventeenPlus[9]
         } else if (numberDraw >= 53 && numberDraw <= 58) {
-          this.lootDraw = hoardSeventeenPlus[10]
+          chosenLoot = hoardSeventeenPlus[10]
         } else if (numberDraw >= 59 && numberDraw <= 63) {
-          this.lootDraw = hoardSeventeenPlus[11]
+          chosenLoot = hoardSeventeenPlus[11]
         } else if (numberDraw >= 64 && numberDraw <= 68) {
-          this.lootDraw = hoardSeventeenPlus[12]
+          chosenLoot = hoardSeventeenPlus[12]
         } else if (numberDraw = 69) {
-          this.lootDraw = hoardSeventeenPlus[13]
+          chosenLoot = hoardSeventeenPlus[13]
         } else if (numberDraw = 70) {
-          this.lootDraw = hoardSeventeenPlus[14]
+          chosenLoot = hoardSeventeenPlus[14]
         } else if (numberDraw = 71) {
-          this.lootDraw = hoardSeventeenPlus[15]
+          chosenLoot = hoardSeventeenPlus[15]
         } else if (numberDraw = 72) {
-          this.lootDraw = hoardSeventeenPlus[16]
+          chosenLoot = hoardSeventeenPlus[16]
         } else if (numberDraw >= 73 && numberDraw <= 74) {
-          this.lootDraw = hoardSeventeenPlus[17]
+          chosenLoot = hoardSeventeenPlus[17]
         } else if (numberDraw >= 75 && numberDraw <= 76) {
-          this.lootDraw = hoardSeventeenPlus[18]
+          chosenLoot = hoardSeventeenPlus[18]
         } else if (numberDraw >= 77 && numberDraw <= 78) {
-          this.lootDraw = hoardSeventeenPlus[19]
+          chosenLoot = hoardSeventeenPlus[19]
         } else if (numberDraw >= 79 && numberDraw <= 80) {
-          this.lootDraw = hoardSeventeenPlus[20]
+          chosenLoot = hoardSeventeenPlus[20]
         } else if (numberDraw >= 81 && numberDraw <= 85) {
-          this.lootDraw = hoardSeventeenPlus[21]
+          chosenLoot = hoardSeventeenPlus[21]
         } else if (numberDraw >= 86 && numberDraw <= 90) {
-          this.lootDraw = hoardSeventeenPlus[22]
+          chosenLoot = hoardSeventeenPlus[22]
         } else if (numberDraw >= 91 && numberDraw <= 95) {
-          this.lootDraw = hoardSeventeenPlus[23]
+          chosenLoot = hoardSeventeenPlus[23]
         } else if (numberDraw >= 96) {
-          this.lootDraw = hoardSeventeenPlus[24]
+          chosenLoot = hoardSeventeenPlus[24]
         }
         break;
         default:
           this.lootOptions = '';
+      }   
+
+      // Filtrar Valores Vazios
+      if (chosenLoot.pc == ''){
+        delete chosenLoot.pc
       }
-    //
-    console.log(this.lootDraw)
+      if (chosenLoot.pp == ''){
+        delete chosenLoot.pp
+      }
+      if (chosenLoot.pe == ''){
+        delete chosenLoot.pe
+      }
+      if (chosenLoot.po == ''){
+        delete chosenLoot.po
+      }
+      if (chosenLoot.pl == ''){
+        delete chosenLoot.pl
+      }
+      if (chosenLoot.gemArt == ''){
+        delete chosenLoot.gemArt
+      }
+      if (chosenLoot.magicItems == ''){
+        delete chosenLoot.magicItems
+      }
+
+      this.filterLoot = chosenLoot
   }
- 
+
+  lootGen(){
+    let lootKeys = Object.keys(this.filterLoot)
+    for (let i = 0; i < lootKeys.length; i++){   
+      let rollLoot:string
+      let valor = lootKeys[i]        
+      let totalLoot = 0
+      if (valor === "gemArt") { continue; }
+      if (valor === "magicItems") { continue; }
+      rollLoot = this.filterLoot[valor].split("x")  
+      let dice = rollLoot[0].split("d")
+      for (let i = 0; i < parseInt(dice[0]); i++){
+         let rolagem = Math.floor(Math.random() * parseInt(dice[1])) + 1;
+         totalLoot += rolagem
+        //  console.log(i,rolagem,totalLoot)
+      }  
+      if (rollLoot[1] != undefined){
+        totalLoot *= parseInt(rollLoot[1])
+      }      
+      this.resultLoot[valor] = totalLoot
+    }
+    // arte, gemas
+    let artOrGem = 0
+    if (this.filterLoot.gemArt != undefined){  
+      console.log(this.filterLoot.gemArt)
+      let identify = this.filterLoot.gemArt.search("gems")
+      let gemArtQuant: any
+      if (identify == -1){
+        // art
+        gemArtQuant = this.filterLoot.gemArt.split("art")[0]
+      } else {
+        //gem
+        gemArtQuant = this.filterLoot.gemArt.split("gems")[0]      
+      }
+      let separate = gemArtQuant.split("x")      
+      let dice = separate[0].split("d")      
+      for (let i = 0; i < dice[0]; i++){
+        let rolagem = Math.floor(Math.random() * parseInt(dice[1])) + 1;
+        artOrGem += rolagem
+        console.log(i,rolagem)
+      }
+      console.log(artOrGem,separate[1])
+  
+    }
+    
+  }
 }
