@@ -138,24 +138,37 @@ export const hoardSeventeenPlus = [
     { pc: '', pp: '', pe: '', po: '', pl: '', gemArt: '1d8x5000gems', magicItems: '1d4MagItemI' }
 ];
 export const gems10gp = [
+    "Azurita","Ágata malhada","Quartzo azul","Ágata ocular","Hematita","Lápis lazúli","Malaquita","Ágata musgo","Obsidiana","Rodocrosita","Olho de tigre","Turquesa"
 ];
 export const gems50gp = [
+    "Pedra de sangue","Cornalina","Calcedônia","Crisoprásio","Citrina","Jaspe","Pedra lunar","Ônix","Quartzo","Sardônica","Quartzo rosa estrela","Zircônio"
+];
+export const gems100gp = [
+    "Âmbar","Ametista","Crisoberilo","Coral","Granada","Jade","Jato","Pérola","Espinela","Turmalina"
 ];
 export const gems500gp = [
+    "Alexandrita","Água-marinha","Pérola negra","Espinela azul","Peridoto","Topázio"
 ];
 export const gems1000gp = [
+    "Opala negra","Safira azul","Esmeralda","Opala de fogo","Opala","Rubi estrela","Safira estrela","Safira amarela"
 ];
 export const gems5000gp = [
+    "Safira negra","Diamante","Jacinto","Rubi"
 ];
 export const art25gp = [
+    "Jarro de prata","Estatueta esculpida em osso","Bracelete de ouro pequeno","Vestimenta de tecido dourado","Máscara de veludo negra costurada com fiosde prata","Cálice de cobre com filigrana prateada","Par de dados de osso com gravuras","Pequeno espelho numa moldura de madeirapintada","Lenço de seda bordado","Broche de ouro com um retrato pintado "
 ];
 export const art250gp = [
+    "Anel de ouro cravejado com pedras de sangue","Estatueta esculpida em marfim","Bracelete de ouro largo","Gargantilha de prata com um pingente depedra preciosa","Coroa de bronze","Robe de seda com adornos de ouro","Grande tapeçaria elegante","Caneca de bronze com jades incrustadas","Caixa de miniaturas de animais em turquesa","Gaiola de pássaro de ouro com filigrana"
 ];
 export const art750gp = [
+    "Cálice de prata cravejado com pedras da lua","Espada longa de lâmina prateada com conjunto de jatos no cabo","Harpa de madeira exótica com marfim incrustado e gemas de zircónio","Pequeno ídolo de ouro","Pente de ouro em formato de dragão cravejada com granadas vermelhas nos olhos","Rolha de garrafa gravada com folhas de ouro e cravejada com ametistas","Adaga de electro cerimonial com uma pérola negra no pomo","Broche de prata e ouro","Estatueta de obsidiana com detalhes e incrustações de ouro","Máscara de guerra de ouro pintada"
 ];
 export const art2500gp = [
+    "Corrente de ouro elegante cravejada com uma opala de fogo","Antiga pintura obra-prima","Manto de seda e veludo bordado com diversas pedras da lua cravejadas","Bracelete de platina cravejado com uma safira","Luvas bordadas com lascas de joias","Peúga cheia de joias","Caixa de música de ouro","Argola de ouro cravejada com quatro águasmarinhas","Tapa-olho com um olho falso cravejado em uma safira azul e uma pedra da lua","Um colar de pequenas pérolas rosas"
 ];
 export const art7500gp = [
+    "Coroa de ouro cheia de joias","Anel de platina cheio de joias","Pequena estatueta de ouro cravejada com rubis","Taça de ouro cravejada com esmeraldas","Caixa de joias de ouro com filigrana de platina","Sarcófago infantil de ouro pintado","Jogo de tabuleiro de jade com peças de ouro maciço","Chifre de marfim adornado com filigrana de ouro"
 ];
 
 export const magTableA = ["Poção de cura", "Pergaminho de magia (truque)", "Poção de escalar", "Pergaminho de magia (1° nível)", "Pergaminho de magia (2° nível)", "Poção de cura maior", "Mochila de carga"];
