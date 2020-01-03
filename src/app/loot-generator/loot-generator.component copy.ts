@@ -266,57 +266,9 @@ export class LootGeneratorComponent implements OnInit {
         }
         break;
       case 8:
-        if (numberDraw <= 2) {
-          chosenLoot = hoardSeventeenPlus[0]
-        } else if (numberDraw >= 3 && numberDraw <= 5) {
-          chosenLoot = hoardSeventeenPlus[1]
-        } else if (numberDraw >= 6 && numberDraw <= 8) {
-          chosenLoot = hoardSeventeenPlus[2]
-        } else if (numberDraw >= 9 && numberDraw <= 11) {
-          chosenLoot = hoardSeventeenPlus[3]
-        } else if (numberDraw >= 12 && numberDraw <= 14) {
-          chosenLoot = hoardSeventeenPlus[4]
-        } else if (numberDraw >= 15 && numberDraw <= 22) {
-          chosenLoot = hoardSeventeenPlus[5]
-        } else if (numberDraw >= 23 && numberDraw <= 30) {
-          chosenLoot = hoardSeventeenPlus[6]
-        } else if (numberDraw >= 31 && numberDraw <= 38) {
-          chosenLoot = hoardSeventeenPlus[7]
-        } else if (numberDraw >= 39 && numberDraw <= 46) {
-          chosenLoot = hoardSeventeenPlus[8]
-        } else if (numberDraw >= 47 && numberDraw <= 52) {
-          chosenLoot = hoardSeventeenPlus[9]
-        } else if (numberDraw >= 53 && numberDraw <= 58) {
-          chosenLoot = hoardSeventeenPlus[10]
-        } else if (numberDraw >= 59 && numberDraw <= 63) {
-          chosenLoot = hoardSeventeenPlus[11]
-        } else if (numberDraw >= 64 && numberDraw <= 68) {
-          chosenLoot = hoardSeventeenPlus[12]
-        } else if (numberDraw = 69) {
-          chosenLoot = hoardSeventeenPlus[13]
-        } else if (numberDraw = 70) {
-          chosenLoot = hoardSeventeenPlus[14]
-        } else if (numberDraw = 71) {
-          chosenLoot = hoardSeventeenPlus[15]
-        } else if (numberDraw = 72) {
-          chosenLoot = hoardSeventeenPlus[16]
-        } else if (numberDraw >= 73 && numberDraw <= 74) {
-          chosenLoot = hoardSeventeenPlus[17]
-        } else if (numberDraw >= 75 && numberDraw <= 76) {
-          chosenLoot = hoardSeventeenPlus[18]
-        } else if (numberDraw >= 77 && numberDraw <= 78) {
-          chosenLoot = hoardSeventeenPlus[19]
-        } else if (numberDraw >= 79 && numberDraw <= 80) {
-          chosenLoot = hoardSeventeenPlus[20]
-        } else if (numberDraw >= 81 && numberDraw <= 85) {
-          chosenLoot = hoardSeventeenPlus[21]
-        } else if (numberDraw >= 86 && numberDraw <= 90) {
-          chosenLoot = hoardSeventeenPlus[22]
-        } else if (numberDraw >= 91 && numberDraw <= 95) {
-          chosenLoot = hoardSeventeenPlus[23]
-        } else if (numberDraw >= 96) {
-          chosenLoot = hoardSeventeenPlus[24]
-        }
+        debugger
+        console.log('hoardSeventeenPlus')
+        //chosenLoot = hoardSeventeenPlus
         break;
       default:
         this.lootOptions = '';

@@ -1,22 +1,28 @@
 // import { LootObj } from './lootclass';
-
 export const individualZeroFour = [
-    { pc: '5d6' },
-    { pp: '4d6' },
-    { pe: '3d6' },
-    { po: '3d6' },
-    { pl: '1d6' }
+    { pc: { quant: 5, sides: 6 } },
+    { pp: { quant: 4, sides: 6 } },
+    { pe: { quant: 3, sides: 6 } },
+    { po: { quant: 3, sides: 6 } },
+    { pl: { quant: 1, sides: 6 } }
 ];
+// export const individualZeroFour = [
+//     { pc: '5d6' },
+//     { pp: '4d6' },
+//     { pe: '3d6' },
+//     { po: '3d6' },
+//     { pl: '1d6' }
+// ];
 export const individualFiveTen = [
     { pc: '4d6x100', pe: '1d6x10' },
     { pp: '6d6x10', po: '2d6x10' },
     { pe: '1d6x100', po: '2d6x10' },
     { po: '4d6x10' },
-    { po: '2d6x10', pl: '3d6'}
+    { po: '2d6x10', pl: '3d6' }
 ];
 export const individualElevenSixteen = [
-    { pp: '4d6x100',po: '1d6x100', },
-    { pe: '1d6x100',po: '1d6x100', },
+    { pp: '4d6x100', po: '1d6x100', },
+    { pe: '1d6x100', po: '1d6x100', },
     { po: '2d6x100', pl: '1d6x10' },
     { po: '2d6x100', pl: '2d6x10' }
 ];
@@ -27,9 +33,9 @@ export const individualSeventeenPlus = [
 ];
 export const hoardZeroFour = [
     { gemArt: '' },
-    { gemArt: '2d6x10gems'},
-    { gemArt: '2d4x25art'},
-    { gemArt: '2d6x50gems'},
+    { gemArt: '2d6x10gems' },
+    { gemArt: '2d4x25art' },
+    { gemArt: '2d6x50gems' },
     { gemArt: '2d6x10gems', magicItems: '1d6xMagItemA' },
     { gemArt: '2d4x25art', magicItems: '1d6xMagItemA' },
     { gemArt: '2d6x50gems', magicItems: '1d6xMagItemA' },
@@ -45,11 +51,11 @@ export const hoardZeroFour = [
     { gemArt: '2d6x50gems', magicItems: '1d6xMagItemG' }
 ];
 export const hoardFiveTen = [
-    { pe: ''},
-    { gemArt: '2d4x25art'},
-    { gemArt: '3d6x50gems'},
-    { gemArt: '3d6x100gems'},
-    { gemArt: '2d4x25art'},
+    { pe: '' },
+    { gemArt: '2d4x25art' },
+    { gemArt: '3d6x50gems' },
+    { gemArt: '3d6x100gems' },
+    { gemArt: '2d4x25art' },
     { gemArt: '2d4x25art', magicItems: '1d6xMagItemA' },
     { gemArt: '3d6x50gems', magicItems: '1d6xMagItemA' },
     { gemArt: '3d6x100gems', magicItems: '1d6xMagItemA' },
@@ -76,15 +82,15 @@ export const hoardFiveTen = [
     { gemArt: '2d4x250art', magicItems: '1d1xMagItemH' }
 ];
 export const hoardElevenSixteen = [
-    { pe: ''},
-    { gemArt: '2d4x250art'},
-    { gemArt: '2d4x750art'},
-    { gemArt: '3d6x500gems'},
-    { gemArt: '3d6x1000gems'},
-    { gemArt: '2d4x250art', magicItems: '1d4xMagItemA&1d6xMagItemB' },
-    { gemArt: '2d4x750art', magicItems: '1d4xMagItemA&1d6xMagItemB' },
-    { gemArt: '3d6x500gems', magicItems: '1d4xMagItemA&1d6xMagItemB' },
-    { gemArt: '3d6x1000gems', magicItems: '1d4xMagItemA&1d6xMagItemB' },
+    { pe: '' },
+    { gemArt: '2d4x250art' },
+    { gemArt: '2d4x750art' },
+    { gemArt: '3d6x500gems' },
+    { gemArt: '3d6x1000gems' },
+    { gemArt: '2d4x250art', magicItems: '1d4xMagItemAx1d6xMagItemB' },
+    { gemArt: '2d4x750art', magicItems: '1d4xMagItemAx1d6xMagItemB' },
+    { gemArt: '3d6x500gems', magicItems: '1d4xMagItemAx1d6xMagItemB' },
+    { gemArt: '3d6x1000gems', magicItems: '1d4xMagItemAx1d6xMagItemB' },
     { gemArt: '2d4x250art', magicItems: '1d6xMagItemC' },
     { gemArt: '2d4x750art', magicItems: '1d6xMagItemC' },
     { gemArt: '3d6x500gems', magicItems: '1d6xMagItemC' },
@@ -93,90 +99,90 @@ export const hoardElevenSixteen = [
     { gemArt: '2d4x750art', magicItems: '1d4xMagItemD' },
     { gemArt: '3d6x500gems', magicItems: '1d4xMagItemD' },
     { gemArt: '3d6x1000gems', magicItems: '1d4xMagItemD' },
-    { gemArt: '2d4x250art', magicItems: '1d1MagItemE' },
-    { gemArt: '2d4x750art', magicItems: '1d1MagItemE' },
-    { gemArt: '3d6x500gems', magicItems: '1d1MagItemE' },
-    { gemArt: '3d6x1000gems', magicItems: '1d1MagItemE' },
-    { gemArt: '2d4x250art', magicItems: '1d1MagItemF&1d4xMagItemG' },
-    { gemArt: '2d4x750art', magicItems: '1d1MagItemF&1d4xMagItemG' },
-    { gemArt: '3d6x500gems', magicItems: '1d1MagItemF&1d4xMagItemG' },
-    { gemArt: '3d6x1000gems', magicItems: '1d1MagItemF&1d4xMagItemG' },
+    { gemArt: '2d4x250art', magicItems: '1d1xMagItemE' },
+    { gemArt: '2d4x750art', magicItems: '1d1xMagItemE' },
+    { gemArt: '3d6x500gems', magicItems: '1d1xMagItemE' },
+    { gemArt: '3d6x1000gems', magicItems: '1d1xMagItemE' },
+    { gemArt: '2d4x250art', magicItems: '1d1xMagItemFx1d4xMagItemG' },
+    { gemArt: '2d4x750art', magicItems: '1d1xMagItemFx1d4xMagItemG' },
+    { gemArt: '3d6x500gems', magicItems: '1d1xMagItemFx1d4xMagItemG' },
+    { gemArt: '3d6x1000gems', magicItems: '1d1xMagItemFx1d4xMagItemG' },
     { gemArt: '2d4x250art', magicItems: '1d4xMagItemH' },
     { gemArt: '2d4x750art', magicItems: '1d4xMagItemH' },
     { gemArt: '3d6x500gems', magicItems: '1d4xMagItemH' },
     { gemArt: '3d6x1000gems', magicItems: '1d4xMagItemH' },
-    { gemArt: '2d4x250art', magicItems: '1d1MagItemI' },
-    { gemArt: '3d6x500gems', magicItems: '1d1MagItemI' },
-    { gemArt: '3d6x1000gems', magicItems: '1d1MagItemI' },
-    { gemArt: '3d6x1000gems', magicItems: '1d1MagItemI' }
+    { gemArt: '2d4x250art', magicItems: '1d1xMagItemI' },
+    { gemArt: '3d6x500gems', magicItems: '1d1xMagItemI' },
+    { gemArt: '3d6x1000gems', magicItems: '1d1xMagItemI' },
+    { gemArt: '3d6x1000gems', magicItems: '1d1xMagItemI' }
 ];
 export const hoardSeventeenPlus = [
-    { pe: ''},
-    { gemArt: '3d6x1000gems', magicItems: '1d8MagItemC' },
-    { gemArt: '1d10x2500art', magicItems: '1d8MagItemC' },
-    { gemArt: '1d4x7500art', magicItems: '1d8MagItemC' },
-    { gemArt: '1d8x5000gems', magicItems: '1d8MagItemC' },
-    { gemArt: '3d6x1000gems', magicItems: '1d6MagItemD' },
-    { gemArt: '1dl0x2500art', magicItems: '1d6MagItemD' },
-    { gemArt: '1d4x7500art', magicItems: '1d6MagItemD' },
-    { gemArt: '1d8x5000gems', magicItems: '1d6MagItemD' },
-    { gemArt: '3d6x1000gems', magicItems: '1d6MagItemE' },
-    { gemArt: '1d10x2500art', magicItems: 'd6MagItemE' },
-    { gemArt: '1d4x7500art', magicItems: '1d6MagItemE' },
-    { gemArt: '1d8x5000gems', magicItems: '1d6MagItemE' },
-    { gemArt: '3d6x1000gems', magicItems: '1d4MagItemG' },
-    { gemArt: '1d10x2500art', magicItems: '1d4MagItemG' },
-    { gemArt: '1d4x7500art', magicItems: 'd4MagItemG' },
-    { gemArt: '1d8x5000gems', magicItems: '1d4MagItemG' },
-    { gemArt: '3d6x1000gems', magicItems: '1d4MagItemH' },
-    { gemArt: '1d10x2500art', magicItems: '1d4MagItemH' },
-    { gemArt: '1d4x7500art', magicItems: '1d4MagItemH' },
-    { gemArt: '1d8x5000gems', magicItems: '1d4MagItemH' },
-    { gemArt: '3d6x1000gems', magicItems: '1d4MagItemI' },
-    { gemArt: '1d10x2500art', magicItems: '1d4MagItemI' },
-    { gemArt: '1d4x7500art', magicItems: '1d1MagItemF&1d4MagItemG' },
-    { gemArt: '1d8x5000gems', magicItems: '1d4MagItemI' }
+    { pe: '' },
+    { gemArt: '3d6x1000gems', magicItems: '1d8xMagItemC' },
+    { gemArt: '1d10x2500art', magicItems: '1d8xMagItemC' },
+    { gemArt: '1d4x7500art', magicItems: '1d8xMagItemC' },
+    { gemArt: '1d8x5000gems', magicItems: '1d8xMagItemC' },
+    { gemArt: '3d6x1000gems', magicItems: '1d6xMagItemD' },
+    { gemArt: '1dl0x2500art', magicItems: '1d6xMagItemD' },
+    { gemArt: '1d4x7500art', magicItems: '1d6xMagItemD' },
+    { gemArt: '1d8x5000gems', magicItems: '1d6xMagItemD' },
+    { gemArt: '3d6x1000gems', magicItems: '1d6xMagItemE' },
+    { gemArt: '1d10x2500art', magicItems: '1d6xMagItemE' },
+    { gemArt: '1d4x7500art', magicItems: '1d6xMagItemE' },
+    { gemArt: '1d8x5000gems', magicItems: '1d6xMagItemE' },
+    { gemArt: '3d6x1000gems', magicItems: '1d4xMagItemG' },
+    { gemArt: '1d10x2500art', magicItems: '1d4xMagItemG' },
+    { gemArt: '1d4x7500art', magicItems: '1d4xMagItemG' },
+    { gemArt: '1d8x5000gems', magicItems: '1d4xMagItemG' },
+    { gemArt: '3d6x1000gems', magicItems: '1d4xMagItemH' },
+    { gemArt: '1d10x2500art', magicItems: '1d4xMagItemH' },
+    { gemArt: '1d4x7500art', magicItems: '1d4xMagItemH' },
+    { gemArt: '1d8x5000gems', magicItems: '1d4xMagItemH' },
+    { gemArt: '3d6x1000gems', magicItems: '1d4xMagItemI' },
+    { gemArt: '1d10x2500art', magicItems: '1d4xMagItemI' },
+    { gemArt: '1d4x7500art', magicItems: '1d1xMagItemFx1d4xMagItemG' },
+    { gemArt: '1d8x5000gems', magicItems: '1d4xMagItemI' }
 ];
 export const gems10gp = [
-    "Azurita","Ágata malhada","Quartzo azul","Ágata ocular","Hematita","Lápis lazúli","Malaquita","Ágata musgo","Obsidiana","Rodocrosita","Olho de tigre","Turquesa"
+    "Azurita", "Ágata malhada", "Quartzo azul", "Ágata ocular", "Hematita", "Lápis lazúli", "Malaquita", "Ágata musgo", "Obsidiana", "Rodocrosita", "Olho de tigre", "Turquesa"
 ];
 export const gems50gp = [
-    "Pedra de sangue","Cornalina","Calcedônia","Crisoprásio","Citrina","Jaspe","Pedra lunar","Ônix","Quartzo","Sardônica","Quartzo rosa estrela","Zircônio"
+    "Pedra de sangue", "Cornalina", "Calcedônia", "Crisoprásio", "Citrina", "Jaspe", "Pedra lunar", "Ônix", "Quartzo", "Sardônica", "Quartzo rosa estrela", "Zircônio"
 ];
 export const gems100gp = [
-    "Âmbar","Ametista","Crisoberilo","Coral","Granada","Jade","Jato","Pérola","Espinela","Turmalina"
+    "Âmbar", "Ametista", "Crisoberilo", "Coral", "Granada", "Jade", "Jato", "Pérola", "Espinela", "Turmalina"
 ];
 export const gems500gp = [
-    "Alexandrita","Água-marinha","Pérola negra","Espinela azul","Peridoto","Topázio"
+    "Alexandrita", "Água-marinha", "Pérola negra", "Espinela azul", "Peridoto", "Topázio"
 ];
 export const gems1000gp = [
-    "Opala negra","Safira azul","Esmeralda","Opala de fogo","Opala","Rubi estrela","Safira estrela","Safira amarela"
+    "Opala negra", "Safira azul", "Esmeralda", "Opala de fogo", "Opala", "Rubi estrela", "Safira estrela", "Safira amarela"
 ];
 export const gems5000gp = [
-    "Safira negra","Diamante","Jacinto","Rubi"
+    "Safira negra", "Diamante", "Jacinto", "Rubi"
 ];
 export const art25gp = [
-    "Jarro de prata","Estatueta esculpida em osso","Bracelete de ouro pequeno","Vestimenta de tecido dourado","Máscara de veludo negra costurada com fiosde prata","Cálice de cobre com filigrana prateada","Par de dados de osso com gravuras","Pequeno espelho numa moldura de madeirapintada","Lenço de seda bordado","Broche de ouro com um retrato pintado "
+    "Jarro de prata", "Estatueta esculpida em osso", "Bracelete de ouro pequeno", "Vestimenta de tecido dourado", "Máscara de veludo negra costurada com fiosde prata", "Cálice de cobre com filigrana prateada", "Par de dados de osso com gravuras", "Pequeno espelho numa moldura de madeirapintada", "Lenço de seda bordado", "Broche de ouro com um retrato pintado "
 ];
 export const art250gp = [
-    "Anel de ouro cravejado com pedras de sangue","Estatueta esculpida em marfim","Bracelete de ouro largo","Gargantilha de prata com um pingente depedra preciosa","Coroa de bronze","Robe de seda com adornos de ouro","Grande tapeçaria elegante","Caneca de bronze com jades incrustadas","Caixa de miniaturas de animais em turquesa","Gaiola de pássaro de ouro com filigrana"
+    "Anel de ouro cravejado com pedras de sangue", "Estatueta esculpida em marfim", "Bracelete de ouro largo", "Gargantilha de prata com um pingente depedra preciosa", "Coroa de bronze", "Robe de seda com adornos de ouro", "Grande tapeçaria elegante", "Caneca de bronze com jades incrustadas", "Caixa de miniaturas de animais em turquesa", "Gaiola de pássaro de ouro com filigrana"
 ];
 export const art750gp = [
-    "Cálice de prata cravejado com pedras da lua","Espada longa de lâmina prateada com conjunto de jatos no cabo","Harpa de madeira exótica com marfim incrustado e gemas de zircónio","Pequeno ídolo de ouro","Pente de ouro em formato de dragão cravejada com granadas vermelhas nos olhos","Rolha de garrafa gravada com folhas de ouro e cravejada com ametistas","Adaga de electro cerimonial com uma pérola negra no pomo","Broche de prata e ouro","Estatueta de obsidiana com detalhes e incrustações de ouro","Máscara de guerra de ouro pintada"
+    "Cálice de prata cravejado com pedras da lua", "Espada longa de lâmina prateada com conjunto de jatos no cabo", "Harpa de madeira exótica com marfim incrustado e gemas de zircónio", "Pequeno ídolo de ouro", "Pente de ouro em formato de dragão cravejada com granadas vermelhas nos olhos", "Rolha de garrafa gravada com folhas de ouro e cravejada com ametistas", "Adaga de electro cerimonial com uma pérola negra no pomo", "Broche de prata e ouro", "Estatueta de obsidiana com detalhes e incrustações de ouro", "Máscara de guerra de ouro pintada"
 ];
 export const art2500gp = [
-    "Corrente de ouro elegante cravejada com uma opala de fogo","Antiga pintura obra-prima","Manto de seda e veludo bordado com diversas pedras da lua cravejadas","Bracelete de platina cravejado com uma safira","Luvas bordadas com lascas de joias","Peúga cheia de joias","Caixa de música de ouro","Argola de ouro cravejada com quatro águasmarinhas","Tapa-olho com um olho falso cravejado em uma safira azul e uma pedra da lua","Um colar de pequenas pérolas rosas"
+    "Corrente de ouro elegante cravejada com uma opala de fogo", "Antiga pintura obra-prima", "Manto de seda e veludo bordado com diversas pedras da lua cravejadas", "Bracelete de platina cravejado com uma safira", "Luvas bordadas com lascas de joias", "Peúga cheia de joias", "Caixa de música de ouro", "Argola de ouro cravejada com quatro águasmarinhas", "Tapa-olho com um olho falso cravejado em uma safira azul e uma pedra da lua", "Um colar de pequenas pérolas rosas"
 ];
 export const art7500gp = [
-    "Coroa de ouro cheia de joias","Anel de platina cheio de joias","Pequena estatueta de ouro cravejada com rubis","Taça de ouro cravejada com esmeraldas","Caixa de joias de ouro com filigrana de platina","Sarcófago infantil de ouro pintado","Jogo de tabuleiro de jade com peças de ouro maciço","Chifre de marfim adornado com filigrana de ouro"
+    "Coroa de ouro cheia de joias", "Anel de platina cheio de joias", "Pequena estatueta de ouro cravejada com rubis", "Taça de ouro cravejada com esmeraldas", "Caixa de joias de ouro com filigrana de platina", "Sarcófago infantil de ouro pintado", "Jogo de tabuleiro de jade com peças de ouro maciço", "Chifre de marfim adornado com filigrana de ouro"
 ];
 
 export const magTableA = ["Poção de cura", "Pergaminho de magia (truque)", "Poção de escalar", "Pergaminho de magia (1° nível)", "Pergaminho de magia (2° nível)", "Poção de cura maior", "Mochila de carga"];
 export const magTableB = [
-    "Poção de cura maior","Poção de sopro de fogo","Poção de resistência","Munição +1","Poção de amizade animal","Poção de força do gigante da colina","Poção de aumentar","Poção de respirar na água","Pergaminho de magia (2° nível)","Pergaminho de magia (3° nível)","Mochila de carga","Unguento de Keoghtom","Óleo escorregadio","Pó do desaparecimento","Pó da seca","Pó de espirrar e tossir","Gema elemental","Filtro do amor","Jarro de alquimia","Capa de respirar na água","Manto da arraia","Globo de fluxo","Óculos noturnos","Elmo de compreensão de idiomas","Bastão imóvel","Lanterna de revelação","Armadura do marinheiro","Armadura de mitral","Poção de envenenamento","Anel de natação","Robe dos itens úteis","Corda de escalada","Sela do cavaleiro","Varinha de detectar magia","Varinha de segredos"
+    "Poção de cura maior", "Poção de sopro de fogo", "Poção de resistência", "Munição +1", "Poção de amizade animal", "Poção de força do gigante da colina", "Poção de aumentar", "Poção de respirar na água", "Pergaminho de magia (2° nível)", "Pergaminho de magia (3° nível)", "Mochila de carga", "Unguento de Keoghtom", "Óleo escorregadio", "Pó do desaparecimento", "Pó da seca", "Pó de espirrar e tossir", "Gema elemental", "Filtro do amor", "Jarro de alquimia", "Capa de respirar na água", "Manto da arraia", "Globo de fluxo", "Óculos noturnos", "Elmo de compreensão de idiomas", "Bastão imóvel", "Lanterna de revelação", "Armadura do marinheiro", "Armadura de mitral", "Poção de envenenamento", "Anel de natação", "Robe dos itens úteis", "Corda de escalada", "Sela do cavaleiro", "Varinha de detectar magia", "Varinha de segredos"
 ];
 export const magTableC = [
-    "Poção de cura maior","Pergaminho de magia (4° nível)","Munição +2","Poção de clarividência","Poção de encolher","Poção de forma gasosa","Poção de força do gigante do gelo","Poção de força do gigante de pedra","Poção de heroísmo","Poção de invulnerabilidade","Poção de ler mentes","Pergaminho de magia (5° nível)","Elixir de saúde","Óleo de forma etérea","Poção de força do gigante do fogo","Pena de Quaal","Pergaminho de proteção","Saco de feijões","Contas de força","Carrilhão de abertura","Decantador de água infinita","Olhos de visão momentânea","Barco dobrável","Sacola prestativa de Heward","Ferraduras da velocidade","Colar de bolas de fogo","Periapto de saúde","Pedras de mensagem"
+    "Poção de cura maior", "Pergaminho de magia (4° nível)", "Munição +2", "Poção de clarividência", "Poção de encolher", "Poção de forma gasosa", "Poção de força do gigante do gelo", "Poção de força do gigante de pedra", "Poção de heroísmo", "Poção de invulnerabilidade", "Poção de ler mentes", "Pergaminho de magia (5° nível)", "Elixir de saúde", "Óleo de forma etérea", "Poção de força do gigante do fogo", "Pena de Quaal", "Pergaminho de proteção", "Saco de feijões", "Contas de força", "Carrilhão de abertura", "Decantador de água infinita", "Olhos de visão momentânea", "Barco dobrável", "Sacola prestativa de Heward", "Ferraduras da velocidade", "Colar de bolas de fogo", "Periapto de saúde", "Pedras de mensagem"
 ];
 export const magTableD = [
     "Potion of supreme healing",
@@ -359,126 +365,126 @@ export const magTableG = [
 ];
 export const magTableH = [
     "Weapon, +3",
-"Amulet of the planes",
-"Carpet of flying",
-"Crystal ball (very rare version)",
-"Ring of regeneration",
-"Ring of shooting stars",
-"Ring of telekinesis",
-"Robe of scintillating colors",
-"Robe of stars",
-"Rod of absorption",
-"Rod of alertness",
-"Rod of security",
-"Rod of the pact keeper, +3",
-"Scimitar of speed",
-"Shield, +3",
-"Staff of fire",
-"Staff of frost",
-"Staff of power",
-"Staff of striking",
-"Staff of thunder and lightning",
-"Sword of sharpnes",
-"Wand of polymorph",
-"Wand of the war mage, + 3",
-"Adamantine armor (half plate)",
-"Adamantine armor (plate)",
-"Animated shield",
-"Belt of fire giant strength",
-"Belt of frost (or stone) giant strength",
-"Armor, + 1 breastplate",
-"Armor of resistance (breastplate)",
-"Candle of invocation",
-"Armor, +2 chain mail",
-"Armor, +2 chain shirt",
-"Cloak of arachnida",
-"Dancing sword",
-"Demon armor",
-"Dragon scale mail",
-"Dwarven plate",
-"Dwarven thrower",
-"Efreeti bottle",
-"Figurine of wondrous power (obsidian steed)",
-"Frost brand",
-"Helm of brilliance",
-"Horn ofValhalla (bronze)",
-"Instrument of the bards (Anstruthharp)",
-"loun stone (absorption)",
-"loun stone (agility)",
-"loun stone (fortitude)",
-"loun stone (insight)",
-"loun stone (intellect)",
-"loun stone (leadership)",
-"loun stone (strength)",
-"Armor, +2 leather",
-"Manual of bodily health",
-"Manual of gainful exercise",
-"Manual of golems",
-"Manual of quickness of action",
-"Mirror of life trapping",
-"Nine lives stealer",
-"Oathbow",
-"Armor, +2 scale mail",
-"Spellguard shield",
-"Armor, + 1 splint",
-"Armor of resistance (splint)",
-"Armor, + 1 studded leather",
-"Armor of resistance (studded leather)",
-"Tome of clear thought",
-"Tome of leadership and influence",
-"Tome of understanding"
+    "Amulet of the planes",
+    "Carpet of flying",
+    "Crystal ball (very rare version)",
+    "Ring of regeneration",
+    "Ring of shooting stars",
+    "Ring of telekinesis",
+    "Robe of scintillating colors",
+    "Robe of stars",
+    "Rod of absorption",
+    "Rod of alertness",
+    "Rod of security",
+    "Rod of the pact keeper, +3",
+    "Scimitar of speed",
+    "Shield, +3",
+    "Staff of fire",
+    "Staff of frost",
+    "Staff of power",
+    "Staff of striking",
+    "Staff of thunder and lightning",
+    "Sword of sharpnes",
+    "Wand of polymorph",
+    "Wand of the war mage, + 3",
+    "Adamantine armor (half plate)",
+    "Adamantine armor (plate)",
+    "Animated shield",
+    "Belt of fire giant strength",
+    "Belt of frost (or stone) giant strength",
+    "Armor, + 1 breastplate",
+    "Armor of resistance (breastplate)",
+    "Candle of invocation",
+    "Armor, +2 chain mail",
+    "Armor, +2 chain shirt",
+    "Cloak of arachnida",
+    "Dancing sword",
+    "Demon armor",
+    "Dragon scale mail",
+    "Dwarven plate",
+    "Dwarven thrower",
+    "Efreeti bottle",
+    "Figurine of wondrous power (obsidian steed)",
+    "Frost brand",
+    "Helm of brilliance",
+    "Horn ofValhalla (bronze)",
+    "Instrument of the bards (Anstruthharp)",
+    "loun stone (absorption)",
+    "loun stone (agility)",
+    "loun stone (fortitude)",
+    "loun stone (insight)",
+    "loun stone (intellect)",
+    "loun stone (leadership)",
+    "loun stone (strength)",
+    "Armor, +2 leather",
+    "Manual of bodily health",
+    "Manual of gainful exercise",
+    "Manual of golems",
+    "Manual of quickness of action",
+    "Mirror of life trapping",
+    "Nine lives stealer",
+    "Oathbow",
+    "Armor, +2 scale mail",
+    "Spellguard shield",
+    "Armor, + 1 splint",
+    "Armor of resistance (splint)",
+    "Armor, + 1 studded leather",
+    "Armor of resistance (studded leather)",
+    "Tome of clear thought",
+    "Tome of leadership and influence",
+    "Tome of understanding"
 ];
 export const magTableI = [
     "Defender",
-"Hammer of thunderbolts",
-"Luck Blade",
-"Sword of answering",
-"Holy avenger",
-"Ring of djinni summoning",
-"Ring of invisibility",
-"Ring of spell turning",
-"Rod of lordly might",
-"Vorpal sword",
-"Belt of cloud giant strength",
-"Armor, +2 breastplate",
-"Armor, +3 chain mail",
-"Armor, +3 chain shirt",
-"Cloak of invisibility",
-"Crystal ball (legendary version)",
-"Armor, + 1 half plate",
-"Iron flask",
-"Armor, +3 leather",
-"Armor, +1 plate",
-"Robe of the archmagi",
-"Rod of resurrection",
-"Armor, +1 scale mail",
-"Scarab of protection",
-"Armor, +2 splint",
-"Armor, +2 studded leather",
-"Well of many worlds",
-"Magic armor (roll dl2)",
-"Apparatus of Kwalish",
-"Armor of invulnerability",
-"Belt of storm giant strength",
-"Cubic gate",
-"Deck of many things",
-"Efreeti chain",
-"Armor of resistance (half plate)",
-"Horn ofValhalla (iron)",
-"Instrument of the bards (OIIamh harp)",
-"loun stone (greater absorption)",
-"loun stone (mastery)",
-"loun stone (regeneration)",
-"Plate armor of etherealness",
-"Plate armor of resistance",
-"Ring of air elemental command",
-"Ring of earthelemental command",
-"Ring of fire elemental command",
-"Ring of three wishes",
-"Ring of water elemental command",
-"Sphere of annihilation",
-"Talisman of pure good",
-"Talisman of the sphere",
-"Talisman of ultimate evil",
-"Tome of the stilled tongue"
+    "Hammer of thunderbolts",
+    "Luck Blade",
+    "Sword of answering",
+    "Holy avenger",
+    "Ring of djinni summoning",
+    "Ring of invisibility",
+    "Ring of spell turning",
+    "Rod of lordly might",
+    "Vorpal sword",
+    "Belt of cloud giant strength",
+    "Armor, +2 breastplate",
+    "Armor, +3 chain mail",
+    "Armor, +3 chain shirt",
+    "Cloak of invisibility",
+    "Crystal ball (legendary version)",
+    "Armor, + 1 half plate",
+    "Iron flask",
+    "Armor, +3 leather",
+    "Armor, +1 plate",
+    "Robe of the archmagi",
+    "Rod of resurrection",
+    "Armor, +1 scale mail",
+    "Scarab of protection",
+    "Armor, +2 splint",
+    "Armor, +2 studded leather",
+    "Well of many worlds",
+    "Magic armor (roll dl2)",
+    "Apparatus of Kwalish",
+    "Armor of invulnerability",
+    "Belt of storm giant strength",
+    "Cubic gate",
+    "Deck of many things",
+    "Efreeti chain",
+    "Armor of resistance (half plate)",
+    "Horn ofValhalla (iron)",
+    "Instrument of the bards (OIIamh harp)",
+    "loun stone (greater absorption)",
+    "loun stone (mastery)",
+    "loun stone (regeneration)",
+    "Plate armor of etherealness",
+    "Plate armor of resistance",
+    "Ring of air elemental command",
+    "Ring of earthelemental command",
+    "Ring of fire elemental command",
+    "Ring of three wishes",
+    "Ring of water elemental command",
+    "Sphere of annihilation",
+    "Talisman of pure good",
+    "Talisman of the sphere",
+    "Talisman of ultimate evil",
+    "Tome of the stilled tongue"
 ];
