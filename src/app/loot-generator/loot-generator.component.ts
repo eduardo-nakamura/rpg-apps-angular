@@ -8,7 +8,7 @@ import { individualZeroFour, individualFiveTen, individualElevenSixteen, individ
 })
 export class LootGeneratorComponent implements OnInit {
   lootType: number
-  loot: any  
+  lootFinal: any  
   //https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/manipulating-complex-objects
   //https://www.freecodecamp.org/forum/t/freecodecamp-challenge-guide-profile-lookup/18259
   // numberDraw: Number
@@ -30,7 +30,7 @@ export class LootGeneratorComponent implements OnInit {
   chooseLoot() {
     let numberDraw = Math.floor(Math.random() * (100 - 1 + 1)) + 1    
     let chosenLoot: any
-    switch (this.lootType) {      
+    switch (this.lootType) {
       case 1:        
         numberDraw <= 30 ? chosenLoot = individualZeroFour[0] : numberDraw > 30 && numberDraw <= 60 ? chosenLoot = individualZeroFour[1] : numberDraw > 60 && numberDraw <= 70 ? chosenLoot = individualZeroFour[2] : numberDraw > 70 && numberDraw <= 95 ? chosenLoot = individualZeroFour[3] : chosenLoot = individualZeroFour[4]
         break;
@@ -56,91 +56,27 @@ export class LootGeneratorComponent implements OnInit {
       case 8:
         numberDraw <= 2  ? chosenLoot = hoardSeventeenPlus[0] : numberDraw > 3 && numberDraw <= 5 ? chosenLoot = hoardSeventeenPlus[1] : numberDraw > 5 && numberDraw <= 8 ? chosenLoot = hoardSeventeenPlus[2] : numberDraw > 8 && numberDraw <= 11 ? chosenLoot = hoardSeventeenPlus[3] : numberDraw > 11 && numberDraw <= 14 ? chosenLoot = hoardSeventeenPlus[4] : numberDraw > 14 && numberDraw <= 22 ? chosenLoot = hoardSeventeenPlus[5] : numberDraw > 22 && numberDraw <= 30 ? chosenLoot = hoardSeventeenPlus[6] : numberDraw > 30 && numberDraw <= 38 ? chosenLoot = hoardSeventeenPlus[7] : numberDraw > 38 && numberDraw <= 46 ? chosenLoot = hoardSeventeenPlus[8] : numberDraw > 46 && numberDraw <= 52 ? chosenLoot = hoardSeventeenPlus[9] : numberDraw > 52 && numberDraw <= 58 ? chosenLoot = hoardSeventeenPlus[10] : numberDraw > 58 && numberDraw <= 63 ? chosenLoot = hoardSeventeenPlus[11] : numberDraw > 63 && numberDraw <= 68 ? chosenLoot = hoardSeventeenPlus[12] : numberDraw == 69 ? chosenLoot = hoardSeventeenPlus[13] : numberDraw == 70 ? chosenLoot = hoardSeventeenPlus[14] : numberDraw == 71 ? chosenLoot = hoardSeventeenPlus[15] : numberDraw == 72 ? chosenLoot = hoardSeventeenPlus[16] : numberDraw > 72 && numberDraw <= 74 ? chosenLoot = hoardSeventeenPlus[17] : numberDraw > 74 && numberDraw <= 76 ? chosenLoot = hoardSeventeenPlus[18] : numberDraw > 76 && numberDraw <= 78 ? chosenLoot = hoardSeventeenPlus[19] : numberDraw > 78 && numberDraw <= 80 ? chosenLoot = hoardSeventeenPlus[20] : numberDraw > 81 && numberDraw <= 85 ? chosenLoot = hoardSeventeenPlus[21] : numberDraw > 86 && numberDraw <= 90 ? chosenLoot = hoardSeventeenPlus[22] : numberDraw > 91 && numberDraw <= 95 ? chosenLoot = hoardSeventeenPlus[23] : chosenLoot = hoardSeventeenPlus[24]
         break;
-    }
-    let generatedLoot = Object.keys(chosenLoot)    
-    
-    for (let i = 0; i < generatedLoot.length; i++){
-      let totalLoot = 0
-      let separate = chosenLoot[generatedLoot[i]].split("x")
-      
-      if (separate.length > 2){
-        let magicItemA = []
-        let regex = /MagItem./g;
-        let random: number
-        //console.log(separate[1].match(regex),separate[3].match(regex));
-        let tableA = separate[1].match(regex)[0];
-        let tableB = separate[3].match(regex)[0];
-        switch(tableA) {
-          case "MagItemA":
-            random = Math.floor((Math.random() * 7) + 1)
-            console.log(isNaN(random),random,magTableA[random])
-            
-            // magicItemA = magTableA[random]
-            break;
-          case "MagItemB":
-            random = Math.floor((Math.random() * 35) + 1)
-            console.log(isNaN(random),random,magTableA[random])
-            // magicItemA = magTableA[random]
-            break;
-          case "MagItemC":
-            random = Math.floor((Math.random() * 28) + 1)
-            console.log(isNaN(random),random,magTableA[random])
-            // magicItemA = magTableA[random]
-            break;
-          case "MagItemD":
-            random = Math.floor((Math.random() * 16) + 1)
-            console.log(isNaN(random),random,magTableA[random])
-            // magicItemA = magTableA[random]
-            break;
-          case "MagItemE":
-            random = Math.floor((Math.random() * 7) + 1)
-            console.log(isNaN(random),random,magTableA[random])
-            // magicItemA = magTableA[random]
-            break;
-          case "MagItemF":
-            random = Math.floor((Math.random() * 60) + 1)
-            console.log(isNaN(random),random,magTableA[random])
-            // magicItemA = magTableA[random]
-            break;
-          case "MagItemG":            
-            random = Math.floor((Math.random() * 88) + 1)
-            console.log(isNaN(random),random,magTableA[random])
-            // magicItemA = magTableA[random]
-            break;
-          case "MagItemH":            
-            random = Math.floor((Math.random() * 69) + 1)
-            console.log(isNaN(random),random,magTableA[random])
-            // magicItemA = magTableA[random]
-            break;
-          case "MagItemI":            
-            random = Math.floor((Math.random() * 52) + 1)
-            console.log(isNaN(random),random,magTableA[random])
-            // magicItemA = magTableA[random]
-            break;
-        }
-        console.log('magicItemA',magicItemA)
-      } else {
-        console.log(separate)
+    }    
+    let lootType = Object.keys(chosenLoot)  
+        
+    for (let i = 0; i < lootType.length; i++){
+      let lootRoll = 0      
+      console.log(chosenLoot[lootType[i]])
+      for (let j = 0; j < chosenLoot[lootType[i]].quant; j++){
+        let dice = Math.floor((Math.random() * chosenLoot[lootType[i]].sides) + 1)
+        lootRoll += dice      
       }
-      
-      // console.log('1d1xMagItemFx1d4xMagItemG'.split("x"))
-      // console.log('1d1xMagItemF'.split("x"))
-      // console.log('2d4x250art'.split("x"))
-      // console.log('3d6x1000gems'.split("x"))
-      // console.log('1d6x100'.split("x"))
-      // console.log('separate',separate.length)
-      // let dice = chosenLoot[generatedLoot[i]].split("d").map(octet => parseInt(octet, 10))
-      // console.log('chosenLoot',chosenLoot)      
-      // for (let i = 0; i < parseInt(dice[0]); i++) {
-      //   let rolagem = Math.floor(Math.random() * parseInt(dice[1])) + 1;
-      //   totalLoot += rolagem
-      //   console.log(i,rolagem,totalLoot)
-      // }
-    }   
-    
+      let multiply = chosenLoot[lootType[i]].multiply        
+      lootType[i] += ": " + lootRoll * (multiply == undefined ? 1 : multiply)
+      console.log(lootType)
+    }
+    this.lootFinal = lootType
+
+
+
     // if (chosenLoot.pc){
-    //   let dice = chosenLoot.chosenLoot[generatedLoot[i]].split("d").map(octet => parseInt(octet, 10));      
+    //   let dice = chosenLoot.chosenLoot[lootType[i]].split("d").map(octet => parseInt(octet, 10));      
     // }
-    //console.log(generatedLoot)
+    //console.log(lootType)
   }
 }

@@ -1,30 +1,25 @@
 // import { LootObj } from './lootclass';
 export const individualZeroFour = [
-    { pc: { quant: 5, sides: 6 } },
-    { pp: { quant: 4, sides: 6 } },
-    { pe: { quant: 3, sides: 6 } },
-    { po: { quant: 3, sides: 6 } },
-    { pl: { quant: 1, sides: 6 } }
+    { "pc": { quant: 5, sides: 6 } },
+    { "pp": { quant: 4, sides: 6 } },
+    { "pe": { quant: 3, sides: 6 } },
+    { "po": { quant: 3, sides: 6 } },
+    { "pl": { quant: 1, sides: 6 } }
 ];
-// export const individualZeroFour = [
-//     { pc: '5d6' },
-//     { pp: '4d6' },
-//     { pe: '3d6' },
-//     { po: '3d6' },
-//     { pl: '1d6' }
-// ];
+
 export const individualFiveTen = [
-    { pc: '4d6x100', pe: '1d6x10' },
-    { pp: '6d6x10', po: '2d6x10' },
-    { pe: '1d6x100', po: '2d6x10' },
-    { po: '4d6x10' },
-    { po: '2d6x10', pl: '3d6' }
+    { pc: {quant: 4, sides: 6, multiply:100}, pe: {quant: 1, sides: 6, multiply:10} },
+    { pp: {quant: 6, sides: 6, multiply:10}, po: {quant: 2, sides: 6, multiply:10} },
+    { pe: {quant: 1, sides: 6, multiply:100}, po: {quant: 2, sides: 6, multiply:10} },
+    { po: {quant: 4, sides: 6, multiply:10} },
+    { po: {quant: 2, sides: 6, multiply:10}, pl: {quant: 3, sides: 6} }
 ];
+//aa: {quant: 0, sides: 0, multiply:0},
 export const individualElevenSixteen = [
-    { pp: '4d6x100', po: '1d6x100', },
-    { pe: '1d6x100', po: '1d6x100', },
-    { po: '2d6x100', pl: '1d6x10' },
-    { po: '2d6x100', pl: '2d6x10' }
+    {pp: {quant: 4, sides: 6, multiply:100},po: {quant: 1, sides: 6, multiply:100}},
+    {pe: {quant: 1, sides: 6, multiply:100},po: {quant: 1, sides: 6, multiply:100}},
+    {po: {quant: 2, sides: 6, multiply:100},pl: {quant: 1, sides: 6, multiply:10}},
+    {po: {quant: 2, sides: 6, multiply:100},pl: {quant: 2, sides: 6, multiply:10}}
 ];
 export const individualSeventeenPlus = [
     { pe: '2d6x1000', po: '8d6x100' },
