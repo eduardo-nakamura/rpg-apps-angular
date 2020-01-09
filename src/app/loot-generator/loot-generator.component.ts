@@ -10,16 +10,18 @@ import {MatPaginator} from '@angular/material/paginator';
   styleUrls: ['./loot-generator.component.css']
 })
 export class LootGeneratorComponent implements OnInit {
+  //conversor de moedas
   public selectOptions = ['Cobre','Prata','Electrum', 'Ouro', 'Platina']
   public selectedOption = "Escolha uma Moeda";
-  displayedColumns: string[] = ['cobre','prata','electrum', 'ouro', 'platina'];
-  dataSource = new MatTableDataSource<ConvertTable>(ELEMENT_DATA);
-  
- 
+  displayedColumnsConvert: string[] = ['cobre','prata','electrum', 'ouro', 'platina'];
+  dataSourceConvert = new MatTableDataSource<ConvertTable>(ELEMENT_DATA);
+  displayedColumnsIndividual: string[] = ['total','type'];
+  dataSourceIndividual = new MatTableDataSource<lootTable>(ELEMENT_DATA2);
   valorToConvert;
+  //gerador de loot
   lootType: number
   lootAlt: any
-  lootFinal: any = ""
+
   //https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/manipulating-complex-objects
   //https://www.freecodecamp.org/forum/t/freecodecamp-challenge-guide-profile-lookup/18259
   // numberDraw: Number
@@ -27,16 +29,17 @@ export class LootGeneratorComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-
+    console.log(this.dataSourceIndividual == undefined,'1a1')
   }
   genLoot() {
     this.resetLoot();
     this.chooseLoot();
-    if(this.lootAlt == "Nada"){
-      this.lootFinal = "Nada";
-    } else if(this.lootAlt.piece1){
-      this.generateLootPieces();
-    }
+    this.generateLootPieces();
+    // if(this.lootAlt == "Nada"){
+    //   this.lootFinal = "Nada";
+    // } else if(this.lootAlt.piece1){
+    //   this.generateLootPieces();
+    // }
   }
 
   chooseLoot() {      
@@ -59,59 +62,64 @@ export class LootGeneratorComponent implements OnInit {
         let diceResult = 0;
           for (let j = 0; j < this.lootAlt[iter[i]].quant; j++){
             let dice = Math.floor((Math.random() * this.lootAlt[iter[i]].sides) + 1);
-            diceResult += dice;
-          }
-          let total = diceResult * this.lootAlt[iter[i]].multiply;
-          iter[i] = `${this.format(total)} ${this.lootAlt[iter[i]].type}`      
-      }
-      this.lootFinal += iter;   
+            diceResult += dice; 
+            console.log(j,dice)         
+          }          
+          let lootDet = {type: this.lootAlt[iter[i]].type, total: diceResult * this.lootAlt[iter[i]].multiply }
+          ELEMENT_DATA2.push(lootDet)
+          this.addData()
+      }     
   }
 
   generateLootGemArt(){   
-    let iter = Object.keys(this.lootAlt);
-    let diceResult = 0;
-    let tableLoot: any;  
-    let gemArtResult = this.lootAlt.gemArt.type + ": ";
-    console.log(this.lootAlt)
-    switch(this.lootAlt.gemArt.table){
-      case "10GP":tableLoot = tables.gem10;break;
-      case "50GP":tableLoot = tables.gem50;break;
-      case "100GP":tableLoot = tables.gem100;break;
-      case "500GP":tableLoot = tables.gem500;break;
-      case "1000GP":tableLoot = tables.gem1000;break;
-      case "5000GP":tableLoot = tables.gem5000;break;
-      case "25GP":tableLoot = tables.art25;break;
-      case "250GP":tableLoot = tables.art250;break;
-      case "750GP":tableLoot = tables.art750;break;
-      case "2500GP":tableLoot = tables.art2500;break;
-      case "7500GP":tableLoot = tables.art7500;break;
-    } 
+    // let iter = Object.keys(this.lootAlt);
+    // let diceResult = 0;
+    // let tableLoot: any;  
+    // let gemArtResult = this.lootAlt.gemArt.type + ": ";
+    // console.log(this.lootAlt)
+    // switch(this.lootAlt.gemArt.table){
+    //   case "10GP":tableLoot = tables.gem10;break;
+    //   case "50GP":tableLoot = tables.gem50;break;
+    //   case "100GP":tableLoot = tables.gem100;break;
+    //   case "500GP":tableLoot = tables.gem500;break;
+    //   case "1000GP":tableLoot = tables.gem1000;break;
+    //   case "5000GP":tableLoot = tables.gem5000;break;
+    //   case "25GP":tableLoot = tables.art25;break;
+    //   case "250GP":tableLoot = tables.art250;break;
+    //   case "750GP":tableLoot = tables.art750;break;
+    //   case "2500GP":tableLoot = tables.art2500;break;
+    //   case "7500GP":tableLoot = tables.art7500;break;
+    // } 
     
-    for (let i = 0; i < this.lootAlt.gemArt.quant; i++){
-      let dice = Math.floor((Math.random() * (this.lootAlt.gemArt.sides - 1)) + 1);
-      gemArtResult += `${(i+1)}) ${tableLoot[dice]}`;
-    }
+    // for (let i = 0; i < this.lootAlt.gemArt.quant; i++){
+    //   let dice = Math.floor((Math.random() * (this.lootAlt.gemArt.sides - 1)) + 1);
+    //   gemArtResult += `${(i+1)}) ${tableLoot[dice]}`;
+    // }
 
-    iter[0] = gemArtResult + `( ${this.format(this.lootAlt.gemArt.quant * parseFloat(this.lootAlt.gemArt.table))} GP Total )`;
-    this.lootFinal = iter;
+    // iter[0] = gemArtResult + `( ${this.format(this.lootAlt.gemArt.quant * parseFloat(this.lootAlt.gemArt.table))} GP Total )`;
+    // this.lootFinal = iter;
   }
 
   generateLootMagItem(){
-    let magItem = this.lootAlt
-    delete magItem.gemArt
-    console.log(magItem)
-    //delete this.lootAlt.gemArt;  
-    let diceResult = 0;
-    let tableLoot: any;  
-    let magItemResult = "Itens Mágicos: ";
+    // let magItem = this.lootAlt
+    // delete magItem.gemArt
+    // console.log(magItem)
+    // //delete this.lootAlt.gemArt;  
+    // let diceResult = 0;
+    // let tableLoot: any;  
+    // let magItemResult = "Itens Mágicos: ";
 
 
   }
 
   resetLoot(){
-    this.lootFinal = "";
+    ELEMENT_DATA2 = []
+    this.addData()
+    //this.lootFinal = "";
   }
-
+  addData(){    
+    this.dataSourceIndividual = new MatTableDataSource<lootTable>(ELEMENT_DATA2);
+  }
   /* Copy Text Loot to Clipboard */
   copyText(val: string){
   let selBox = document.createElement('textarea');    
@@ -122,12 +130,12 @@ export class LootGeneratorComponent implements OnInit {
     document.execCommand('copy');
     document.body.removeChild(selBox);
   }
+
+  // Convert Coins
   convertPiece(){    
     if(this.valorToConvert == undefined || this.selectedOption == "Escolha uma Moeda" ){
       console.log("errou")
-    } 
-    console.log(ELEMENT_DATA[0].cobre)
-    //Cobre Prata Electrum Ouro Platina
+    }     
     switch(this.selectedOption){
       case "Cobre":
         ELEMENT_DATA[0].cobre = this.valorToConvert
@@ -168,21 +176,18 @@ export class LootGeneratorComponent implements OnInit {
   }
 }
 
-//tabela Loot
+//individual table Loot  
 export interface lootTable {
-  cobre: number;
-  prata: number;
-  electrum: number;
-  ouro: number;
-  platina: number;
+  type: string;
+  total: number  
 }
 
-const ELEMENT_DATA2: lootTable[] = [
-  {cobre: 0,prata: 0,electrum: 0,ouro: 0,platina: 0}  
+let ELEMENT_DATA2: lootTable[] = [
+  //{type: "Peças de Ouro",total: 0}  
 ];
 
 
-//tabela Conversão
+//table Convert
 export interface ConvertTable {
   cobre: number;
   prata: number;
@@ -192,5 +197,5 @@ export interface ConvertTable {
 }
 
 const ELEMENT_DATA: ConvertTable[] = [
-  {cobre: 0,prata: 0,electrum: 0,ouro: 0,platina: 0}  
+  {cobre: 0,prata: 0,electrum: 0,ouro: 0,platina: 0}
 ];
