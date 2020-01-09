@@ -33,7 +33,63 @@
         </h5>
     </div>
 
+    <div class="row bg-header mt-2 pl-2 pt-2">
+        <h3>Conversor de Moedas</h3>
+
+    </div>
+    <div class="row p-3">
+        <div class="d-flex justify-content-center w-100">
+            <input min="0" type="number" class="form-control flex-fill m-2" value="Valor" [(ngModel)]="valorToConvert">
+            <select class="custom-select flex-fill m-2" [(ngModel)]="selectedOption">
+                <option selected>Escolha uma Moeda</option>
+                <option *ngFor="let option of selectOptions" [value]="option">
+                    {{option}}
+                  </option>
+              </select>
+            <button class="btn btn-large flex-fill m-2" (click)="convertPiece()">Converter</button>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <table class="bg-convert" mat-table [dataSource]="dataSource">
+
+            <!-- cobre Column -->
+            <ng-container matColumnDef="cobre">
+                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Cobre </th>
+                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.cobre}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="prata">
+                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Prata </th>
+                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.prata}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="electrum">
+                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Electrum </th>
+                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.electrum}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="ouro">
+                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Ouro </th>
+                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.ouro}} </td>
+            </ng-container>
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="platina">
+                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Platina </th>
+                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.platina}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+
 </div>
+
 
 <p class="text-light">
     Fonte:

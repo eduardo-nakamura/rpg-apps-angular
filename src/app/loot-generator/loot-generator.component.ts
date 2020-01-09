@@ -1,6 +1,8 @@
-import { Component,OnInit, ɵConsole} from '@angular/core';
+import { Component,OnInit, ViewChild} from '@angular/core';
 import * as tables from './lootObjs';
+import {MatTableDataSource} from '@angular/material/table';
 //import { artTable,gemsTable,magTable,individual,hoard} from './lootObjs';
+import {MatPaginator} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-loot-generator',
@@ -8,6 +10,13 @@ import * as tables from './lootObjs';
   styleUrls: ['./loot-generator.component.css']
 })
 export class LootGeneratorComponent implements OnInit {
+  public selectOptions = ['Cobre','Prata','Electrum', 'Ouro', 'Platina']
+  public selectedOption = "Escolha uma Moeda";
+  displayedColumns: string[] = ['cobre','prata','electrum', 'ouro', 'platina'];
+  dataSource = new MatTableDataSource<ConvertTable>(ELEMENT_DATA);
+  
+ 
+  valorToConvert;
   lootType: number
   lootAlt: any
   lootFinal: any = ""
@@ -23,25 +32,11 @@ export class LootGeneratorComponent implements OnInit {
   genLoot() {
     this.resetLoot();
     this.chooseLoot();
-    // console.log("magItemA",this.lootAlt.magItemA,this.lootAlt.magItemB)
-    // console.log("gemArt",this.lootAlt.gemArt)
-    // console.log("magItemA",this.lootAlt.magItemA)
     if(this.lootAlt == "Nada"){
       this.lootFinal = "Nada";
     } else if(this.lootAlt.piece1){
       this.generateLootPieces();
     }
-
-    // if(this.lootAlt == "Nada"){
-    //   this.lootFinal = "Nada";
-    // } else if(this.lootAlt.piece1){
-    //   this.generateLootPieces();
-    // } else {
-    //   this.generateLootGemArt();
-    //   this.generateLootMagItem();
-    // }  
-    
-    //this.copyText(this.lootFinal)
   }
 
   chooseLoot() {      
@@ -127,4 +122,75 @@ export class LootGeneratorComponent implements OnInit {
     document.execCommand('copy');
     document.body.removeChild(selBox);
   }
+  convertPiece(){    
+    if(this.valorToConvert == undefined || this.selectedOption == "Escolha uma Moeda" ){
+      console.log("errou")
+    } 
+    console.log(ELEMENT_DATA[0].cobre)
+    //Cobre Prata Electrum Ouro Platina
+    switch(this.selectedOption){
+      case "Cobre":
+        ELEMENT_DATA[0].cobre = this.valorToConvert
+        ELEMENT_DATA[0].prata = (this.valorToConvert / 10)
+        ELEMENT_DATA[0].electrum = (this.valorToConvert / 50)
+        ELEMENT_DATA[0].ouro = (this.valorToConvert / 100)
+        ELEMENT_DATA[0].platina = (this.valorToConvert / 1000)
+        break;
+      case "Prata":
+        ELEMENT_DATA[0].cobre = this.valorToConvert * 10
+        ELEMENT_DATA[0].prata = this.valorToConvert 
+        ELEMENT_DATA[0].electrum = this.valorToConvert / 5
+        ELEMENT_DATA[0].ouro = this.valorToConvert / 10
+        ELEMENT_DATA[0].platina = this.valorToConvert /100 
+        break;
+      case "Electrum":
+        ELEMENT_DATA[0].cobre = this.valorToConvert * 50
+        ELEMENT_DATA[0].prata = this.valorToConvert * 5
+        ELEMENT_DATA[0].electrum = this.valorToConvert
+        ELEMENT_DATA[0].ouro = this.valorToConvert / 2
+        ELEMENT_DATA[0].platina = this.valorToConvert /20
+        break;
+      case "Ouro":
+        ELEMENT_DATA[0].cobre = this.valorToConvert * 100
+        ELEMENT_DATA[0].prata = this.valorToConvert * 10
+        ELEMENT_DATA[0].electrum = this.valorToConvert * 2
+        ELEMENT_DATA[0].ouro = this.valorToConvert
+        ELEMENT_DATA[0].platina = this.valorToConvert /10
+        break;
+      case "Platina":
+        ELEMENT_DATA[0].cobre = this.valorToConvert * 1000
+        ELEMENT_DATA[0].prata = this.valorToConvert * 100
+        ELEMENT_DATA[0].electrum = this.valorToConvert * 20
+        ELEMENT_DATA[0].ouro = this.valorToConvert * 10
+        ELEMENT_DATA[0].platina = this.valorToConvert
+        break;
+    }
+  }
 }
+
+//tabela Loot
+export interface lootTable {
+  cobre: number;
+  prata: number;
+  electrum: number;
+  ouro: number;
+  platina: number;
+}
+
+const ELEMENT_DATA2: lootTable[] = [
+  {cobre: 0,prata: 0,electrum: 0,ouro: 0,platina: 0}  
+];
+
+
+//tabela Conversão
+export interface ConvertTable {
+  cobre: number;
+  prata: number;
+  electrum: number;
+  ouro: number;
+  platina: number;
+}
+
+const ELEMENT_DATA: ConvertTable[] = [
+  {cobre: 0,prata: 0,electrum: 0,ouro: 0,platina: 0}  
+];
