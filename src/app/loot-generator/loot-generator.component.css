@@ -1,0 +1,15 @@
+button {
+    font-size: 1rem;
+}
+
+.bg-convert {
+    background-color: #292929;
+    color: #ffffff;
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bg-convert th {
+    font-size: 1rem;
+}

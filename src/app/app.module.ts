@@ -24,7 +24,7 @@ import { LootGeneratorComponent } from './loot-generator/loot-generator.componen
     IntroComponent,
     HomeComponent,
     GameHookComponent,
-    LootGeneratorComponent
+    LootGeneratorComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +39,7 @@ import { LootGeneratorComponent } from './loot-generator/loot-generator.componen
     MatTooltipModule,
     BrowserAnimationsModule
   ],
+  exports:[MatPaginatorModule],
   providers: [],
   bootstrap: [AppComponent]
 })

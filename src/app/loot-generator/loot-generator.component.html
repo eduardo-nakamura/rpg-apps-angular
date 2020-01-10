@@ -23,24 +23,84 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-12 bg-white">
-            <!-- <ul>
-                <li *ngFor="let lootd of lootDraw">
-                    {{lootd.po}}
-                </li>
-            </ul> -->
+    <div class="row bg-header mt-2 pl-2 pt-2" *ngIf="lootAlt">
+        <h3>Resultado</h3>
+    </div>
+    <div class="row" *ngIf="lootAlt">
+        <table class="bg-convert" mat-table [dataSource]="dataSourceIndividual">
+            <ng-container matColumnDef="type">
+                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Tipo de Peça </th>
+                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.type}} </td>
+            </ng-container>
+            <ng-container matColumnDef="quantity">
+                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Quantidade </th>
+                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.quantity | number}} </td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Item </th>
+                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.name }} </td>
+            </ng-container>
+            <ng-container matColumnDef="value">
+                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Valor </th>
+                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.value | number }} GP</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsIndividual"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsIndividual;"></tr>
+           
+        </table>
+        <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
+    </div>
+
+    <div class="row bg-header mt-2 pl-2 pt-2">
+        <h3>Conversor de Moedas</h3>
+
+    </div>
+    <div class="row p-3">
+        <div class="d-flex justify-content-center w-100">
+            <input min="0" type="number" class="form-control flex-fill m-2" value="Valor" [(ngModel)]="valorToConvert">
+            <select class="custom-select flex-fill m-2" [(ngModel)]="selectedOption">
+                <option selected>Escolha uma Moeda</option>
+                <option *ngFor="let option of selectOptions" [value]="option">
+                    {{option}}
+                  </option>
+              </select>
+            <button class="btn btn-large flex-fill m-2" (click)="convertPiece()">Converter</button>
         </div>
-
-
-
 
     </div>
 
+
+
+    <div class="row">
+        <table class="bg-convert" mat-table [dataSource]="dataSourceConvert">
+            <ng-container matColumnDef="cobre">
+                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Cobre </th>
+                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.cobre | number}} </td>
+            </ng-container>
+            <ng-container matColumnDef="prata">
+                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Prata </th>
+                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.prata | number}} </td>
+            </ng-container>
+            <ng-container matColumnDef="electrum">
+                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Electrum </th>
+                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.electrum | number}} </td>
+            </ng-container>
+            <ng-container matColumnDef="ouro">
+                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Ouro </th>
+                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.ouro | number}} </td>
+            </ng-container>
+            <ng-container matColumnDef="platina">
+                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Platina </th>
+                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.platina | number}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsConvert"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsConvert;"></tr>
+        </table>
+    </div>
+
 </div>
-<p class="text-light">
-    {{lootType}}<br>{{loot}}
-</p>
+
+
 <p class="text-light">
     Fonte:
     <a href="https://dungeonmastertools.github.io/index.html">
