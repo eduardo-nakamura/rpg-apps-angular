@@ -99,7 +99,7 @@ export class LootGeneratorComponent implements OnInit {
       for (let j = 0; j < dice; j++){   
         let itemDice = this.rollDice(100);   
         let magItemDraw = this.tableMagItem(magItens[element].table, itemDice);
-        console.log(magItemDraw)
+        //console.log(magItemDraw)
         let itemObj = {
           type: magItens[element].type,
           quantity: 1,
@@ -120,7 +120,7 @@ export class LootGeneratorComponent implements OnInit {
 
   //tabelas
   isGemorArt(){
-    console.log(this.lootAlt)
+    //console.log(this.lootAlt)
     switch(this.lootAlt.gemArt.table){
       case "10GP": return tables.gem10;break;
       case "50GP": return tables.gem50;break;
@@ -176,7 +176,7 @@ export class LootGeneratorComponent implements OnInit {
   // Convert Coins
   convertPiece(){    
     if(this.valorToConvert == undefined || this.selectedOption == "Escolha uma Moeda" ){
-      console.log("errou")
+      //console.log("errou")
     }     
     switch(this.selectedOption){
       case "Cobre":
