@@ -11,7 +11,7 @@ import {MatPaginator} from '@angular/material/paginator';
 })
 export class LootGeneratorComponent implements OnInit {
   //conversor de moedas
-  public selectOptions = ['Cobre','Prata','Electrum', 'Ouro', 'Platina']
+  public selectOptions = ['Cobre','Prata','Electrum', 'Ouro', 'Platina'];
   public selectedOption = "Escolha uma Moeda";
   displayedColumnsConvert: string[] = ['cobre','prata','electrum', 'ouro', 'platina'];
   dataSourceConvert = new MatTableDataSource<ConvertTable>(ELEMENT_DATA);
@@ -20,8 +20,10 @@ export class LootGeneratorComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   valorToConvert;
   //gerador de loot
-  lootType: number
-  lootAlt: any
+  lootType: number;
+  lootAlt: any;
+  totalValue: number;
+  lootClipboard: String = "";
   format = num => String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1.');
   constructor() {}
 
@@ -36,15 +38,16 @@ export class LootGeneratorComponent implements OnInit {
       if(this.lootAlt.piece1){
         this.generateLootPieces();
       } 
-      if(this.lootAlt.gemArt) {
+      if(this.lootAlt.gemArt) {        
         this.generateLootGemArt();
-        this.generateLootMagItem()        
-      }
-           
-    }
+        if (this.lootAlt.magItemA){
+          this.generateLootMagItem();
+        }        
+      }           
+    } 
 
   }
-
+  
   chooseLoot() {      
       //let rollTableRes = Math.floor((Math.random() * 100) + 1);      
       let rollTableRes = this.rollDice(100);
@@ -68,56 +71,55 @@ export class LootGeneratorComponent implements OnInit {
         for (let j = 0; j < this.lootAlt[element].quant; j++){                    
           let dice = this.rollDice(this.lootAlt[element].sides)
           diceResult += dice;
-        }  
+        }          
         let lootDet = {type: this.lootAlt[element].type, quantity: diceResult * this.lootAlt[element].multiply, name:"",value:0 };
+        this.lootClipboard += `${this.format(diceResult * this.lootAlt[element].multiply)} ${this.lootAlt[element].type} `;        
         ELEMENT_DATA2.push(lootDet);
         this.addData();
       }); 
-    }        
+    }   
+   
   }
   generateLootGemArt(){   
-    this.displayedColumnsIndividual = ["name", "type", "value"]
+    this.displayedColumnsIndividual = ["name", "type", "value"];
     let diceResult = 0;
     let tableSelected = this.isGemorArt();
+    this.lootClipboard += `${this.lootAlt.gemArt.type}: `
     for(let i = 0; i < this.lootAlt.gemArt.quant; i++ ){      
-      let dice = this.rollDice(this.lootAlt.gemArt.sides - 1)  
-      diceResult += dice
+      let dice = this.rollDice(this.lootAlt.gemArt.sides - 1);
+      diceResult += dice;
     }
     for(let j = 0; j < diceResult; j++ ){                   
-      let dice = this.rollDice(tableSelected.length - 1);
+      let dice = this.rollDice(tableSelected.length - 1);      
       let lootDet = {type: this.lootAlt.gemArt.type, quantity: 0, name:tableSelected[dice],value:parseInt(this.lootAlt.gemArt.table) };
+      this.lootClipboard += lootDet.name;
+      (j < diceResult - 1) ? this.lootClipboard += ", " : this.lootClipboard += ` (${lootDet.value * diceResult} GP Total)`;      
       ELEMENT_DATA2.push(lootDet);
       this.addData();
     }   
   }
-  generateLootMagItem(){
-    
+  generateLootMagItem(){    
     let magItens = this.lootAlt
     delete magItens.gemArt;    
+    this.lootClipboard += `${this.lootAlt.magItemA.type}: `
     Object.keys(this.lootAlt).forEach((element) => {  
       let dice = this.rollDice(magItens[element].sides);      
       for (let j = 0; j < dice; j++){   
-        let itemDice = this.rollDice(100);   
-        let magItemDraw = this.tableMagItem(magItens[element].table, itemDice);
-        //console.log(magItemDraw)
+        let itemDice = this.rollDice(100);         
+        let magItemDraw = this.tableMagItem(magItens[element].table, itemDice);        
         let itemObj = {
           type: magItens[element].type,
           quantity: 1,
           name: `${magItemDraw.name}, LDM pg.${magItemDraw.page}`,
           value: parseInt(magItemDraw.value)
         }
+        
+        this.lootClipboard += itemObj.name, (j < dice - 1) ? "a" : "b" ;
         ELEMENT_DATA2.push(itemObj);
         this.addData();     
       }
     }); 
   }
-
-
-
-  
-
-
-
   //tabelas
   isGemorArt(){
     //console.log(this.lootAlt)
@@ -148,15 +150,10 @@ export class LootGeneratorComponent implements OnInit {
       case "TableI":if(diceResult<=5){return tables.tableI[0]}else if(diceResult<=10){return tables.tableI[1]}else if(diceResult<=15){return tables.tableI[2]}else if(diceResult<=20){return tables.tableI[3]}else if(diceResult<=23){return tables.tableI[4]}else if(diceResult<=26){return tables.tableI[5]}else if(diceResult<=29){return tables.tableI[6]}else if(diceResult<=32){return tables.tableI[7]}else if(diceResult<=38){return tables.tableI[8]}else if(diceResult<=41){return tables.tableI[9]}else if(diceResult<=43){return tables.tableI[10]}else if(diceResult<=45){return tables.tableI[11]}else if(diceResult<=47){return tables.tableI[12]}else if(diceResult<=49){return tables.tableI[13]}else if(diceResult<=51){return tables.tableI[14]}else if(diceResult<=53){return tables.tableI[15]}else if(diceResult<=55){return tables.tableI[16]}else if(diceResult<=57){return tables.tableI[17]}else if(diceResult<=59){return tables.tableI[18]}else if(diceResult<=61){return tables.tableI[19]}else if(diceResult<=63){return tables.tableI[20]}else if(diceResult<=65){return tables.tableI[21]}else if(diceResult<=67){return tables.tableI[22]}else if(diceResult<=69){return tables.tableI[23]}else if(diceResult<=71){return tables.tableI[24]}else if(diceResult<=73){return tables.tableI[25]}else if(diceResult<=75){return tables.tableI[26]}else if(diceResult==76){return tables.tableI[27]}else if(diceResult==77){return tables.tableI[28]}else if(diceResult==78){return tables.tableI[29]}else if(diceResult==79){return tables.tableI[30]}else if(diceResult==80){return tables.tableI[31]}else if(diceResult==81){return tables.tableI[32]}else if(diceResult==82){return tables.tableI[33]}else if(diceResult==83){return tables.tableI[34]}else if(diceResult==84){return tables.tableI[35]}else if(diceResult==85){return tables.tableI[36]}else if(diceResult==86){return tables.tableI[37]}else if(diceResult==87){return tables.tableI[38]}else if(diceResult==88){return tables.tableI[39]}else if(diceResult==89){return tables.tableI[40]}else if(diceResult==90){return tables.tableI[41]}else if(diceResult==91){return tables.tableI[42]}else if(diceResult==92){return tables.tableI[43]}else if(diceResult==93){return tables.tableI[44]}else if(diceResult==94){return tables.tableI[45]}else if(diceResult==95){return tables.tableI[46]}else if(diceResult==96){return tables.tableI[47]}else if(diceResult==97){return tables.tableI[48]}else if(diceResult==98){return tables.tableI[49]}else if(diceResult==99){return tables.tableI[50]}else if(diceResult==100){return tables.tableI[51]}break;
     }
   }
-
-
-
-
-
-
   resetLoot(){
     ELEMENT_DATA2 = []
-    this.addData()
+    this.addData();
+    this.lootClipboard = ""
     //this.lootFinal = "";
   }
   addData(){    
@@ -220,6 +217,11 @@ export class LootGeneratorComponent implements OnInit {
   //rolar dados
   rollDice(diceSides){
     return Math.floor((Math.random() * diceSides) + 1);
+  }
+
+
+  getTotalCost() {
+    return ELEMENT_DATA2.map(t => t.value).reduce((acc, tesste) => acc + tesste, 0);
   }
 }
 

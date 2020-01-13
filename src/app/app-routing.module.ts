@@ -6,6 +6,7 @@ import { IntroComponent } from './intro/intro.component'
 import { HomeComponent } from './home/home.component'
 import { GameHookComponent } from './game-hook/game-hook.component'
 import { LootGeneratorComponent } from './loot-generator/loot-generator.component'
+import { NpcGeneratorComponent } from './npc-generator/npc-generator.component'
 const routes: Routes = [
   { 
     path: '', 
@@ -30,6 +31,10 @@ const routes: Routes = [
   { 
     path: 'loot-generator', 
     component: LootGeneratorComponent
+  },
+  { 
+    path: 'npc-generator', 
+    component: NpcGeneratorComponent
   },
   {
     path: "**",
