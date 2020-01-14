@@ -15,6 +15,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GameHookComponent } from './game-hook/game-hook.component';
 import { LootGeneratorComponent } from './loot-generator/loot-generator.component';
+import { NpcGeneratorComponent } from './npc-generator/npc-generator.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { LootGeneratorComponent } from './loot-generator/loot-generator.componen
     HomeComponent,
     GameHookComponent,
     LootGeneratorComponent,
+    NpcGeneratorComponent,
   ],
   imports: [
     BrowserModule,
