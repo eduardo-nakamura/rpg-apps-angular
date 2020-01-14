@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GameHookComponent } from './game-hook/game-hook.component';
 import { LootGeneratorComponent } from './loot-generator/loot-generator.component';
 import { NpcGeneratorComponent } from './npc-generator/npc-generator.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { NpcGeneratorComponent } from './npc-generator/npc-generator.component';
     MatTooltipModule,
     BrowserAnimationsModule
   ],
-  exports:[MatPaginatorModule],
+  exports:[MatSidenavModule,MatPaginatorModule],
   providers: [],
   bootstrap: [AppComponent]
 })
