@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {
-  MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
-  MatSortModule, MatTableModule
+  MatToolbarModule, MatIconModule, MatSidenavModule,MatListModule, MatButtonModule,MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,MatSortModule,MatTableModule
 } from "@angular/material";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GameHookComponent } from './game-hook/game-hook.component';
 import { LootGeneratorComponent } from './loot-generator/loot-generator.component';
 import { NpcGeneratorComponent } from './npc-generator/npc-generator.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MenuRpgComponent } from './menu-rpg/menu-rpg.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +27,14 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     GameHookComponent,
     LootGeneratorComponent,
     NpcGeneratorComponent,
+    MenuRpgComponent,
   ],
   imports: [
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatButtonModule,
+    MatIconModule,
     BrowserModule,
     AppRoutingModule,
     BrowserModule,
@@ -40,9 +45,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     FormsModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
   ],
-  exports:[MatSidenavModule,MatPaginatorModule],
+  exports:[MatPaginatorModule],
   providers: [],
   bootstrap: [AppComponent]
 })
