@@ -11,9 +11,5 @@ export class HeaderMenuComponent implements OnInit {
 
   ngOnInit() {
   }
-  $(document).ready(function () {
-    $("nav").find("li").on("click", "a", function () {
-        $('.navbar-collapse.in').collapse('hide');
-    });
-});
+
 }

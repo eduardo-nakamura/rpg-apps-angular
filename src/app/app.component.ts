@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from "@angular/common";
 // I also import Router so that I can subscribe to events
 import { Router } from "@angular/router";
+import $ from "jquery";
 
 @Component({
   selector: 'app-root',
@@ -33,3 +34,8 @@ export class AppComponent implements OnInit{
 	}
 }
 console.log(this)
+$(document).ready(function () {
+  $("navbar-nav").find("li").on("click", "a", function () {
+      $('.navbar-collapse.in').collapse('hide');
+  });
+});
