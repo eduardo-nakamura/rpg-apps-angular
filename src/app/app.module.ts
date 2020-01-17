@@ -17,6 +17,7 @@ import { GameHookComponent } from './game-hook/game-hook.component';
 import { LootGeneratorComponent } from './loot-generator/loot-generator.component';
 import { NpcGeneratorComponent } from './npc-generator/npc-generator.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { HeaderMenuComponent } from './header-menu/header-menu.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     GameHookComponent,
     LootGeneratorComponent,
     NpcGeneratorComponent,
+    HeaderMenuComponent,
   ],
   imports: [
     BrowserModule,
