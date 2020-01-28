@@ -23,7 +23,7 @@ export class LootGeneratorComponent implements OnInit {
   lootType: number;
   lootAlt: any;
   totalValue: number;
-  lootClipboard: String = "";
+  lootClipboard: string = "";
   format = num => String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1.');
   constructor() {}
 
