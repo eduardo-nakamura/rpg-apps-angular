@@ -1,123 +1,125 @@
-<div class="container-fluid">
-    <div class="row bg-header mt-2 pl-2 pt-2">
-        <h2>Loot Generator</h2>
-    </div>
-    <div class="row">
-        <h3 class="text-light">1) Determine o tipo e nível do encontro</h3>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-12 col-md-5">
-            <p class="text-light col-12">Tesouro individual</p>
-            <button class="btn m-2 col-2 btn-large" (click)="this.lootType = 1;genLoot()">0-4</button>
-            <button class="btn m-2 col-2 btn-large" (click)="this.lootType = 2;genLoot()">5-10</button>
-            <button class="btn m-2 col-2 btn-large" (click)="this.lootType = 3;genLoot()">11-16</button>
-            <button class="btn m-2 col-2 btn-large" (click)="this.lootType = 4;genLoot()">17+</button>
+<div class="content  mx-auto">
+    <div class="col-12 justify-content-center">
+        <div class="row bg-header mt-2 pl-2 pt-2">
+            <h2>Loot Generator</h2>
         </div>
-        <div class="col-sm-12 col-md-5">
-            <p class="text-light col-12">Reservas de tesouro</p>
-            <button class="btn m-2 col-2 btn-large" (click)="this.lootType = 5;genLoot()">0-4</button>
-            <button class="btn m-2 col-2 btn-large" (click)="this.lootType = 6;genLoot()">5-10</button>
-            <button class="btn m-2 col-2 btn-large" (click)="this.lootType = 7;genLoot()">11-16</button>
-            <button class="btn m-2 col-2 btn-large" (click)="this.lootType = 8;genLoot()">17+</button>
+        <div class="row">
+            <h3 class="text-light">1) Determine o tipo e nível do encontro</h3>
         </div>
-    </div>
-
-    <div class="row bg-header mt-2 pl-2 pt-2" *ngIf="lootAlt">
-        <h3>Resultado</h3>
-    </div>
-    <div class="row" *ngIf="lootAlt">
-        <table class="bg-convert" mat-table [dataSource]="dataSourceIndividual">
-            <ng-container matColumnDef="type">
-                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Tipo de Peça </th>
-                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.type}} </td>
-
-            </ng-container>
-            <ng-container matColumnDef="quantity">
-                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Quantidade </th>
-                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.quantity | number}} </td>
-
-            </ng-container>
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Item </th>
-                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.name }} </td>
-
-            </ng-container>
-            <ng-container matColumnDef="value">
-                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Valor </th>
-                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.value | number }} GP</td>
-
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumnsIndividual"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumnsIndividual;"></tr>
-
-
-        </table>
-        <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
-    </div>
-    <div class="row" *ngIf="lootClipboard">
-        <div class="d-flex justify-content-center w-100">
-            <input type="text" class="form-control flex-fill m-2" [value]="lootClipboard">
-
-            <div class="btn-rpg" (click)="copyText(lootClipboard)">
-                <i class="fas fa-copy"></i>
+        <div class="row">
+            <div class="col-12 col-sm-8">
+                <p class="text-light col-12 p-2">Tesouro individual</p>
+                <div class="d-flex bd-highlight">
+                    <button class="btn mr-2 flex-fill btn-large" (click)="this.lootType = 1;genLoot()">0-4</button>
+                    <button class="btn mr-2 flex-fill btn-large" (click)="this.lootType = 2;genLoot()">5-10</button>
+                    <button class="btn mr-2 flex-fill btn-large" (click)="this.lootType = 3;genLoot()">11-16</button>
+                    <button class="btn mr-2 flex-fill btn-large" (click)="this.lootType = 4;genLoot()">17+</button>
+                </div>
+            </div>
+            <div class="col-12 col-sm-8">
+                <p class="text-light col-12 p-2">Reservas de tesouro</p>
+                <div class="d-flex bd-highlight">
+                    <button class="btn mr-2 flex-fill btn-large" (click)="this.lootType = 5;genLoot()">0-4</button>
+                    <button class="btn mr-2 flex-fill btn-large" (click)="this.lootType = 6;genLoot()">5-10</button>
+                    <button class="btn mr-2 flex-fill btn-large" (click)="this.lootType = 7;genLoot()">11-16</button>
+                    <button class="btn mr-2 flex-fill btn-large" (click)="this.lootType = 8;genLoot()">17+</button>
+                </div>
             </div>
         </div>
+        <div class="row bg-header mt-2 pl-2 pt-2 mb-3" *ngIf="lootAlt">
+            <h3>Resultado</h3>
+        </div>
+        <div class="row" *ngIf="lootAlt">
+            <table class="bg-convert" mat-table [dataSource]="dataSourceIndividual">
+                <ng-container matColumnDef="type">
+                    <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Tipo de Peça </th>
+                    <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.type}} </td>
 
-    </div>
+                </ng-container>
+                <ng-container matColumnDef="quantity">
+                    <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Quantidade </th>
+                    <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.quantity | number}} </td>
 
-    <div class="row bg-header mt-2 pl-2 pt-2">
-        <h3>Conversor de Moedas</h3>
-    </div>
-    <div class="row p-3">
-        <div class="d-flex justify-content-center w-100">
-            <input min="0" type="number" class="form-control flex-fill m-2" value="Valor" required [(ngModel)]="valorToConvert">
-            <select class="custom-select flex-fill m-2" [(ngModel)]="selectedOption" required>
-                <option selected>Escolha uma Moeda</option>
-                <option *ngFor="let option of selectOptions" [value]="option">
-                    {{option}}
-                  </option>
-              </select>
-            <button class="btn btn-large flex-fill m-2" (click)="convertPiece()">Converter</button>
+                </ng-container>
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Item </th>
+                    <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.name }} </td>
+
+                </ng-container>
+                <ng-container matColumnDef="value">
+                    <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Valor </th>
+                    <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.value | number }} GP</td>
+
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumnsIndividual"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumnsIndividual;"></tr>
+
+
+            </table>
+
+        </div>
+        <div class="row" *ngIf="lootClipboard">
+            <div class="d-flex justify-content-center w-100">
+                <input type="text" class="form-control flex-fill m-2" [value]="lootClipboard">
+
+                <div class="btn-rpg" (click)="copyText(lootClipboard)">
+                    <i class="fas fa-copy"></i>
+                </div>
+            </div>
+        </div>
+        <div class="row bg-header mt-2 pl-2 pt-2 mb-3">
+            <h3>Conversor de Moedas</h3>
+        </div>
+        <div class="row p-3 d-flex justify-content-center">
+            <div class="flex-fill col-6 col-sm-5 mb-3">
+                <input min="0" type="number" class="form-control flex-fill" value="Valor" required [(ngModel)]="valorToConvert">
+            </div>
+            <div class="flex-fill col-6 col-sm-5 mb-3">
+                <select class="custom-select flex-fill" [(ngModel)]="selectedOption" required>
+                    <option selected>Escolha uma Moeda</option>
+                    <option *ngFor="let option of selectOptions" [value]="option">
+                        {{option}}
+                      </option>
+                  </select>
+            </div>
+            <div class="flex-fill col-12 col-sm-2 ">
+                <button class="btn btn-large w-100" (click)="convertPiece()">Converter</button>
+            </div>
+        </div>
+        <div class="row">
+            <table class="bg-convert" mat-table [dataSource]="dataSourceConvert">
+                <ng-container matColumnDef="cobre">
+                    <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Cobre </th>
+                    <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.cobre | number}} </td>
+                </ng-container>
+                <ng-container matColumnDef="prata">
+                    <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Prata </th>
+                    <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.prata | number}} </td>
+                </ng-container>
+                <ng-container matColumnDef="electrum">
+                    <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Electrum </th>
+                    <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.electrum | number}} </td>
+                </ng-container>
+                <ng-container matColumnDef="ouro">
+                    <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Ouro </th>
+                    <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.ouro | number}} </td>
+                </ng-container>
+                <ng-container matColumnDef="platina">
+                    <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Platina </th>
+                    <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.platina | number}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumnsConvert"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumnsConvert;"></tr>
+            </table>
         </div>
 
     </div>
 
 
-
-    <div class="row">
-        <table class="bg-convert" mat-table [dataSource]="dataSourceConvert">
-            <ng-container matColumnDef="cobre">
-                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Cobre </th>
-                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.cobre | number}} </td>
-            </ng-container>
-            <ng-container matColumnDef="prata">
-                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Prata </th>
-                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.prata | number}} </td>
-            </ng-container>
-            <ng-container matColumnDef="electrum">
-                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Electrum </th>
-                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.electrum | number}} </td>
-            </ng-container>
-            <ng-container matColumnDef="ouro">
-                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Ouro </th>
-                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.ouro | number}} </td>
-            </ng-container>
-            <ng-container matColumnDef="platina">
-                <th mat-header-cell *matHeaderCellDef class="text-light text-center"> Platina </th>
-                <td mat-cell *matCellDef="let element" class="text-light text-center"> {{element.platina | number}} </td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumnsConvert"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumnsConvert;"></tr>
-        </table>
-    </div>
-
+    <p class="text-light m-3">
+        Fonte:
+        <a href="https://dungeonmastertools.github.io/index.html">
+            https://dungeonmastertools.github.io/index.html
+        </a>
+    </p>
 </div>
-
-
-<p class="text-light">
-    Fonte:
-    <a href="https://dungeonmastertools.github.io/index.html">
-        https://dungeonmastertools.github.io/index.html
-    </a>
-</p>
