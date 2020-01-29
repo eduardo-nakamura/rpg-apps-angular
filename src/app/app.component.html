@@ -7,22 +7,13 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item " data-toggle="collapse" data-toggle="collapse" data-target=".navbar-collapse.show">
-                    <!-- <a class="nav-link" data-toggle="collapse"  href="/dice-roller">Dice Roller <span class="sr-only">(current)</span></a> -->
-                    <a class="nav-link" routerLink="dice-roller" routerLinkActive="active">Dice Roller</a>
+                <li class="nav-item" *ngFor="let item of menuContent" data-toggle="collapse" data-toggle="collapse" data-target=".navbar-collapse.show">
+
+                    <a class="nav-link" [routerLink]="item.router" routerLink="dice-roller" routerLinkActive="active">
+                        <i class="fas" [ngClass]="item.class"></i> {{item.title}}
+                    </a>
                 </li>
-                <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                    <a class="nav-link" data-toggle="collapse" routerLink="init-tracker" routerLinkActive="active">Initiative Tracker</a>
-                </li>
-                <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                    <a class="nav-link" data-toggle="collapse" routerLink="game-hook" routerLinkActive="active">Game hook</a>
-                </li>
-                <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                    <a class="nav-link" data-toggle="collapse" routerLink="loot-generator" routerLinkActive="active">Loot Generator</a>
-                </li>
-                <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                    <a class="nav-link" data-toggle="collapse" href="/intro">Intro</a>
-                </li>
+
                 <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dropdown

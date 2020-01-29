@@ -1,1 +1,67 @@
-<p>npc-generator works!</p>
+<div class="content  mx-auto">
+    <div class="col-12 justify-content-center">
+        <div class="row bg-header mt-2 pl-2 pt-2">
+            <h2>NPC Generator</h2>
+        </div>
+    </div>
+    <!--  -->
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="power" class="text-light">1) Escolha uma Raça</label>
+                <select class="custom-select flex-fill" [(ngModel)]="selectedRace" id="race" name="race">            
+                    <option *ngFor="let option of races" [value]="option" >
+                        {{option}}
+                    </option>
+                    <option selected value="">Aleatório</option>
+                  </select>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="power" class="text-light">2) Escolha uma Classe</label>
+                <select class="custom-select flex-fill" [(ngModel)]="selectedClass" id="class" name="class">            
+                    <option *ngFor="let option of classes" [value]="option" >
+                        {{option}}
+                    </option>
+                    <option selected value="">Aleatório</option>
+                  </select>
+            </div>
+        </div>
+        <div class="col-6 ">
+            <label for="power" class="text-light">3) Escolha o Gênero</label>
+            <div class="d-flex justify-content-between">
+                <div class="radio">
+                    <input value="Masculino" [(ngModel)]="gender" type="radio">
+                    <label [attr.for]="id" class="radio-label text-light">
+                       Masculino
+                    </label>
+                </div>
+                <div class="radio">
+                    <input value="Feminino" [(ngModel)]="gender" type="radio">
+                    <label [attr.for]="id" class="radio-label text-light">
+                        Feminino
+                    </label>
+                </div>
+                <div class="radio">
+                    <input value="Outro" [(ngModel)]="gender" type="radio">
+                    <label [attr.for]="id" class="radio-label text-light">
+                        Outro
+                    </label>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-6 ">
+            <label for="power" class="text-light">4) Escolha o Nível *</label>
+            <input min="1" type="number" class="form-control" value="1" required [(ngModel)]="levelNPC">
+        </div>
+    </div>
+
+    <p class="text-light">
+        {{selectedRace}} {{selectedClass}} {{gender}} {{levelNPC}}
+    </p>
+    <!--  -->
+    <button class="btn mr-2 flex-fill btn-large" (click)="generateNPC()">Gerar NPC</button>
+    <button class="btn mr-2 flex-fill btn-large" (click)="resetNPC()">Limpar NPC</button>
+</div>

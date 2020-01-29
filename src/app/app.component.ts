@@ -10,7 +10,14 @@ import { Router } from "@angular/router";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  
+  menuContent = [
+    {router: 'dice-roller', title: 'Dice Roller',class:'fa-dice'},
+    {router: 'init-tracker', title: 'Initiative Tracker',class:'fa-hourglass-half'},
+    {router: 'game-hook', title: 'Game Hook',class:'fa-comments'},
+    {router: 'loot-generator', title: 'Loot Generator',class:'fa-coins'},
+    {router: 'npc-generator', title: 'NPC Generator',class:'fa-users'},
+    {router: 'intro', title: 'Intro',class:'fa-rocket'}
+  ]
   route: string; 
   dataAtual = new Date().getFullYear();
 

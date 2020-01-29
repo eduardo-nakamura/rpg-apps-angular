@@ -75,12 +75,13 @@
                 <input min="0" type="number" class="form-control flex-fill" value="Valor" required [(ngModel)]="valorToConvert">
             </div>
             <div class="flex-fill col-6 col-sm-5 mb-3">
-                <select class="custom-select flex-fill" [(ngModel)]="selectedOption" required>
+                <select class="custom-select flex-fill" [(ngModel)]="selectedOption" required id="piece" name="piece">
                     <option selected>Escolha uma Moeda</option>
-                    <option *ngFor="let option of selectOptions" [value]="option">
+                    <option *ngFor="let option of selectOptions" [value]="option" >
                         {{option}}
                       </option>
                   </select>
+
             </div>
             <div class="flex-fill col-12 col-sm-2 ">
                 <button class="btn btn-large w-100" (click)="convertPiece()">Converter</button>
