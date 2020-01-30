@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './dice-roller.component.html',
   styleUrls: ['./dice-roller.component.css']
 })
-export class DiceRollerComponent implements OnInit {
+export class DiceRollerComponent implements OnInit {  
   showD4 = false
   showD6 = false
   showD8 = false
@@ -38,7 +38,15 @@ export class DiceRollerComponent implements OnInit {
 
   ngOnInit() {
   }
+  playAudio(){
+    let diceSound = new Audio();
+    diceSound.src = "../../assets/162456__kastenfrosch__dice.mp3"
+    diceSound.load();
+    diceSound.play();
+  }
   rollDice(){
+    this.playAudio()
+    setTimeout(this.playAudio, 300)    
     if (this.quant4 !=0 ){      
       this.genNumber(4, this.quant4, this.bonus4)
     }

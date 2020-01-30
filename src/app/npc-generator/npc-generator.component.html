@@ -1,4 +1,4 @@
-<div class="content  mx-auto">
+<div class="content ">
     <div class="col-12 justify-content-center">
         <div class="row bg-header mt-2 pl-2 pt-2">
             <h2>NPC Generator</h2>
@@ -58,10 +58,34 @@
         </div>
     </div>
 
-    <p class="text-light">
-        {{selectedRace}} {{selectedClass}} {{gender}} {{levelNPC}}
-    </p>
     <!--  -->
-    <button class="btn mr-2 flex-fill btn-large" (click)="generateNPC()">Gerar NPC</button>
-    <button class="btn mr-2 flex-fill btn-large" (click)="resetNPC()">Limpar NPC</button>
+    <button class="btn mr-2 flex-fill btn-large" (click)="generateNPC()">
+        <i class="fas fa-user-plus"></i>
+        Gerar NPC</button>
+    <button class="btn mr-2 flex-fill btn-large" (click)="resetNPC()"><i class="fas fa-undo"></i>Limpar NPC</button>
+    <!-- <p class="text-info" *ngIf="generatedChar.name">
+        Nome:{{generatedChar.name}} Raça:{{generatedChar.race}} Classe:{{generatedChar.class}} Sexo:{{generatedChar.gender}} Nível:{{generatedChar.level}}
+    </p> -->
+
+
+    <table class="table text-light mt-4" *ngIf="generatedChar.name">
+        <thead>
+            <tr class="bg-warning">
+                <th scope="col" colspan="2">Nome: {{generatedChar.name}}</th>
+                <th scope="col">Classe: {{generatedChar.class}}</th>
+                <th scope="col">Nível: {{generatedChar.level}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="2">Sexo: {{generatedChar.gender}}</td>
+                <td colspan="2">Raça: {{generatedChar.race}}</td>
+            </tr>
+            <tr>
+                <td colspan="2">Sexo: {{generatedChar.gender}}</td>
+                <td colspan="2">Raça: {{generatedChar.race}}</td>
+            </tr>
+        </tbody>
+    </table>
+
 </div>

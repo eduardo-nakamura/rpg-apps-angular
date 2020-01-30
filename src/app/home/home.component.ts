@@ -35,6 +35,12 @@ export class HomeComponent implements OnInit {
       descricao:'Determine os tesouros do seus jogadores aqui',
       path:'loot-generator'
     },
+      {
+      imagem:'https://via.placeholder.com/300x300',
+      titulo:'NPC Generator',
+      descricao:'Gere personagens para sua campanha',
+      path:'npc-generator'
+    },
   ]
   constructor() { 
     
