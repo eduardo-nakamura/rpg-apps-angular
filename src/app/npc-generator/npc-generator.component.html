@@ -60,30 +60,40 @@
 
     <!--  -->
     <button class="btn mr-2 flex-fill btn-large" (click)="generateNPC()">
-        <i class="fas fa-user-plus"></i>
+        <i class="fas fa-user-plus"></i> 
         Gerar NPC</button>
-    <button class="btn mr-2 flex-fill btn-large" (click)="resetNPC()"><i class="fas fa-undo"></i>Limpar NPC</button>
+    <button class="btn mr-2 flex-fill btn-large" (click)="resetNPC()"><i class="fas fa-undo"></i> Limpar NPC</button>
+    <button class="btn mr-2 flex-fill btn-large" (click)="copyText(generatedCharClipboard)"><i class="fas fa-copy"></i> Copiar NPC para área de transferência</button>
     <!-- <p class="text-info" *ngIf="generatedChar.name">
         Nome:{{generatedChar.name}} Raça:{{generatedChar.race}} Classe:{{generatedChar.class}} Sexo:{{generatedChar.gender}} Nível:{{generatedChar.level}}
     </p> -->
 
 
-    <table class="table text-light mt-4" *ngIf="generatedChar.name">
+    <table class="table text-light table-style mt-4" *ngIf="generatedChar.name">
         <thead>
-            <tr class="bg-warning">
-                <th scope="col" colspan="2">Nome: {{generatedChar.name}}</th>
-                <th scope="col">Classe: {{generatedChar.class}}</th>
-                <th scope="col">Nível: {{generatedChar.level}}</th>
+            <tr class="bg-header">
+                <th scope="col" colspan="6">
+                    <h4> {{generatedChar.name}}, {{generatedChar.gender}}, {{generatedChar.race}} {{generatedChar.class}}, Lvl. {{generatedChar.level}}</h4>
+                </th>
+
             </tr>
         </thead>
         <tbody>
+
             <tr>
-                <td colspan="2">Sexo: {{generatedChar.gender}}</td>
-                <td colspan="2">Raça: {{generatedChar.race}}</td>
+                <td colspan="6">
+                    <h5>Características</h5>
+                    <p *ngFor="let list of generatedChar.traits">{{list}}</p>
+                </td>
+
             </tr>
             <tr>
-                <td colspan="2">Sexo: {{generatedChar.gender}}</td>
-                <td colspan="2">Raça: {{generatedChar.race}}</td>
+                <td>a</td>
+                <td>a</td>
+                <td>a</td>
+                <td>a</td>
+                <td>a</td>
+                <td>a</td>
             </tr>
         </tbody>
     </table>
