@@ -6,7 +6,7 @@
     </div>
     <!--  -->
     <div class="row">
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
             <div class="form-group">
                 <label for="power" class="text-light">1) Escolha uma Raça</label>
                 <select class="custom-select flex-fill" [(ngModel)]="selectedRace" id="race" name="race">            
@@ -17,7 +17,7 @@
                   </select>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
             <div class="form-group">
                 <label for="power" class="text-light">2) Escolha uma Classe</label>
                 <select class="custom-select flex-fill" [(ngModel)]="selectedClass" id="class" name="class">            
@@ -28,7 +28,7 @@
                   </select>
             </div>
         </div>
-        <div class="col-6 ">
+        <div class="col-12 col-sm-6">
             <label for="power" class="text-light">3) Escolha o Gênero</label>
             <div class="d-flex justify-content-between">
                 <div class="radio">
@@ -52,49 +52,58 @@
             </div>
 
         </div>
-        <div class="col-6 ">
+        <div class="col-12 col-sm-6">
             <label for="power" class="text-light">4) Escolha o Nível *</label>
             <input min="1" type="number" class="form-control" value="1" required [(ngModel)]="levelNPC">
         </div>
     </div>
 
     <!--  -->
-    <button class="btn mr-2 flex-fill btn-large" (click)="generateNPC()">
-        <i class="fas fa-user-plus"></i> 
-        Gerar NPC</button>
-    <button class="btn mr-2 flex-fill btn-large" (click)="resetNPC()"><i class="fas fa-undo"></i> Limpar NPC</button>
-    <button class="btn mr-2 flex-fill btn-large" (click)="copyText(generatedCharClipboard)"><i class="fas fa-copy"></i> Copiar NPC para área de transferência</button>
-    <!-- <p class="text-info" *ngIf="generatedChar.name">
-        Nome:{{generatedChar.name}} Raça:{{generatedChar.race}} Classe:{{generatedChar.class}} Sexo:{{generatedChar.gender}} Nível:{{generatedChar.level}}
-    </p> -->
+    <div class="row mt-2">
+
+        <div class="p-1">
+            <button class="btn  btn-large" (click)="generateNPC()">
+            <i class="fas fa-user-plus"></i> 
+            Gerar NPC</button>
+        </div>
+        <div class="p-1">
+            <button class="btn  btn-large" (click)="resetNPC()"><i class="fas fa-undo"></i> Limpar NPC</button>
+        </div>
+        <div class="p-1" *ngIf="generatedChar.name">
+            <button class="btn  btn-large" (click)="copyText(generatedCharClipboard)"><i class="fas fa-copy"></i> Copiar NPC para área de transferência</button>
+        </div>
 
 
-    <table class="table text-light table-style mt-4" *ngIf="generatedChar.name">
+
+    </div>
+    <table class="table  table-style text-light" *ngIf="generatedChar.name">
         <thead>
             <tr class="bg-header">
-                <th scope="col" colspan="6">
-                    <h4> {{generatedChar.name}}, {{generatedChar.gender}}, {{generatedChar.race}} {{generatedChar.class}}, Lvl. {{generatedChar.level}}</h4>
+                <th colspan="6">
+                    <h5>
+                        {{generatedChar.name}}, {{generatedChar.gender}}, {{generatedChar.race}} {{generatedChar.class}}, Lvl. {{generatedChar.level}}
+                    </h5>
                 </th>
-
             </tr>
         </thead>
         <tbody>
-
             <tr>
                 <td colspan="6">
                     <h5>Características</h5>
                     <p *ngFor="let list of generatedChar.traits">{{list}}</p>
                 </td>
-
             </tr>
             <tr>
-                <td>a</td>
-                <td>a</td>
-                <td>a</td>
-                <td>a</td>
-                <td>a</td>
-                <td>a</td>
+                <td>Força: </td>
+                <td>Destreza: </td>
+                <td>Constituição: </td>
             </tr>
+            <tr>
+                <td>Sabedoria: </td>
+                <td>Inteligência: </td>
+                <td>Carisma: </td>
+            </tr>
+
         </tbody>
     </table>
 
