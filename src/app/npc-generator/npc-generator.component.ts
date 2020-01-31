@@ -4,7 +4,47 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 @Component({
   selector: 'app-npc-generator',
   templateUrl: './npc-generator.component.html',
-  styleUrls: ['./npc-generator.component.css']
+  styleUrls: ['./npc-generator.component.css'],
+  animations: [
+    trigger(
+      'inOutAnimation', 
+      [
+        state('open', style({
+          height: '200px',
+          opacity: 1,
+          backgroundColor: 'yellow'
+        })),
+        state('closed', style({
+          height: '100px',
+          opacity: 0.5,
+          backgroundColor: 'green'
+        })),
+        transition('open => closed', [
+          animate('1s')
+        ]),
+        transition('closed => open', [
+          animate('0.5s')
+        ]),
+        transition('* => closed', [
+          animate('1s')
+        ]),
+        transition('* => open', [
+          animate('0.5s')
+        ]),
+        transition('open <=> closed', [
+          animate('0.5s')
+        ]),
+        transition ('* => open', [
+          animate ('1s',
+            style ({ opacity: '*' }),
+          ),
+        ]),
+        transition('* => *', [
+          animate('1s')
+        ]),
+      ]
+    )
+  ]
 })
 
 export class NpcGeneratorComponent implements OnInit {
