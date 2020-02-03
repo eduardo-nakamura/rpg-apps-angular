@@ -59,6 +59,7 @@ export class NpcGeneratorComponent implements OnInit {
   }
   generatedCharClipboard = ""
   gender;
+  id;
 
   constructor() { }
   generateNPC(){    
