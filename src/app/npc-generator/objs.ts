@@ -43,7 +43,7 @@ export const names = [
         lastName: []
     },
     {
-        race: "Tiefling",
+        race: "Tiferino",
         male: ["Akzire", "Guemenos", "Morrut", "Urxus", "Amxikas", "Ralxus", "Zormenos", "Gloom", "Misery", "Bright", "Aranrai", "Rolrut", "Aranzer", "Kaixire", "Morrakir", "Valron", "Andxikas", "Enduring", "Weary", "Poetry", "Xarxes", "Zhermos", "Karnon", "Thydos", "Aetrut", "Kyichar", "Casxes", "Courage", "Cheer", "Solace", "Aranxes", "Zarshoon", "Guxes", "Merakas", "Ralrus", "Sharakas", "Thymeros", "Comfort", "Possession", "Chant", "Nephadius", "Erakos", "Morrias", "Kyakos", "Malecius", "Zarrakir", "Kosilius", "Open", "Ecstasy", "Nowhere", "Shareus", "Valshoon", "Archar", "Andmenos", "Nephchar", "Rolthos", "Lokeira", "Mastery", "Adventure", "Journey", "Casrakir", "Casmir", "Zherxik", "Nephzer", "Casvir", "Valira", "Thyneakas", "Journey", "Normal", "Dread", "Koszer", "Sharakir", "Maleichar", "Zorron", "Carmir", "Dharrut", "Merut", "Chant", "Faith", "Trickery", "Ralthor", "Methos", "Urxire", "Kaxire", "Armeros", "Kilxus", "Mavil", "Random", "Closed", "Respect", "Ozira", "Ekmus", "Sirron", "Zarxikas", "Ozrakas", "Kaemon", "Akvir", "Possession", "Quest", "Recovery", "Sharis", "Damadius", "Kylech", "Zerrius", "Arkxik", "Sirron", "Arxes", "Expressive", "Gladness", "Exciting", "Dhardos", "Barxus", "Malelech", "Gumos", "Memarir", "Salchar", "Rolrakas", "Glee", "Piety", "Hero", "Garros", "Garrai", "Kaireus", "Guenon", "Iail", "Akrai", "Kilrai", "Mastery", "Possession", "Journey", "Thynerakas", "Zherakas", "Arkmir", "Rerakir", "Valcis", "Kymarir", "Mavdos", "Treasure", "Siege", "Innovation", "Carvius", "Rolrakas", "Malelius", "Malcius", "Armarir", "Rolvir", "Kaixus", "Possession", "Life", "Hunt", "Ekris", "Lokerias", "Urlius", "Ozil", "Aetxes", "Sharis", "Aranthos", "Respect", "Delight", "Carrion", "Malexus", "Morxikas", "Kyrias", "Ebshoon", "Uridos", "Andros", "Dharemon", "Laughter", "Woe", "Adventure", "Aetthus", "Aranrus", "Garus", "Lokethor", "Rolthus", "Skaadius", "Malzire", "Suffering", "Nowhere", "Esteem", "Zorxikas", "Koscis", "Roldos", "Garshoon", "Lokeros", "Karxikas", "Guezer", "Joy", "Torment", "Misery", "Odyssey", "Aetcius", "Valxikas", "Kosrias", "Thevius", "Ozmong", "Caszer", "Skaxius", "Mantra", "Expertise"],
         female: ["Hissolis", "Belloth", "Levmeia", "Belphi", "Eacria", "Grifirith", "Rihala", "Fresh", "Panic", "Carrion", "Nahala", "Marvari", "Diloth", "Marvari", "Fripunith", "Mithpione", "Nefirith", "Enduring", "Master", "Sadness", "Seirinise", "Nenarei", "Yafaris", "Yoratish", "Nethfaris", "Zailoth", "Maxori", "Awe", "Content", "Promise", "Nithxori", "Lilnarei", "Yalies", "Qufaris", "Seiridoris", "Dispira", "Ripione", "Ideal", "Mantra", "Ideation", "Pesxori", "Zeyis", "Levki", "Yoracyra", "Afloth", "Zefirith", "Zenise", "Innovation", "Trouble", "Pure", "Natdani", "Rifirith", "Oriuphis", "Navine", "Yupione", "Yuvine", "Afspira", "Truth", "Quest", "Confidence", "Shapione", "Zapunith", "Dorkaria", "Marza", "Kalxori", "Zailista", "Misspira", "Exceptional", "Hero", "Adventure", "Veldoris", "Peszes", "Hisseis", "Insolis", "Digrea", "Dihala", "Natlypsis", "Huntress", "Fresh", "Desire", "Crephi", "Eaphi", "Inhala", "Inilista", "Phelith", "Velhala", "Afvari", "Gladness", "Confidence", "Essential", "Danarei", "Pheki", "Levtari", "Aflaia", "Zaidoris", "Dimvine", "Roza", "Hero", "Piety", "Achievement", "Inizes", "Arirali", "Riki", "Sarmine", "Mavari", "Ariagoria", "Quuphis", "Suffering", "Journey", "Cunning", "Yoratish", "Kalloth", "Phenirith", "Kalmine", "Marzes", "Marlypsis", "Pheyis", "Flawed", "Recovery", "Varnish", "Afnarei", "Manise", "Initari", "Dimpunith", "Nethhala", "Aniwure", "Belpione", "Mastery", "Hope", "Reverence", "Peslies", "Salypsis", "Zanirith", "Marqine", "Zazes", "Dordani", "Dasolis", "Manta", "Nowhere", "Gladness", "Cregrea", "Sarza", "Pesza", "Dilia", "Ariaseis", "Yumeia", "Dicria", "Terror", "Timeless", "Desire", "Mithcria", "Ronirith", "Aftish", "Aravari", "Belhala", "Sadoris", "Velfaris", "Adventure", "Expert", "Closed", "Peswala", "Malaia", "Afcyra", "Salista", "Agnelith", "Frimeia", "Yoralia", "Extreme", "Rare", "Agate", "Dadoris", "Iniseis", "Quqine", "Yatari", "Nethwala", "Yalies", "Yuza", "Winning", "Sanctity", "Relentless", "Natdoris", "Afwala", "Levphi", "Nedoris", "Pesmine", "Zaihala", "Yahala", "Laughter", "Termina", "Amar", "Mithseis", "Yavari", "Seiritish", "Mithwure", "Agnemeia", "Nafaris", "Phexibis", "Freedom", "Odd", "Panic"],
         lastName: ["Amarzian", "Chalthoum", "Vavrus", "Girgis", "Sedlak", "Eleftheriou", "Rybar", "Massri", "Novak", "Mubarak", "Carnago", "Lanik", "Sawalha", "Janda", "Shehata", "Huba", "Mouggi", "Cerma", "Biljon", "Brada", "Domarien", "Admon", "Bedrich", "Dalkon", "Griswold", "Malfier", "Quentin", "Talfen", "Wolfram", "Navaren", "Iscitan", "Meklan", "Hagar", "Daylen", "Benvolio", "Benak", "Tavon", "Ritter", "Ningyan", "Hamlin", "Meluzan", "Jeras", "Eandro", "Alard", "Adler", "Dirke", "Krynt", "Helmut", "Norris", "Samm", "Menetrian", "Thom", "Alwyn", "Dian", "Leyten", "Milos", "Semil", "Vanan", "Anlow", "Aimery", "Paradas", "Wendell", "Sevenson", "Namen", "Madian", "Dungarth", "Ambert", "Gallus", "Nilus", "Tamond", "Romazi", "Ahren", "Dedric", "Alain", "Nerle", "Alaric", "Falken", "Regdar", "Bram", "Mikal", "Brandis", "Goldrudder", "Kroft", "Shaulfer", "Voortham", "Zethergyll", "Devries", "Silvergraft", "Lamoth", "Sarzan", "Grantham", "Graylock", "Steveren", "Talandro", "Ratley", "Falck", "Dalicarlia", "Coldshore", "Armanci", "Serechor", "Danamark", "Fallenbridge", "Redraven", "Targana", "Dyrk", "Wilxes", "Swiller", "Roxley", "Moonridge", "Hayward", "Drumwind", "Ereghast", "Carnavon", "Bilger", "Hindergrass", "Netheridge", "Seratolva", "Towerfall", "Shadowhorn", "Wintermere", "Taran", "Hyden", "Shattermast", "Kreel", "Fletcher", "Cresthill", "Blackstrand", "Arkalis", "Szereban", "Cuttlescar", "Fryft", "Leerstrom", "Stavenger", "Varcona", "Lavant", "Lynchfield", "Stormchapel", "Zatchet", "Torzalan", "Vrye", "Umbermoor", "Oakenheart", "Gullscream", "Pieter", "Iscalon", "Donoghan", "Caskajaro", "Ballard", "Trelenus", "Faringray", "Pyncion", "Raeburn", "Baldric", "Daargen", "Wygarthe", "Varzand", "Revenmar", "Brightwater", "Trevethor", "Coyle", "Tryphon", "Welfer", "Celik", "Gul", "Oyal", "Yilmaz", "Kirca", "Hartman", "Pekkan", "Muhtar", "Vadu", "Erbil", "Aksu", "Kaya", "Sahin", "Gandt", "Baykal", "Ozdemir", "Demir", "Senturk", "Vrago", "Mansur", "Barrelhelm", "Grimtor", "Ramcrown", "Zarkanan", "Hackshield", "Drakantal", "Gomec", "Silvertarn", "Deepmiddens", "Kaplan", "Garkalan", "Polat", "Copperhearth", "Markolak", "Skandalor", "Ambershard", "Rockharvest", "Evermead"]
@@ -56,9 +56,81 @@ export const races = [
         age:{min:50,max:350},
         height:{min:120,max:150},
         weight:{min:60,max:100},
-        speed:{min:120,max:150},
+        speed:7.5,
         language: "Comum, Anão"
-    }
+    },
+    {
+        race: "Elfo",
+        stats:{str: 0,dex:2,con:0,wis:0,int:0,cha:0},
+        age:{min:100,max:700},
+        height:{min:150,max:180},
+        weight:{min:50,max:72},
+        speed:9,
+        language: "Comum, Élfico"
+    },
+    {
+        race: "Halfling",
+        stats:{str: 0,dex:2,con:0,wis:0,int:0,cha:0},
+        age:{min:20,max:150},
+        height:{min:50,max:90},
+        weight:{min:20,max:22.5},
+        speed:7.5,
+        language: "Comum, Halfling"
+    },
+    {
+        race: "Humano",
+        stats:{str: 1,dex:1,con:1,wis:1,int:1,cha:1},
+        age:{min:16,max:90},
+        height:{min:150,max:180},
+        weight:{min:50,max:100},
+        speed:9,
+        language: "Comum"
+    },
+    {
+        race: "Draconato",
+        stats:{str: 2,dex:0,con:0,wis:0,int:0,cha:1},
+        age:{min:15,max:890},
+        height:{min:180,max:210},
+        weight:{min:70,max:150},
+        speed:9,
+        language: "Comum, Draconato"
+    },
+    {
+        race: "Gnomo",
+        stats:{str: 0,dex:0,con:0,wis:0,int:2,cha:0},
+        age:{min:350,max:500},
+        height:{min:90,max:120},
+        weight:{min:10,max:30},
+        speed:7.5,
+        language: "Comum, Gnomo"
+    },
+     {
+        race: "Meio-Elfo",
+        stats:{str: 0,dex:0,con:0,wis:0,int:0,cha:2},
+        age:{min:20,max:180},
+        height:{min:150,max:180},
+        weight:{min:50,max:80},
+        speed:9,
+        language: "Comum, Elfo"
+    },
+     {
+        race: "Meio-orc",
+        stats:{str: 2,dex:0,con:1,wis:0,int:0,cha:0},
+        age:{min:14,max:75},
+        height:{min:180,max:210},
+        weight:{min:90,max:160},
+        speed:9,
+        language: "Comum, Orc"
+    },
+     {
+        race: "Tiferino",
+        stats:{str: 0,dex:0,con:0,wis:0,int:1,cha:2},
+        age:{min:16,max:100},
+        height:{min:150,max:180},
+        weight:{min:50,max:100},
+        speed:9,
+        language: "Comum, Infernal"
+    },
 ]
 export const traits = {
     appearance: ["Joia chamativa: brincos, colar, pulseira, braceletes", "Piercings", "Roupas extravagantes ou estrangeiras", "Roupas formais e limpas", "Roupas rasgadas e sujas", "Cicatriz notória", "Dente faltando", "Dedos faltando", "Cor de olho incomum (ou duas cores diferentes)", "Tatuagens", "Marca de nascença", "Cor de pele incomum", "Careca", "Barba ou cabelo trançado", "Cor de cabelo incomum", "Movimento de olhos nervoso", "Nariz distinto", "Postura distinta (torta ou rígida)", "Excepcionalmente belo", "Excepcionalmente feio"],
@@ -67,3 +139,71 @@ export const traits = {
     bond: ["Dedicado a completar um objetivo de vida pessoal ", "Protege membros próximos da família ", "Protege colegas ou compatriotas ", "Leal a um benfeitor, patrono ou empregador ", "Cativado por um interesse romântico ", "Atraído por um local especial ", "Protege uma lembrança especial ", "Protege um bem valioso ", "Em busca de vingança", "Role duas vezes, ignorando resultados iguais a 10"],
     secret: ["Amor perdido ou suscetível a se apaixonar ", "Gosta de prazeres escusos ", "Arrogante ", "Inveja as posses ou posto de outra criatura ", "Ganância desenfreada ", "Inclinado a se enfurecer ", "Tem um inimigo poderoso ", "Fobia específica ", "História vergonhosa ou escandalosa", "Crime ou delito secreto", "Possui conhecimento proibido", "Bravura imprudente"]
 }
+export const classDnd = [
+    {
+        className: "Bárbaro",
+        hpDice: 12,
+        primaryAbility: "str",
+        proficiencyRes: ["str", "con"]
+    },
+    {
+        className: "Bardo",
+        hpDice: 8,
+        primaryAbility: "cha",
+        proficiencyRes: ["dex", "cha"]
+    },
+    {
+        className: "Bruxo",
+        hpDice: 8,
+        primaryAbility: "cha",
+        proficiencyRes: ["wis", "cha"]
+    },
+    {
+        className: "Druid",
+        hpDice: 8,
+        primaryAbility: "wis",
+        proficiencyRes: ["int", "wis"]
+    },
+    {
+        className: "Feiticeiro",
+        hpDice: 6,
+        primaryAbility: "cha",
+        proficiencyRes: ["con", "cha"]
+    },
+    {
+        className: "Guerreiro",
+        hpDice: 10,
+        primaryAbility: "str",
+        proficiencyRes: ["str", "con"]
+    },
+    {
+        className: "Ladino",
+        hpDice: 8,
+        primaryAbility: "dex",
+        proficiencyRes: ["dex", "int"]
+    },
+    {
+        className: "Mago",
+        hpDice: 6,
+        primaryAbility: "int",
+        proficiencyRes: ["int", "wis"]
+    },
+    {
+        className: "Monge",
+        hpDice: 8,
+        primaryAbility: "dex",
+        proficiencyRes: ["str", "dex"]
+    },
+    {
+        className: "Paladino",
+        hpDice: 10,
+        primaryAbility: "str",
+        proficiencyRes: ["wis", "cha"]
+    },
+    {
+        className: "Patrulheiro",
+        hpDice: 10,
+        primaryAbility: "dex",
+        proficiencyRes: ["str", "dex"]
+    },
+]
