@@ -16,7 +16,7 @@ export class NpcGeneratorComponent implements OnInit {
   selectedClass = "";
   levelNPC: number;
   generatedChar = {
-    name: "", race: "", class: "", gender: "", level: 0, traits: [], stats: {},aligment:[],pv:0
+    name: "", race: "", class: "", gender: "", level: 0, traits: [], stats: { str: 0, con: 0, wis: 0, int: 0, cha: 0, dex: 0 },aligment:[],pv:0
   }
   generatedCharClipboard = "";
   gender;
@@ -196,7 +196,7 @@ export class NpcGeneratorComponent implements OnInit {
     this.gender = undefined;
     this.levelNPC = undefined;
     this.generatedChar = {
-      name: "", race: "", class: "", gender: "", level: 0, traits: [], stats: {},aligment:[],pv:0
+      name: "", race: "", class: "", gender: "", level: 0, traits: [], stats: { str: 0, con: 0, wis: 0, int: 0, cha: 0, dex: 0 },aligment:[],pv:0
     }
   }
   alignmentNPC(){
