@@ -63,24 +63,24 @@
     <!--  -->
     <div class="row mt-2">
 
-        <div class="p-1 col-6 col-md-4">
+        <div class="p-1 col-6 col-md">
             <button class="btn w-100 btn-large" (click)="generateNPC()">
             <i class="fas fa-user-plus"></i> 
             Gerar NPC</button>
         </div>
 
-        <div class="p-1 col-6 col-md-4">
+        <div class="p-1 col-6 col-md">
             <button class="btn w-100 btn-large" (click)="resetNPC()"><i class="fas fa-undo"></i> Limpar NPC</button>
         </div>
-        <div class="p-1 col-12 col-md-4" *ngIf="generatedChar.name">
-            <button class="btn w-100 btn-large" (click)="copyText(generatedCharClipboard)"><i class="fas fa-copy"></i> Copiar NPC para área de transferência</button>
+        <div class="p-1 col-12 col-md">
+            <button class="btn w-100 btn-large" (click)="copyText(generatedCharClipboard)"><i class="fas fa-copy"></i> Copiar NPC <span class="d-block d-md-none">para área de transferência</span></button>
         </div>
 
 
 
     </div>
     <!-- *ngIf="generatedChar.name" -->
-    <table class="table  table-style text-light" *ngIf="generatedChar.name">
+    <table class="table  table-style text-light">
         <thead>
             <tr class="bg-header">
                 <th colspan="6">
@@ -92,37 +92,7 @@
         </thead>
         <tbody>
 
-            <tr>
-                <td colspan="2">Força: {{generatedChar.stats.str}} ({{generatedChar.stats.str > 19 ? '+5' : generatedChar.stats.str > 17 ? '+4' : generatedChar.stats.str > 15 ? '+3' : generatedChar.stats.str > 13 ? '+2' : generatedChar.stats.str > 11 ? '+1' : generatedChar.stats.str
-                    > 9 ? '0' : generatedChar.stats.str > 7 ? '-1' : generatedChar.stats.str > 5 ? '-2' : generatedChar.stats.str > 3 ? '-3' : generatedChar.stats.str > 1 ? '-4' : '-5' }})</td>
-                <td colspan="2">Destreza: {{generatedChar.stats.dex}} ({{generatedChar.stats.dex > 19 ? '+5' : generatedChar.stats.dex > 17 ? '+4' : generatedChar.stats.dex > 15 ? '+3' : generatedChar.stats.dex > 13 ? '+2' : generatedChar.stats.dex > 11 ? '+1' : generatedChar.stats.dex
-                    > 9 ? '0' : generatedChar.stats.dex > 7 ? '-1' : generatedChar.stats.dex > 5 ? '-2' : generatedChar.stats.dex > 3 ? '-3' : generatedChar.stats.dex > 1 ? '-4' : '-5' }})</td>
-                <td colspan="2">Constituição: {{generatedChar.stats.con}} ({{generatedChar.stats.con > 19 ? '+5' : generatedChar.stats.con > 17 ? '+4' : generatedChar.stats.con > 15 ? '+3' : generatedChar.stats.con > 13 ? '+2' : generatedChar.stats.con > 11 ? '+1' :
-                    generatedChar.stats.con > 9 ? '0' : generatedChar.stats.con > 7 ? '-1' : generatedChar.stats.con > 5 ? '-2' : generatedChar.stats.con > 3 ? '-3' : generatedChar.stats.con > 1 ? '-4' : '-5' }})</td>
-            </tr>
-            <tr>
-                <td colspan="2">Sabedoria: {{generatedChar.stats.wis}} ({{generatedChar.stats.wis > 19 ? '+5' : generatedChar.stats.wis > 17 ? '+4' : generatedChar.stats.wis > 15 ? '+3' : generatedChar.stats.wis > 13 ? '+2' : generatedChar.stats.wis > 11 ? '+1' : generatedChar.stats.wis
-                    > 9 ? '0' : generatedChar.stats.wis > 7 ? '-1' : generatedChar.stats.wis > 5 ? '-2' : generatedChar.stats.wis > 3 ? '-3' : generatedChar.stats.wis > 1 ? '-4' : '-5' }})</td>
-                <td colspan="2">Inteligência: {{generatedChar.stats.int}} ({{generatedChar.stats.int > 19 ? '+5' : generatedChar.stats.int > 17 ? '+4' : generatedChar.stats.int > 15 ? '+3' : generatedChar.stats.int > 13 ? '+2' : generatedChar.stats.int > 11 ? '+1' :
-                    generatedChar.stats.int > 9 ? '0' : generatedChar.stats.int > 7 ? '-1' : generatedChar.stats.int > 5 ? '-2' : generatedChar.stats.int > 3 ? '-3' : generatedChar.stats.int > 1 ? '-4' : '-5' }})</td>
-                <td colspan="2">Carisma: {{generatedChar.stats.cha}} ({{generatedChar.stats.cha > 19 ? '+5' : generatedChar.stats.cha > 17 ? '+4' : generatedChar.stats.cha > 15 ? '+3' : generatedChar.stats.cha > 13 ? '+2' : generatedChar.stats.cha > 11 ? '+1' : generatedChar.stats.cha
-                    > 9 ? '0' : generatedChar.stats.cha > 7 ? '-1' : generatedChar.stats.cha > 5 ? '-2' : generatedChar.stats.cha > 3 ? '-3' : generatedChar.stats.cha > 1 ? '-4' : '-5' }})</td>
-            </tr>
-            <tr>
-                <td colspan="3">
-                    Alinhamento: {{generatedChar.aligment[0]}} {{generatedChar.aligment[1]}}
-                </td>
-                <td colspan="3">PV: {{generatedChar.pv}}</td>
 
-
-            </tr>
-
-            <tr>
-                <td colspan="6">
-                    <h5>Características</h5>
-                    <p *ngFor="let list of generatedChar.traits">{{list}}</p>
-                </td>
-            </tr>
         </tbody>
     </table>
 
