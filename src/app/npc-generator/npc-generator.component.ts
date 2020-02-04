@@ -130,7 +130,7 @@ export class NpcGeneratorComponent implements OnInit {
       }
     }
     // rollStats.sort(this.sortNumAscend) 
-    console.log(rollStats)
+    console.log(this.generatedChar.statsInit)
     
    }
   }
