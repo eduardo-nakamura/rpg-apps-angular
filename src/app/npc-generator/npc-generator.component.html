@@ -8,23 +8,23 @@
     <div class="row">
         <div class="col-12 col-sm-6">
             <div class="form-group">
-                <label for="power" class="text-light">1) Escolha uma Raça</label>
-                <select class="custom-select flex-fill" [(ngModel)]="selectedRace" id="race" name="race">            
+                <label for="power" class="text-light">1) Escolha uma Raça {{formChar.selectedRace}}</label>
+                <select class="custom-select flex-fill" [(ngModel)]="formChar.selectedRace" id="race" name="race">            
                     <option *ngFor="let option of races" [value]="option" >
                         {{option}}
                     </option>
-                    <option selected value="">Aleatório</option>
+                    
                   </select>
             </div>
         </div>
         <div class="col-12 col-sm-6">
             <div class="form-group">
                 <label for="power" class="text-light">2) Escolha uma Classe</label>
-                <select class="custom-select flex-fill" [(ngModel)]="selectedClass" id="class" name="class">            
+                <select class="custom-select flex-fill" [(ngModel)]="formChar.selectedClass" id="class" name="class">            
                     <option *ngFor="let option of classes" [value]="option" >
                         {{option}}
                     </option>
-                    <option selected value="">Aleatório</option>
+                    
                   </select>
             </div>
         </div>
@@ -32,19 +32,19 @@
             <label for="power" class="text-light">3) Escolha o Gênero</label>
             <div class="d-flex justify-content-between">
                 <div class="radio">
-                    <input value="Masculino" [(ngModel)]="gender" type="radio">
+                    <input value="Masculino" [(ngModel)]="formChar.gender" type="radio">
                     <label [attr.for]="id" class="radio-label text-light">
                        Masculino
                     </label>
                 </div>
                 <div class="radio">
-                    <input value="Feminino" [(ngModel)]="gender" type="radio">
+                    <input value="Feminino" [(ngModel)]="formChar.gender" type="radio">
                     <label [attr.for]="id" class="radio-label text-light">
                         Feminino
                     </label>
                 </div>
                 <div class="radio">
-                    <input value="Outro" [(ngModel)]="gender" type="radio">
+                    <input value="Outro" [(ngModel)]="formChar.gender" type="radio">
                     <label [attr.for]="id" class="radio-label text-light">
                         Outro
                     </label>
@@ -54,7 +54,7 @@
         </div>
         <div class="col-12 col-sm-6">
             <label for="power" class="text-light">4) Escolha o Nível *</label>
-            <input min="1" type="number" class="form-control" value="1" required [(ngModel)]="levelNPC">
+            <input min="1" type="number" class="form-control" required [(ngModel)]="formChar.levelNPC">
         </div>
     </div>
 
@@ -91,7 +91,76 @@
             </tr>
         </thead>
         <tbody>
-
+            <tr>
+                <td colspan="1">
+                    <span class="d-none d-sm-block">
+                        Força
+                    </span>
+                    <span class="d-block d-sm-none">
+                        For
+                    </span>
+                </td>
+                <td colspan="1">
+                    <span class="d-none d-sm-block">
+                     Destreza
+                    </span>
+                    <span class="d-block d-sm-none">
+                        Des
+                    </span>
+                </td>
+                <td colspan="1">
+                    <span class="d-none d-sm-block">
+                        Constituição
+                    </span>
+                    <span class="d-block d-sm-none">
+                        Con
+                    </span>
+                </td>
+                <td colspan="1">
+                    <span class="d-none d-sm-block">
+                        Inteligência
+                    </span>
+                    <span class="d-block d-sm-none">
+                        Int
+                    </span>
+                </td>
+                <td colspan="1">
+                    <span class="d-none d-sm-block">
+                        Sabedoria
+                    </span>
+                    <span class="d-block d-sm-none">
+                        Sab
+                    </span>
+                </td>
+                <td colspan="1">
+                    <span class="d-none d-sm-block">
+                        Carisma
+                    </span>
+                    <span class="d-block d-sm-none">
+                        Car
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h5>{{generatedChar.statsCurrent.str}}</h5>
+                </td>
+                <td>
+                    <h5>{{generatedChar.statsCurrent.dex}}</h5>
+                </td>
+                <td>
+                    <h5>{{generatedChar.statsCurrent.con}}</h5>
+                </td>
+                <td>
+                    <h5>{{generatedChar.statsCurrent.int}}</h5>
+                </td>
+                <td>
+                    <h5>{{generatedChar.statsCurrent.wis}}</h5>
+                </td>
+                <td>
+                    <h5>{{generatedChar.statsCurrent.cha}}</h5>
+                </td>
+            </tr>
 
         </tbody>
     </table>
