@@ -132,8 +132,36 @@ export class NpcGeneratorComponent implements OnInit {
     }
    }  
   }
+  // sortObject(obj) {
+  //     return Object.keys(obj).sort().reduce(function (result, key) {
+  //         result[key] = obj[key];
+  //         return result;
+  //     }, {});
+  // }
   levelUp(){
- 
+    let adjustLvl = this.generatedChar.level
+    let currentStats = this.generatedChar.statsCurrent
+    for(let j = 0; j < adjustLvl; j++){        
+      if (j < 4){
+        
+      }
+      if (j > 3 && j < 8){
+        // rollStatsLvlUp[this.rollDice(6)] += 3;
+        
+      }
+      if (j > 7 && j < 12){
+        // rollStatsLvlUp[this.rollDice(6)] += 4;
+        
+      }
+      if (j > 11 && j < 16){
+        // rollStatsLvlUp[this.rollDice(6)] += 5;
+        
+      }
+      if (j > 15 && j < 21 ){
+        // rollStatsLvlUp[this.rollDice(6)] += 6;
+        
+      }        
+    }  
   }
   sortNumAscend(a, b) {
     return a > b ? 1 : b > a ? -1 : 0;
