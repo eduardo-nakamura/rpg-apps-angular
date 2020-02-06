@@ -19,9 +19,11 @@ export class NpcGeneratorComponent implements OnInit {
   // selectedRace = "";
   // selectedClass = "";
   // gender;
+  
   generatedChar = new generateChar();
   formChar = new formChar();
-
+  lvlUpPoints = 0;
+  tableFields = Object.keys(this.generatedChar.statsInit)
 
   constructor() { }
   generateNPC() {
@@ -104,61 +106,63 @@ export class NpcGeneratorComponent implements OnInit {
       rollDiceStats = rollDiceStats.map(() => (this.rollDice(7,1)));      
       rollDiceStats.sort();
       rollDiceStats.shift();
+      
       rollStats[i] = rollDiceStats.reduce(function (previous, current) {
         return previous + current;
       }, 0);      
-      switch(classFilter){
-        case"Bárbaro":this.generatedChar.statsInit={cha:rollStats[0],int:rollStats[1],wis:rollStats[2],dex:rollStats[3],con:rollStats[4],str:rollStats[5]};break;
-        case"Bardo":this.generatedChar.statsInit={str:rollStats[0],con:rollStats[1],wis:rollStats[2],int:rollStats[3],cha:rollStats[4],dex:rollStats[5]};break;
-        case"Bruxo":this.generatedChar.statsInit={str:rollStats[0],dex:rollStats[1],con:rollStats[2],int:rollStats[3],wis:rollStats[4],cha:rollStats[5]};break;
-        case"Druid":this.generatedChar.statsInit={str:rollStats[0],cha:rollStats[1],con:rollStats[2],dex:rollStats[3],int:rollStats[4],wis:rollStats[5]};break;
-        case"Feiticeiro":this.generatedChar.statsInit={dex:rollStats[0],str:rollStats[1],int:rollStats[2],wis:rollStats[3],con:rollStats[4],cha:rollStats[5]};break;
-        case"Guerreiro":this.generatedChar.statsInit={cha:rollStats[0],wis:rollStats[1],int:rollStats[2],dex:rollStats[3],con:rollStats[4],str:rollStats[5]};break;
-        case"Ladino":this.generatedChar.statsInit={cha:rollStats[0],str:rollStats[1],con:rollStats[2],wis:rollStats[3],int:rollStats[4],dex:rollStats[5]};break;
-        case"Mago":this.generatedChar.statsInit={str:rollStats[0],dex:rollStats[1],cha:rollStats[2],con:rollStats[3],wis:rollStats[4],int:rollStats[5]};break;
-        case"Monge":this.generatedChar.statsInit={int:rollStats[0],wis:rollStats[1],cha:rollStats[2],con:rollStats[3],str:rollStats[4],dex:rollStats[5]};break;
-        case"Paladino":this.generatedChar.statsInit={int:rollStats[0],dex:rollStats[1],con:rollStats[2],cha:rollStats[3],wis:rollStats[4],str:rollStats[5]};break;
-        case"Patrulheiro":this.generatedChar.statsInit={int:rollStats[0],wis:rollStats[1],con:rollStats[2],cha:rollStats[3],str:rollStats[4],dex:rollStats[5]};break;
-      }      
+       
     }    
+    rollStats.sort(this.sortNumAscend);
+    switch(classFilter){
+      case"Bárbaro":this.generatedChar.statsInit={cha:rollStats[0],int:rollStats[1],wis:rollStats[2],dex:rollStats[3],con:rollStats[4],str:rollStats[5]};break;case"Bardo":this.generatedChar.statsInit={str:rollStats[0],con:rollStats[1],wis:rollStats[2],int:rollStats[3],cha:rollStats[4],dex:rollStats[5]};break;case"Bruxo":this.generatedChar.statsInit={str:rollStats[0],dex:rollStats[1],con:rollStats[2],int:rollStats[3],wis:rollStats[4],cha:rollStats[5]};break;case"Druid":this.generatedChar.statsInit={str:rollStats[0],cha:rollStats[1],con:rollStats[2],dex:rollStats[3],int:rollStats[4],wis:rollStats[5]};break;case"Feiticeiro":this.generatedChar.statsInit={dex:rollStats[0],str:rollStats[1],int:rollStats[2],wis:rollStats[3],con:rollStats[4],cha:rollStats[5]};break;case"Guerreiro":this.generatedChar.statsInit={cha:rollStats[0],wis:rollStats[1],int:rollStats[2],dex:rollStats[3],con:rollStats[4],str:rollStats[5]};break;case"Ladino":this.generatedChar.statsInit={cha:rollStats[0],str:rollStats[1],con:rollStats[2],wis:rollStats[3],int:rollStats[4],dex:rollStats[5]};break;case"Mago":this.generatedChar.statsInit={str:rollStats[0],dex:rollStats[1],cha:rollStats[2],con:rollStats[3],wis:rollStats[4],int:rollStats[5]};break;case"Monge":this.generatedChar.statsInit={int:rollStats[0],wis:rollStats[1],cha:rollStats[2],con:rollStats[3],str:rollStats[4],dex:rollStats[5]};break;case"Paladino":this.generatedChar.statsInit={int:rollStats[0],dex:rollStats[1],con:rollStats[2],cha:rollStats[3],wis:rollStats[4],str:rollStats[5]};break;case"Patrulheiro":this.generatedChar.statsInit={int:rollStats[0],wis:rollStats[1],con:rollStats[2],cha:rollStats[3],str:rollStats[4],dex:rollStats[5]}}    
     for (let property in raceStats[0].stats){
       if(raceStats[0].stats[property]){        
         this.generatedChar.statsInit[property] += raceStats[0].stats[property]
       }      
-    }
-    this.generatedChar.statsCurrent = this.generatedChar.statsInit    
+    }      
+    this.generatedChar.statsCurrent.str += this.generatedChar.statsInit.str
+    this.generatedChar.statsCurrent.dex += this.generatedChar.statsInit.dex
+    this.generatedChar.statsCurrent.con += this.generatedChar.statsInit.con
+    this.generatedChar.statsCurrent.int += this.generatedChar.statsInit.int
+    this.generatedChar.statsCurrent.wis += this.generatedChar.statsInit.wis
+    this.generatedChar.statsCurrent.cha += this.generatedChar.statsInit.cha
+    
     if(this.generatedChar.level > 1){
       this.levelUp()
     }
    }  
   }
-  // sortObject(obj) {
-  //     return Object.keys(obj).sort().reduce(function (result, key) {
-  //         result[key] = obj[key];
-  //         return result;
-  //     }, {});
-  // }
+  lvlDown(stat){    
+    this.generatedChar.statsCurrent[stat] -= 1
+    this.lvlUpPoints +=1
+  }
+  lvlUp(stat){
+    if(this.lvlUpPoints > 0 && this.generatedChar.statsCurrent[stat] < 20){
+      this.generatedChar.statsCurrent[stat] += 1
+      this.lvlUpPoints -=1
+    }      
+  }
   levelUp(){
     let adjustLvl = this.generatedChar.level
     let currentStats = this.generatedChar.statsCurrent
-    for(let j = 0; j < adjustLvl; j++){        
+    for(let j = 1; j < adjustLvl; j++){        
       if (j < 4){
-        
+        this.lvlUpPoints += 2
       }
       if (j > 3 && j < 8){
-        // rollStatsLvlUp[this.rollDice(6)] += 3;
+        this.lvlUpPoints += 3;
         
       }
       if (j > 7 && j < 12){
-        // rollStatsLvlUp[this.rollDice(6)] += 4;
+        this.lvlUpPoints += 4;
         
       }
       if (j > 11 && j < 16){
-        // rollStatsLvlUp[this.rollDice(6)] += 5;
+        this.lvlUpPoints += 5;
         
       }
       if (j > 15 && j < 21 ){
-        // rollStatsLvlUp[this.rollDice(6)] += 6;
+        this.lvlUpPoints += 6;
         
       }        
     }  
@@ -169,12 +173,13 @@ export class NpcGeneratorComponent implements OnInit {
   resetNPC() {
    this.generatedChar = new generateChar()
    this.formChar = new formChar();
+   this.lvlUpPoints = 0
   }
   alignmentNPC(){
    
   }
   ngOnInit() {
-    console.log(this.formChar)
+    
   }
   rollDice(max, min) {
     return Math.floor(Math.random() * (max - min)) + min;
