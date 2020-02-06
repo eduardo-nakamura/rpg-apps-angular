@@ -19,7 +19,8 @@ export class NpcGeneratorComponent implements OnInit {
   // selectedRace = "";
   // selectedClass = "";
   // gender;
-  
+  id
+  generatedCharClipboard
   generatedChar = new generateChar();
   formChar = new formChar();
   lvlUpPoints = 0;
