@@ -133,15 +133,18 @@ export class NpcGeneratorComponent implements OnInit {
     }
    }  
   }
-  lvlDown(stat){    
-    this.generatedChar.statsCurrent[stat] -= 1
-    this.lvlUpPoints +=1
-  }
-  lvlUp(stat){
-    if(this.lvlUpPoints > 0 && this.generatedChar.statsCurrent[stat] < 20){
-      this.generatedChar.statsCurrent[stat] += 1
-      this.lvlUpPoints -=1
-    }      
+  // lvlDown(stat){    
+  //   this.generatedChar.statsCurrent[stat] -= 1
+  //   this.lvlUpPoints +=1
+  // }
+  // lvlUp(stat){
+  //   if(this.lvlUpPoints > 0 && this.generatedChar.statsCurrent[stat] < 20){
+  //     this.generatedChar.statsCurrent[stat] += 1
+  //     this.lvlUpPoints -=1
+  //   }      
+  // }
+  myFunction(){
+    alert(5)
   }
   levelUp(){
     let adjustLvl = this.generatedChar.level

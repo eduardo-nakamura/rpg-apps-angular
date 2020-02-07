@@ -80,7 +80,7 @@
 
     </div>
     <!-- *ngIf="generatedChar.name" -->
-    <table class="table  table-style text-light">
+    <table class="table text-light table-style">
         <thead>
             <tr class="bg-header">
                 <th colspan="6">
@@ -92,18 +92,14 @@
         </thead>
         <tbody>
             <tr>
-                <td colspan="1" *ngFor="let stat of tableFields">
+                <td *ngFor="let stat of tableFields">
                     {{stat == "str" ? 'For' : stat == "con" ? 'Con' : stat == "wis" ? 'Sab' : stat == "int" ? 'Int' : stat == "cha" ? 'Car' : 'Des'}}
                 </td>
             </tr>
             <tr>
-                <td colspan="1" *ngFor="let stat of tableFields">
-                    <div class="d-flex">
-                        <span class="bg-danger mr-2" (click)="lvlDown([stat])" *ngIf="generatedChar.statsInit[stat] != generatedChar.statsCurrent[stat]">-</span>
-                        <h5>
-                            {{generatedChar.statsCurrent[stat]}}
-                        </h5>
-                        <span class="bg-danger ml-2" (click)="lvlUp([stat])" *ngIf="generatedChar.statsCurrent[stat] != 20">+</span>
+                <td *ngFor="let stat of tableFields">
+                    <div class="d-md-flex ">
+                        <input type="number" class="w-100 text-center" onkeydown="return false;myFunction()" [(ngModel)]="generatedChar.statsCurrent[stat]">
                         <p>({{generatedChar.statsCurrent[stat] > 19? '+5' : generatedChar.statsCurrent[stat] > 17? '+4' : generatedChar.statsCurrent[stat] > 15? '+3' : generatedChar.statsCurrent[stat] > 13? '+2' : generatedChar.statsCurrent[stat] > 11? '+1'
                             : generatedChar.statsCurrent[stat] > 9? '0' : generatedChar.statsCurrent[stat] > 7? '-1' : generatedChar.statsCurrent[stat] > 5? '-2' : generatedChar.statsCurrent[stat] > 3? '-3' : generatedChar.statsCurrent[stat] > 1? '-4'
                             : '-5' }}) </p>
@@ -116,7 +112,6 @@
                     <h5>Pontos de Atributo para usar: {{lvlUpPoints}}</h5>
                 </td>
             </tr>
-
         </tbody>
     </table>
 
