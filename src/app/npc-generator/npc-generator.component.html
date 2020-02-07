@@ -93,13 +93,18 @@
         <tbody>
             <tr>
                 <td *ngFor="let stat of tableFields">
-                    {{stat == "str" ? 'For' : stat == "con" ? 'Con' : stat == "wis" ? 'Sab' : stat == "int" ? 'Int' : stat == "cha" ? 'Car' : 'Des'}}
+                    <p>{{stat=="str" ? 'For' : stat=="con" ? 'Con' : stat=="wis" ? 'Sab' : stat=="int" ? 'Int' : stat=="cha" ? 'Car' : 'Des'}}</p>
+
                 </td>
             </tr>
             <tr>
                 <td *ngFor="let stat of tableFields">
-                    <div class="d-md-flex ">
-                        <input type="number" class="w-100 text-center" onkeydown="return false;myFunction()" [(ngModel)]="generatedChar.statsCurrent[stat]">
+                    <div class="d-md-flex text-center justify-content-around">
+                        <div class="d-flex align-middle">
+                            <span class="bg-span-npc" (click)=lvlDown(stat) *ngIf="this.generatedChar.statsCurrent[stat] != this.generatedChar.statsInit[stat]">-</span>
+                            <h5>{{generatedChar.statsCurrent[stat]}}</h5>
+                            <span class="bg-span-npc" (click)="lvlUp(stat)" *ngIf="lvlUpPoints != 0">+</span>
+                        </div>
                         <p>({{generatedChar.statsCurrent[stat] > 19? '+5' : generatedChar.statsCurrent[stat] > 17? '+4' : generatedChar.statsCurrent[stat] > 15? '+3' : generatedChar.statsCurrent[stat] > 13? '+2' : generatedChar.statsCurrent[stat] > 11? '+1'
                             : generatedChar.statsCurrent[stat] > 9? '0' : generatedChar.statsCurrent[stat] > 7? '-1' : generatedChar.statsCurrent[stat] > 5? '-2' : generatedChar.statsCurrent[stat] > 3? '-3' : generatedChar.statsCurrent[stat] > 1? '-4'
                             : '-5' }}) </p>
