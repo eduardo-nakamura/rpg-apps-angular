@@ -1,3 +1,22 @@
+export class generateChar {
+    name: string = ""; 
+    race: string = ""; 
+    class: string = ""; 
+    gender: string = ""; 
+    level: number = 1; 
+    traits: any = <any>[]; 
+    statsInit: any = <any>{str: 0, con: 0, wis: 0, int: 0, cha: 0, dex: 0};
+    statsCurrent: any = <any>{str: 0, con: 0, wis: 0, int: 0, cha: 0, dex: 0};
+    statsBonus: any = <any>{str: 0, con: 0, wis: 0, int: 0, cha: 0, dex: 0};
+    aligment:any = <any>[];
+    pv:number = 0
+}
+export class formChar {
+    selectedRace: string;
+    selectedClass: string;
+    gender:string;
+    levelNPC:number = 1
+}
 export const names = [
     {
         race: "Anão",
@@ -114,7 +133,7 @@ export const races = [
         language: "Comum, Elfo"
     },
      {
-        race: "Meio-orc",
+        race: "Meio-Orc",
         stats:{str: 2,dex:0,con:1,wis:0,int:0,cha:0},
         age:{min:14,max:75},
         height:{min:180,max:210},
