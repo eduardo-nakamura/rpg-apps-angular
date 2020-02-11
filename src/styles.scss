@@ -231,18 +231,28 @@ h5 {
     }
 }
 
-.list-group li:first-child {
-    background-color: rgba(184, 180, 180, 1);
-}
-
 .iconeDado {
     max-width: 30px;
     position: relative;
     bottom: 5px;
 }
 
+.statA td:nth-child(4),
+.statA td:nth-child(5),
+.statA td:nth-child(6) {
+    display: none;
+}
+
+.statB td:nth-child(1),
+.statB td:nth-child(2),
+.statB td:nth-child(3) {
+    display: none;
+}
+
 .bg-span-npc {
     background-color: red;
+    padding: 0 2px;
+    margin: 0 5px;
 }
 
 .dicecss {

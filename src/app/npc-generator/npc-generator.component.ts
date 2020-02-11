@@ -22,6 +22,7 @@ export class NpcGeneratorComponent implements OnInit {
   id
   generatedCharClipboard
   generatedChar = new generateChar();
+  generatedCharaTable = new generateChar();
   formChar = new formChar();
   lvlUpPoints = 0;
   tableFields = Object.keys(this.generatedChar.statsInit)
@@ -30,7 +31,9 @@ export class NpcGeneratorComponent implements OnInit {
   generateNPC() {
     this.randomizeNPC();
     this.generateName();
-    this.generateStats();  
+    this.generateStats();
+    this.generateTraits();
+    this.alignmentNPC();
   }
   randomizeNPC() {    
     if (this.formChar.selectedRace == undefined) {
@@ -143,35 +146,39 @@ export class NpcGeneratorComponent implements OnInit {
   }
   lvlUp(stat){
     if(this.lvlUpPoints > 0 && this.generatedChar.statsCurrent[stat] < 20){
-      this.generatedChar.statsCurrent[stat] += 1
-      this.lvlUpPoints -=1
+      this.generatedChar.statsCurrent[stat] += 1;
+      this.lvlUpPoints -=1;
     }      
   }
 
-  levelUp(){
-    let adjustLvl = this.generatedChar.level
-    let currentStats = this.generatedChar.statsCurrent
-    for(let j = 1; j < adjustLvl; j++){        
-      if (j < 4){
-        this.lvlUpPoints += 2
-      }
-      if (j > 3 && j < 8){
-        this.lvlUpPoints += 3;
-        
-      }
-      if (j > 7 && j < 12){
-        this.lvlUpPoints += 4;
-        
-      }
-      if (j > 11 && j < 16){
-        this.lvlUpPoints += 5;
-        
-      }
-      if (j > 15 && j < 21 ){
-        this.lvlUpPoints += 6;
-        
-      }        
-    }  
+  levelUp(){    
+    this.lvlUpPoints = 0;
+    if (this.generatedChar.name != ""){
+      this.generatedChar.level = this.formChar.levelNPC
+      let adjustLvl = this.formChar.levelNPC
+      let currentStats = this.generatedChar.statsCurrent
+      for(let j = 0; j < adjustLvl; j++){        
+        if (j < 4){                  
+          this.lvlUpPoints += 2
+        }
+        if (j > 3 && j < 8){        
+          this.lvlUpPoints += 3;
+          
+        }
+        if (j > 7 && j < 12){        
+          this.lvlUpPoints += 4;
+          
+        }
+        if (j > 11 && j < 16){        
+          this.lvlUpPoints += 5;
+          
+        }
+        if (j > 15 && j < 21 ){        
+          this.lvlUpPoints += 6;        
+        }        
+      }  
+    }
+   
   }
   sortNumAscend(a, b) {
     return a > b ? 1 : b > a ? -1 : 0;
@@ -182,7 +189,58 @@ export class NpcGeneratorComponent implements OnInit {
    this.lvlUpPoints = 0
   }
   alignmentNPC(){
-   
+    
+    if(this.generatedChar.aligment.length == 0){
+      let alignments = new Array(2).fill(this.rollDice(3,0))
+      if (alignments[0] == 0){
+        alignments[0] = "Leal"
+      } else if (alignments[0] == 1){
+        alignments[0] = "Neutro"
+      } else {
+        alignments[0] = "Caótico"
+      }
+      if (alignments[1] == 0){
+        alignments[1] = "bom"
+      } else if (alignments[1] == 1){
+        alignments[1] = "neutro"
+      } else {
+        alignments[1] = "mau"
+      }
+      if (alignments[0] == "Neutro" && alignments[1] == "neutro" ){
+        alignments.pop()
+      }    
+      this.generatedChar.aligment = alignments
+    }
+
+
+  }
+  generateTraits() {
+    if (this.generatedChar.traits.length == 0) {
+      let traitNameDesc = ["Aparência: ", "Dons: ", "Maneirismos: ", "Vinculos: ", "Defeitos/Segredos: "]
+      for (let i = 0; i < Object.keys(nameList.traits).length; i++) {
+        let traitName = Object.keys(nameList.traits)[i];
+        let dice = this.rollDice(nameList.traits[traitName].length,0);
+        if (nameList.traits[traitName][dice] == "Role duas vezes, ignorando resultados iguais a 10") {
+          let dice1 = this.rollDice(nameList.traits[traitName].length,0);
+          let dice2 = this.rollDice(nameList.traits[traitName].length,0);
+          do {
+            dice2 = this.rollDice(nameList.traits[traitName].length,0);
+          } while (dice1 === dice2)
+          if (dice1 == 9) {
+            dice1 -= 1;
+          }
+          if (dice2 == 9) {
+            dice2 -= 1;
+          }
+          traitNameDesc[i] += nameList.traits[traitName][dice1] + ", " + nameList.traits[traitName][dice2];
+        } else {
+          traitNameDesc[i] += nameList.traits[traitName][dice]          
+        }
+        this.generatedChar.traits = traitNameDesc
+        
+      }
+    }
+    
   }
   ngOnInit() {
     
@@ -199,4 +257,5 @@ export class NpcGeneratorComponent implements OnInit {
     document.execCommand('copy');
     document.body.removeChild(selBox);
   }
+  
 }
