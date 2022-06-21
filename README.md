@@ -1,5 +1,25 @@
 # RpgAppsAngular
 
+Some RPG tools to use with Dungeons and Dragons 4th edition
+
+- Dice Roller
+Simple Dice Roller App
+
+- Initiative Tracker
+Track Initiative for battle
+
+- Game Hooks
+Draw random game hooks to use in the adventures
+Source:
+[https://www.reddit.com/r/DnD/comments/9adid0/50_adventure_hooks_to_steal_for_your_game/](https://www.reddit.com/r/DnD/comments/9adid0/50_adventure_hooks_to_steal_for_your_game/)
+[https://www.reddit.com/r/rpg/comments/7nmpm3/100_side_quest_hooks/](https://www.reddit.com/r/rpg/comments/7nmpm3/100_side_quest_hooks/)
+
+- Loot Generator
+Generate Loot for encounters
+
+NPC Generator
+Generate NPC for Encounters
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
 
 ## Development server
